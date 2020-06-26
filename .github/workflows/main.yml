@@ -20,4 +20,4 @@ jobs:
     #- run: dotnet build <my project>
   
     - name: Dotnet Publish
-      run: dotnet publish WebApplication -c Release -o deploy
+      run: dotnet publish WebApplication/Kodesonen.sln -c Release -o deploy
