@@ -1,3 +1,4 @@
+# CI/CD Pipeline - Deploy to development server
 name: deploy_to_dev
 
 on:
@@ -10,7 +11,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
       
-    # Build project
     - name: Setup .NET Core SDK
       uses: actions/setup-dotnet@v1.5.0
       with:
