@@ -33,7 +33,7 @@ jobs:
     - name: Restart web-dev service
       uses: garygrossgarten/github-action-ssh@v0.5.0
       with:
-        command: sudo service kodesonen-web restart
+        command: sudo -S service kodesonen-web restart
         host: ${{ secrets.REMOTE_HOST }}
         username: ${{ secrets.REMOTE_USER }}
         password: ${{ secrets.REMOTE_PASSWORD }}
