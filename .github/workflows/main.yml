@@ -36,4 +36,4 @@ jobs:
         command: sudo service kodesonen-web restart
         host: ${{ secrets.REMOTE_HOST }}
         username: ${{ secrets.REMOTE_USER }}
-        password: ${{ secrets.REMOTE_SSH_KEY }}
+        password: ${{ secrets.REMOTE_PASSWORD }}
