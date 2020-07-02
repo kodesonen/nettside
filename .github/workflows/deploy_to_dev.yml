@@ -1,10 +1,11 @@
-name: CI
+# CI/CD Pipeline - Deploy to development server
+name: deploy_to_dev
 
 on:
   push:
-    branches: [master]
+    branches: [master, dev-server]
   pull_request:
-    branches: [master]
+    branches: [dev-server]
 
 jobs:
   build:
@@ -12,14 +13,13 @@ jobs:
     steps:
     - uses: actions/checkout@v2
       
-    # Build project
     - name: Setup .NET Core SDK
       uses: actions/setup-dotnet@v1.5.0
       with:
         dotnet-version: '3.1.x'
   
     - name: Dotnet publish
-      run: dotnet publish WebApplication/Kodesonen.sln -c Release -o build
+      run: dotnet publish Kodesonen.sln -c Release -o build
       
     - name: Deploy to dev-server
       uses: garygrossgarten/github-action-scp@v0.6.0
