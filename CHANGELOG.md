@@ -6,5 +6,5 @@ Alle oppdateringer relatert til nettsiden vil bli dokumentert i denne filen.
 
 ---
 
-## Unreleased
+## Unreleased:
 - Noen endring her
