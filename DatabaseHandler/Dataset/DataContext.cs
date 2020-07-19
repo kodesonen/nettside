@@ -6,10 +6,15 @@ namespace DatabaseHandler.Dataset
 {
     public class DataContext : DbContext
     {
-        public DbSet<Pet> Pets { get; set; }
+        public DataContext(DbContextOptions<DataContext> options) : base(options) { }
+
+        // Tables
         public DbSet<User> Users { get; set; }
 
-        public DataContext(DbContextOptions<DataContext> options)
-            : base(options) { }
+        // Data seeding
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Seed();
+        }
     }
 }

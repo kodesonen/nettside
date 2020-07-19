@@ -1,4 +1,7 @@
 ﻿using System;
+using System.IO;
+using DatabaseHandler.Dataset;
+using DatabaseHandler.Models;
 
 namespace DatabaseHandler
 {
@@ -6,7 +9,7 @@ namespace DatabaseHandler
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.Write("DatabaseHandler launched!");
         }
     }
 }

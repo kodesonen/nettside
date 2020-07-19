@@ -11,6 +11,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 using DatabaseHandler.Dataset;
+using System.IO;
 
 namespace WebApp
 {
@@ -19,22 +20,22 @@ namespace WebApp
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+            DbConfig = new ConfigurationBuilder().AddJsonFile("connection.json").SetBasePath(Directory.GetCurrentDirectory()).Build();
         }
 
         public IConfiguration Configuration { get; }
+        public IConfiguration DbConfig { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContextPool<DataContext>(
-                options => options.UseMySql(Configuration.GetConnectionString("DefaultConnection")
+                options => options.UseMySql(DbConfig.GetConnectionString("DefaultConnection")
             ));
 
             services.AddRouting(options => options.LowercaseUrls = true);
             services.AddControllersWithViews();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
