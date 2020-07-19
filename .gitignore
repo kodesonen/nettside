@@ -405,3 +405,9 @@ ASALocalRun/
 
 # Local History for Visual Studio
 .localhistory/
+
+# Connection String
+WebApp/connection.json
+
+# Entity Framework migrations
+DatabaseHandler/Migrations/
