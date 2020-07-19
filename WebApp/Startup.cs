@@ -20,16 +20,16 @@ namespace WebApp
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
-            DbConfig = new ConfigurationBuilder().AddJsonFile("connection.json").SetBasePath(Directory.GetCurrentDirectory()).Build();
+            //DbConfig = new ConfigurationBuilder().AddJsonFile("connection.json").SetBasePath(Directory.GetCurrentDirectory()).Build();
         }
 
         public IConfiguration Configuration { get; }
-        public IConfiguration DbConfig { get; }
+        //public IConfiguration DbConfig { get; }
 
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContextPool<DataContext>(
-                options => options.UseMySql(DbConfig.GetConnectionString("DefaultConnection")
+                options => options.UseMySql(Configuration.GetConnectionString("DefaultConnection")
             ));
 
             services.AddRouting(options => options.LowercaseUrls = true);
