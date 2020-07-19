@@ -408,3 +408,6 @@ ASALocalRun/
 
 # Connection String
 WebApp/connection.json
+
+# Entity Framework migrations
+DatabaseHandler/Migrations/
