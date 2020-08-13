@@ -26,11 +26,12 @@
                 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
                 <ul class="nav overlay-content">
                     <li><a asp-area="" asp-controller="Home" asp-action="Index">Hjemsiden</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="About">Kurskatalog</a></li>
-                    <li><a href="#">Utfordringer</a></li>
-                    <li><a href="#">Medlemsliste</a></li>
-                    <li><a href="#">Om oss</a></li>
-                    <a href="#"><li><i class="fas fa-users"></i> Bli medlem</li></a>
+                    <li><a asp-area="" asp-controller="Courses" asp-action="Index">Kurskatalog</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Challenges">Utfordringer</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Memberlist">Medlemsliste</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="About">Om oss</a></li>
+                    <a asp-area="" asp-controller="User" asp-action="Login"><li><i class="fas fa-users"></i> Logg inn</li></a>
+                    <a asp-area="" asp-controller="User" asp-action="Register"><li><i class="fas fa-users"></i> Bli medlem</li></a>
                 </ul>
             </div>
             <span class="mobile_nav" onclick="openNav()">&#9776;</span>
