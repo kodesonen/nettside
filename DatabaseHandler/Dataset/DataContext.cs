@@ -9,7 +9,7 @@ namespace DatabaseHandler.Dataset
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseMySql("server=dev.kodesonen.no;port=3306;database=kodesonen;user=root;password=Kodesonen!0");
+            optionsBuilder.UseMySql("server=dev.kodesonen.no;port=3306;database=kodesonen;user=root;password=passord");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
