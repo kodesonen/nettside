@@ -20,5 +20,15 @@
   <ItemGroup>
     <Folder Include="Models\" />
     <Folder Include="Dataset\" />
+    <Folder Include="Handlers\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Dataset\config.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Dataset\config.json" Condition="'$(ExcludeConfigFilesFromBuildOutput)'=='true'">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
   </ItemGroup>
 </Project>
