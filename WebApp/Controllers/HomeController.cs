@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using DatabaseHandler.Dataset;
+using DatabaseHandler.Handlers;
+using DatabaseHandler.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using WebApp.Models;
@@ -12,7 +15,6 @@ namespace WebApp.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
@@ -32,6 +34,12 @@ namespace WebApp.Controllers
         public IActionResult About()
         {
             return View();
+        }
+
+        public IActionResult Challenges()
+        {
+            List<Challenge> ChallengesList = HandleChallenges.GetAllChallenges();
+            return View(ChallengesList);
         }
     }
 }

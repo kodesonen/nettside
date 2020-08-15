@@ -7,6 +7,7 @@
   <ItemGroup>
     <Folder Include="Views\User\" />
     <Folder Include="Views\Courses\" />
+    <Folder Include="Models\Home\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DatabaseHandler\DatabaseHandler.csproj">

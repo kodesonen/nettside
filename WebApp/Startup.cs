@@ -28,9 +28,10 @@ namespace WebApp
 
         public void ConfigureServices(IServiceCollection services)
         {
+            /*
             services.AddDbContextPool<DataContext>(
                 options => options.UseMySql(Configuration.GetConnectionString("DefaultConnection")
-            ));
+            ));*/
 
             services.AddRouting(options => options.LowercaseUrls = true);
             services.AddControllersWithViews();
