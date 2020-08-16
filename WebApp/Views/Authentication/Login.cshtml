@@ -1,10 +1,26 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <title></title>
-</head>
-<body>
+﻿@{
+	ViewData["Title"] = "Login";
+}
 
-</body>
-</html>
+<div class="wrapper">
+	<div class="medlem-form">
+		<h1>Admin login</h1><hr />
+		<div class="wrapper">
+			<?php if(isset($_POST['login'])){ $core->login(); } ?>
+		</div>
+
+		<form action='' method='POST'>
+			<label for="email"><b>E-post:</b></label>
+			<input type="text" placeholder="Oppgi e-post adresse" name="email" required>
+
+			<label for="password"><b>Passord:</b></label>
+			<input type="password" placeholder="Oppgi passord" name="password" required>
+
+			<hr /><button type="submit" name="login" class="medlem-button add_course_select">Logg inn</button>
+		</form>
+	</div>
+
+	<div class="sidebar-image">
+		<img src="/assets/img/raw_svg/arduino_and_plant.svg" />
+	</div>
+</div>
