@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace WebApp.Controllers
 {
-    public class CoursesController : Controller
+    public class KursController : Controller
     {
         public IActionResult Index()
         {
