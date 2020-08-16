@@ -6,10 +6,13 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace WebApp.Controllers {
 
-	public class AuthenticationController : Controller {
+	public class MedlemController : Controller {
 
-		[HttpGet]
-		public IActionResult Login() {
+		public IActionResult MedlemsListe() {
+			return View();
+		}
+
+		public IActionResult RegistrerMedlem() {
 			return View();
 		}
 	}
