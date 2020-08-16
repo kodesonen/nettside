@@ -9,12 +9,14 @@ namespace WebApp.Controllers {
 	[Route("admin/utfordringer/[action]")]
 	public class UtfordringerManageController : Controller {
 
-		//Singuklar
+		//Singular
+		[HttpGet]
 		public IActionResult EndreUtfordring() {
 			return View();
 		}
 
 		//plural
+		[HttpGet]
 		public IActionResult EndreUtfordringer() {
 			return View();
 		}
