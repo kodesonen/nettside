@@ -5,8 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Views\User\" />
-    <Folder Include="Views\Courses\" />
+    <Folder Include="Views\Kurs\" />
     <Folder Include="Models\Home\" />
   </ItemGroup>
   <ItemGroup>

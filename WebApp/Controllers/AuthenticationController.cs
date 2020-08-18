@@ -6,12 +6,10 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace WebApp.Controllers {
 
-	[Route("Error/[action]")]
-	public class ErrorController : Controller {
+	public class AuthenticationController : Controller {
 
-		[Route("~404")]
 		[HttpGet]
-		public IActionResult NotFound() {
+		public IActionResult Login() {
 			return View();
 		}
 	}

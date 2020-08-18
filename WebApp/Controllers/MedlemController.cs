@@ -6,12 +6,13 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace WebApp.Controllers {
 
-	[Route("Error/[action]")]
-	public class ErrorController : Controller {
+	public class MedlemController : Controller {
 
-		[Route("~404")]
-		[HttpGet]
-		public IActionResult NotFound() {
+		public IActionResult MedlemsListe() {
+			return View();
+		}
+
+		public IActionResult RegistrerMedlem() {
 			return View();
 		}
 	}
