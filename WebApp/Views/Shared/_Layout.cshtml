@@ -1,71 +1,71 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="~/css/custom.css">
-    <link rel="stylesheet" href="~/css/responsive.css">
-    <link rel='stylesheet' href="~/css/animate.css">
-    <link rel="icon" type="image/png" href="~/favicon.ico">
+	<link rel="stylesheet" href="~/css/custom.css">
+	<link rel="stylesheet" href="~/css/responsive.css">
+	<link rel='stylesheet' href="~/css/animate.css">
+	<link rel="icon" type="image/png" href="~/favicon.ico">
 
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
 
-    <title>@ViewData["Title"] - Kodesonen</title>
+	<title>@ViewData["Title"] - Kodesonen</title>
 </head>
 
 <body>
-    <div class="header">
-        <div class="wrapper">
-            <div class="logo-section">
-                <a asp-area="" asp-controller="Home" asp-action="Index"><img src="~/img/logo-horizontal.png" /></a>
-            </div>
+	<div class="header">
+		<div class="wrapper">
+			<div class="logo-section">
+				<a asp-controller="Home" asp-action="Index"><img src="~/img/logo-horizontal.png" /></a>
+			</div>
 
-            <div id="navigation" class="navigation overlay">
-                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                <ul class="nav overlay-content">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Hjemsiden</a></li>
-                    <li><a asp-area="" asp-controller="Courses" asp-action="Index">Kurskatalog</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Challenges">Utfordringer</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Memberlist">Medlemsliste</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="About">Om oss</a></li>
-                    <a asp-area="" asp-controller="User" asp-action="Login"><li><i class="fas fa-users"></i> Logg inn</li></a>
-                    <a asp-area="" asp-controller="User" asp-action="Register"><li><i class="fas fa-users"></i> Bli medlem</li></a>
-                </ul>
-            </div>
-            <span class="mobile_nav" onclick="openNav()">&#9776;</span>
-        </div>
-    </div>
+			<div id="navigation" class="navigation overlay">
+				<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+				<ul class="nav overlay-content">
+					<li><a asp-controller="Home" asp-action="Index">Hjemsiden</a></li>
+					<li><a asp-controller="Kurs" asp-action="Index">Kurskatalog</a></li>
+					<li><a asp-controller="Home" asp-action="Index">Utfordringer</a></li>
+					<li><a asp-controller="Medlem" asp-action="MedlemListe">Medlemsliste</a></li>
+					<li><a asp-controller="Home" asp-action="About">Om oss</a></li>
+					<a asp-controller="Authentication" asp-action="Login"><li><i class="fas fa-users"></i> Logg inn</li></a>
+					<a asp-controller="Authentication" asp-action="Register"><li><i class="fas fa-users"></i> Bli medlem</li></a>
+				</ul>
+			</div>
+			<span class="mobile_nav" onclick="openNav()">&#9776;</span>
+		</div>
+	</div>
 
-    <div class="wrapper">
-        @RenderBody()
-    </div>
+	<div class="wrapper">
+		@RenderBody()
+	</div>
 
-    <div class="footer">
-        <div class="wrapper">
-            <div class="footer-trademark">
-                <p>&copy; 2020, <a href="#">Kodesonen.no</a></p>
-            </div>
+	<div class="footer">
+		<div class="wrapper">
+			<div class="footer-trademark">
+				<p>&copy; 2020, <a href="#">Kodesonen.no</a></p>
+			</div>
 
-            <div class="footer-hyperlinks">
-                <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
-                <a href="#" target="_blank"><i class="fab fa-github-square"></i></a>
-                <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-                <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="#" target="_blank"><i class="fab fa-twitter-square"></i></a>
-                <a href="#" class="hyperlink"><i class="fas fa-envelope" style="width: 21px !important; height: 24px;"></i></a>
-            </div>
-        </div>
-    </div>
+			<div class="footer-hyperlinks">
+				<a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+				<a href="#" target="_blank"><i class="fab fa-github-square"></i></a>
+				<a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+				<a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+				<a href="#" target="_blank"><i class="fab fa-twitter-square"></i></a>
+				<a href="#" class="hyperlink"><i class="fas fa-envelope" style="width: 21px !important; height: 24px;"></i></a>
+			</div>
+		</div>
+	</div>
 
-    <script type="text/javascript" src="~/js/app.js"></script>
-    <script type="text/javascript" src="~//js/cookiechoices.js"></script>
-    <script>
-	  document.addEventListener('DOMContentLoaded', function(event) {
-		cookieChoices.showCookieConsentBar('Vi bruker informasjonskapsler!', 'Kodesonen bruker informasjonskapsler for å samle inn enkel informasjon over din aktivitet på denne nettsiden. Vi gjør dette for å analysere bruksmønsteret og aktiviteten til alle våre besøkende. Hvis dette er greit for deg, klikk på godkjent.', 
-			'godkjent', 'les mer', 'https://www.datatilsynet.no/personvern-pa-ulike-omrader/internett-og-apper/cookies/');
-	  });
+	<script type="text/javascript" src="~/js/app.js"></script>
+	<script type="text/javascript" src="~//js/cookiechoices.js"></script>
+	<script>
+		document.addEventListener('DOMContentLoaded', function (event) {
+			cookieChoices.showCookieConsentBar('Vi bruker informasjonskapsler!', 'Kodesonen bruker informasjonskapsler for å samle inn enkel informasjon over din aktivitet på denne nettsiden. Vi gjør dette for å analysere bruksmønsteret og aktiviteten til alle våre besøkende. Hvis dette er greit for deg, klikk på godkjent.',
+				'godkjent', 'les mer', 'https://www.datatilsynet.no/personvern-pa-ulike-omrader/internett-og-apper/cookies/');
+		});
 	</script>
 </body>
 </html>

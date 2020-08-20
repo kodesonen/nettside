@@ -5,8 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Views\User\" />
-    <Folder Include="Views\Courses\" />
+    <Folder Include="Views\Kurs\" />
     <Folder Include="Models\Home\" />
   </ItemGroup>
   <ItemGroup>
@@ -19,6 +18,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.4" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="config.json" />
