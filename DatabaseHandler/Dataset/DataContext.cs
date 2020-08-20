@@ -1,24 +1,25 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore;
-using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
+﻿using Microsoft.EntityFrameworkCore;
 using DatabaseHandler.Models;
+using System.IO;
+using Newtonsoft.Json.Linq;
 
-namespace DatabaseHandler.Dataset
-{
-    public class DataContext : DbContext
-    {
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseMySql("server=dev.kodesonen.no;port=3306;database=kodesonen;user=root;password=passord");
-        }
+namespace DatabaseHandler.Dataset {
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Seed();
-        }
+	public class DataContext : DbContext {
+		//.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
 
-        // Tables
-        public DbSet<User> Users { get; set; }
-        public DbSet<Challenge> Challenges { get; set; }
-    }
+		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
+			JObject data = JObject.Parse(File.ReadAllText(@"../WebApp/secrets.json"));
+			optionsBuilder.UseMySql(data["DefaultConnection"].ToString());
+		}
+
+		protected override void OnModelCreating(ModelBuilder modelBuilder) {
+			modelBuilder.Seed();
+		}
+
+		// Tables
+		public DbSet<User> Users { get; set; }
+
+		public DbSet<Challenge> Challenges { get; set; }
+	}
 }
