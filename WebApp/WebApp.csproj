@@ -1,7 +1,28 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
-  <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>netcoreapp3.1</TargetFramework>
+	</PropertyGroup>
 
+	<ItemGroup>
+		<Folder Include="Controllers\AnalyticsManage\" />
+		<Folder Include="Views\Kurs\" />
+		<Folder Include="Models\Home\" />
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\DatabaseHandler\DatabaseHandler.csproj">
+			<GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+		</ProjectReference>
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.6">
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+			<PrivateAssets>all</PrivateAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.4" />
+	</ItemGroup>
+	<ItemGroup>
+		<Content Remove="config.json" />
+		<Content Remove="connectionstring.json" />
+	</ItemGroup>
 </Project>

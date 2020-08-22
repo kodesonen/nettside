@@ -3,35 +3,54 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using DatabaseHandler.Dataset;
+using DatabaseHandler.Handlers;
+using DatabaseHandler.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using WebApp.Models;
 
-namespace WebApp.Controllers
-{
-    public class HomeController : Controller
-    {
-        private readonly ILogger<HomeController> _logger;
+namespace WebApp.Controllers {
 
-        public HomeController(ILogger<HomeController> logger)
-        {
-            _logger = logger;
-        }
+	public class HomeController : Controller {
 
-        public IActionResult Index()
-        {
-            return View();
-        }
+		#region ctor
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
+		private readonly ILogger<HomeController> _logger;
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
-    }
+		public HomeController(ILogger<HomeController> logger) {
+			_logger = logger;
+		}
+
+		#endregion ctor
+
+		#region error
+
+		[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+		public IActionResult Error() {
+			return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+		}
+
+		#endregion error
+
+		[HttpGet]
+		public IActionResult Index() {
+			return View();
+		}
+
+
+		[Route("om oss")]
+		[HttpGet]
+		public IActionResult About() {
+			return View();
+		}
+
+
+		[Route("Challenges")]
+		[HttpGet]
+		public IActionResult Challenges() {
+			List<Challenge> ChallengesList = HandleChallenges.GetAllChallenges();
+			return View(ChallengesList);
+		}
+	}
 }
