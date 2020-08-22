@@ -38,11 +38,13 @@ namespace WebApp.Controllers {
 			return View();
 		}
 
+
 		[Route("om oss")]
 		[HttpGet]
 		public IActionResult About() {
 			return View();
 		}
+
 
 		[Route("Challenges")]
 		[HttpGet]
