@@ -24,9 +24,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Remove="Dataset\config.json" />
+    <None Remove="secrets.json" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Dataset\config.json" Condition="'$(ExcludeConfigFilesFromBuildOutput)'=='true'">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="secrets.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
