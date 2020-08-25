@@ -9,7 +9,7 @@ namespace DatabaseHandler.Dataset {
 		//.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
 
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
-			JObject data = JObject.Parse(File.ReadAllText(@"../WebApp/secrets.json"));
+			JObject data = JObject.Parse(File.ReadAllText("secrets.json"));
 			optionsBuilder.UseMySql(data["DefaultConnection"].ToString());
 		}
 
