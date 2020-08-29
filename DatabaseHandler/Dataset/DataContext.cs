@@ -5,7 +5,7 @@ using Newtonsoft.Json.Linq;
 
 namespace DatabaseHandler.Dataset {
 
-	public class DataContext : DbContext {
+	public class DataContext : IdentityDbContext<KodesonenUser> {
 		//.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
 
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
@@ -18,7 +18,8 @@ namespace DatabaseHandler.Dataset {
 		}
 
 		// Tables
-		public DbSet<User> Users { get; set; }
+		//public DbSet<User> Users { get; set; }
+		public DbSet<KodesonenUser> Users { get; set; }
 
 		public DbSet<Challenge> Challenges { get; set; }
 	}

@@ -8,6 +8,7 @@ namespace WebApp.Controllers {
 
 	public class AuthenticationController : Controller {
 
+		[Route("Login")]
 		[HttpGet]
 		public IActionResult Login() {
 			return View();

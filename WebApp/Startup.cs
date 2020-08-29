@@ -28,10 +28,9 @@ namespace WebApp {
 		//public IConfiguration DbConfig { get; }
 
 		public void ConfigureServices(IServiceCollection services) {
-			/*
-			services.AddDbContextPool<DataContext>(
-				options => options.UseMySql(Configuration.GetConnectionString("DefaultConnection")
-			));*/
+			//services.AddDbContextPool<DataContext>(
+			//	options => options.UseMySql(Configuration.GetConnectionString("DefaultConnection"))
+			//	);
 
 			services.AddRouting(options => options.LowercaseUrls = true);
 			services.AddControllersWithViews();
@@ -44,7 +43,7 @@ namespace WebApp {
 				//options.Lockout.AllowedForNewUsers = true;
 				//options.Lockout.MaxFailedAccessAttempts = 5;
 				//options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(1);
-			}).AddEntityFrameworkStores<DataContext>().AddDefaultTokenProviders();
+			}).AddEntityFrameworkStores<DataContext>();/*.AddDefaultTokenProviders();*/
 
 			services.ConfigureApplicationCookie(options => {
 				options.LoginPath = "/login";
@@ -72,7 +71,7 @@ namespace WebApp {
 			app.UseStaticFiles();
 
 			app.UseRouting();
-
+			app.UseAuthentication();
 			app.UseAuthorization();
 
 			app.UseEndpoints(endpoints => {
