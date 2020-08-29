@@ -2,11 +2,13 @@
 using DatabaseHandler.Models;
 using System.IO;
 using Newtonsoft.Json.Linq;
+using WebApp.Models.Auth;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace DatabaseHandler.Dataset {
 
 	public class DataContext : IdentityDbContext<KodesonenUser> {
-		//.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
 
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
 			JObject data = JObject.Parse(File.ReadAllText("secrets.json"));
