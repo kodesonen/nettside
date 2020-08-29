@@ -1,17 +1,11 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.EntityFrameworkCore;
-using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 using DatabaseHandler.Dataset;
-using System.IO;
+using WebApp.Models.Auth;
+using Microsoft.AspNetCore.Identity;
 
 namespace WebApp {
 
@@ -26,13 +20,35 @@ namespace WebApp {
 		//public IConfiguration DbConfig { get; }
 
 		public void ConfigureServices(IServiceCollection services) {
-			/*
-			services.AddDbContextPool<DataContext>(
-				options => options.UseMySql(Configuration.GetConnectionString("DefaultConnection")
-			));*/
+			//services.AddDbContextPool<DataContext>(
+			//	options => options.UseMySql(Configuration.GetConnectionString("DefaultConnection"))
+			//	);
 
 			services.AddRouting(options => options.LowercaseUrls = true);
 			services.AddControllersWithViews();
+
+			services.AddIdentity<KodesonenUser, IdentityRole>(options => {
+				options.SignIn.RequireConfirmedEmail = false;
+
+				options.Password.RequireNonAlphanumeric = false;
+				//options.User.RequireUniqueEmail = true;
+				//options.Lockout.AllowedForNewUsers = true;
+				//options.Lockout.MaxFailedAccessAttempts = 5;
+				//options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(1);
+			}).AddEntityFrameworkStores<DataContext>();/*.AddDefaultTokenProviders();*/
+
+			services.ConfigureApplicationCookie(options => {
+				options.LoginPath = "/login";
+				options.ReturnUrlParameter = "";
+				options.AccessDeniedPath = "Error/404";
+			});
+			//services.Configure<DataProtectionTokenProviderOptions>(options => {
+			//    options.TokenLifespan = TimeSpan.FromMinutes(30);
+			//});
+
+			//services.Configure<EmailConfirmationTokenProviderOptions>(options => {
+			//    options.TokenLifespan = TimeSpan.FromDays(30);
+			//});
 		}
 
 		public void Configure(IApplicationBuilder app, IWebHostEnvironment env) {
@@ -47,7 +63,7 @@ namespace WebApp {
 			app.UseStaticFiles();
 
 			app.UseRouting();
-
+			app.UseAuthentication();
 			app.UseAuthorization();
 
 			app.UseEndpoints(endpoints => {

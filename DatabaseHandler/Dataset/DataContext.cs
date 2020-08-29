@@ -2,11 +2,13 @@
 using DatabaseHandler.Models;
 using System.IO;
 using Newtonsoft.Json.Linq;
+using WebApp.Models.Auth;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace DatabaseHandler.Dataset {
 
-	public class DataContext : DbContext {
-		//.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+	public class DataContext : IdentityDbContext<KodesonenUser> {
 
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
 			JObject data = JObject.Parse(File.ReadAllText("secrets.json"));
@@ -18,7 +20,8 @@ namespace DatabaseHandler.Dataset {
 		}
 
 		// Tables
-		public DbSet<User> Users { get; set; }
+		//public DbSet<User> Users { get; set; }
+		public DbSet<KodesonenUser> Users { get; set; }
 
 		public DbSet<Challenge> Challenges { get; set; }
 	}
