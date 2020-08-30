@@ -8,13 +8,20 @@ using WebApp.Models.Auth;
 namespace DatabaseHandler.Handlers {
 
 	public class HandleUsers {
+		//public static List<KodesonenUser> GetAllUsers() {
+		//	using (var db = new DataContext()) {
+		//		var Data = db.Users;
+		//		List<KodesonenUser> Users = Data.ToList();
+		//		return Users;
+		//	}
+		//}
 
-		public static List<KodesonenUser> GetAllUsers() {
-			using (var db = new DataContext()) {
-				var Data = db.Users;
-				List<KodesonenUser> Users = Data.ToList();
-				return Users;
-			}
-		}
+		//public void AddUser(KodesonenUser user) {
+		//	using (var db = new DataContext()) {
+		//		var Data = db.Users;
+		//		Data.Add(user);
+		//		db.SaveChanges();
+		//	}
+		//}
 	}
 }
