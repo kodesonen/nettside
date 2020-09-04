@@ -6,16 +6,23 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <Compile Remove="Migrations\20200829145445_init.cs" />
+	  <Compile Remove="Migrations\20200829145445_init.Designer.cs" />
+	  <Compile Remove="Migrations\20200829150445_init.cs" />
+	  <Compile Remove="Migrations\20200829150445_init.Designer.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<PackageReference Include="Microsoft.AspNetCore.Authorization" Version="3.1.7" />
 		<PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
 		<PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.7" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.7" />
 		<PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="3.1.1" />
-		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.6">
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.7">
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 			<PrivateAssets>all</PrivateAssets>
 		</PackageReference>
-		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.6">
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.7">
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 			<PrivateAssets>all</PrivateAssets>
 		</PackageReference>
