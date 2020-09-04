@@ -1,7 +1,7 @@
 ﻿@{
 	ViewData["Title"] = "Login";
 }
-
+@model WebApp.Models.Auth.LoginModel
 <!--
 	TODO:
 		Create login and register models
@@ -11,19 +11,22 @@
 
 <div class="wrapper">
 	<div class="medlem-form">
-		<h1>Admin login</h1><hr />
+		<h1>login</h1>
 		<div class="wrapper">
-			@*<?php if(isset($_POST['login'])){ $core->login(); } ?>*@
 		</div>
 
-		<form action='' method='POST'>
-			<label for="email"><b>E-post:</b></label>
-			<input type="text" placeholder="Oppgi e-post adresse" name="email" required>
-
-			<label for="password"><b>Passord:</b></label>
-			<input type="password" placeholder="Oppgi passord" name="password" required>
-
-			<hr /><button type="submit" name="login" class="medlem-button add_course_select">Logg inn</button>
+		<form asp-action="login" method="post">
+			<div class="form-row">
+				<label>Email</label>
+				<input type="text" asp-for="Email" />
+			</div>
+			<div class="form-row">
+				<label>Passsword</label>
+				<input type="text" asp-for="Password" />
+			</div>
+			<div class="form-row">
+				<button type="submit" class="medlem-button add_course_select">Logg inn</button>
+			</div>
 		</form>
 	</div>
 
