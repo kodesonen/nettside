@@ -10,6 +10,12 @@ using Microsoft.AspNetCore.Mvc;
 using WebApp.Models.Auth;
 
 namespace WebApp.Controllers {
+	/*
+	 * TODO
+	 *	Add modelvalidators
+	 *  Add Model errors
+	 *	Add Validation summary
+	 */
 
 	public class AuthenticationController : Controller {
 		private readonly UserManager<KodesonenUser> userManager;
@@ -23,11 +29,35 @@ namespace WebApp.Controllers {
 			this.signInManager = signInManager;
 		}
 
+		#region login
+
 		[Route("Login")]
 		[HttpGet]
 		public IActionResult Login() {
 			return View();
 		}
+
+		[Route("Login")]
+		[HttpPost]
+		public IActionResult Login(LoginModel model) {
+			if (!ModelState.IsValid) {
+				Console.WriteLine("Modelstate invalid");
+				return View(model);
+			}
+
+			var result = signInManager.PasswordSignInAsync(model.Email, model.Password, true, false);
+
+			if (!result.Result.Succeeded) {
+				Console.WriteLine("Password does not match");
+				return View(model);
+			}
+
+			return View();
+		}
+
+		#endregion login
+
+		#region register
 
 		[Route("Register")]
 		[HttpGet]
@@ -63,5 +93,7 @@ namespace WebApp.Controllers {
 			Console.WriteLine("Registered!");
 			return View("Success");
 		}
+
+		#endregion register
 	}
 }
