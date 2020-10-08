@@ -10,45 +10,47 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using WebApp.Models;
 
-namespace WebApp.Controllers {
+namespace WebApp.Controllers
+{
+    public class HomeController : Controller
+    {
+        #region ctor
+        private readonly ILogger<HomeController> _logger;
 
-	public class HomeController : Controller {
+        public HomeController(ILogger<HomeController> logger)
+        {
+            _logger = logger;
+        }
+        #endregion ctor
 
-		#region ctor
+        #region error
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error()
+        {
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
 
-		private readonly ILogger<HomeController> _logger;
+        #endregion error
 
-		public HomeController(ILogger<HomeController> logger) {
-			_logger = logger;
-		}
+        [HttpGet]
+        public IActionResult Index()
+        {
+            return View();
+        }
 
-		#endregion ctor
+        [Route("Om-oss")]
+        [HttpGet]
+        public IActionResult About()
+        {
+            return View();
+        }
 
-		#region error
-
-		[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-		public IActionResult Error() {
-			return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-		}
-
-		#endregion error
-
-		[HttpGet]
-		public IActionResult Index() {
-			return View();
-		}
-
-		[Route("om oss")]
-		[HttpGet]
-		public IActionResult About() {
-			return View();
-		}
-
-		[Route("Challenges")]
-		[HttpGet]
-		public IActionResult Challenges() {
-			List<Challenge> ChallengesList = HandleChallenges.GetAllChallenges();
-			return View(ChallengesList);
-		}
-	}
+        [Route("Utfordringer")]
+        [HttpGet]
+        public IActionResult Challenges()
+        {
+            List<Challenge> ChallengesList = HandleChallenges.GetAllChallenges();
+            return View(ChallengesList);
+        }
+    }
 }
