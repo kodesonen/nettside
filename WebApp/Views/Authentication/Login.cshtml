@@ -10,25 +10,19 @@
 -->
 
 <div class="medlem-form">
-	<h1>Login</h1><hr>
+	<h1>Logg inn</h1><hr/>
 
-	<form asp-action="login" method="post">
-		<div class="form-row">
-			<label>Email</label>
-			<input type="text" placeholder="Oppgi e-post adresse" asp-for="Email">
-		</div>
+	<label><b>E-post:</b></label>
+	<input type="text" placeholder="Oppgi e-post adresse" asp-for="Email" required>
+	
+	<label><b>Passord:</b></label>
+	<input type="password" placeholder="Oppgi passord" asp-for="Password" required>
+	
+	<hr/>
+	<button type="submit" class="medlem-button add_course_select">Logg inn</button>
 
-		<div class="form-row">
-			<label>Passsword</label>
-			<input type="text" placeholder="Oppgi passord" asp-for="Password" />
-		</div>
-		
-		<div class="form-row">
-			<button type="submit" class="medlem-button add_course_select">Logg inn</button>
-		</div>
-	</form>
 </div>
 
 <div class="sidebar-image">
-	<img src="~/img/raw_svg/arduino_and_plant.svg" />
+	<img src="~/img/raw_svg/arduino_and_plant.svg"/>
 </div>
