@@ -24,25 +24,23 @@ namespace WebApp.Controllers
         private readonly SignInManager<KodesonenUser> signInManager;
 
         public AuthenticationController(
-            UserManager<KodesonenUser> userManager,
-            SignInManager<KodesonenUser> signInManager
-            )
+			UserManager<KodesonenUser> userManager,
+			SignInManager<KodesonenUser> signInManager)
         {
             this.userManager = userManager;
             this.signInManager = signInManager;
         }
 
         #region login
-
-        [Route("Login")]
         [HttpGet]
+		[Route("Login")]
         public IActionResult Login()
         {
             return View();
         }
 
-        [Route("Login")]
         [HttpPost]
+		[Route("Login")]
         public IActionResult Login(LoginModel model)
         {
             if (!ModelState.IsValid)
@@ -65,16 +63,15 @@ namespace WebApp.Controllers
         #endregion login
 
         #region register
-
-        [Route("Register")]
         [HttpGet]
+		[Route("Join")]
         public IActionResult Register()
         {
             return View();
         }
 
-        [Route("Register")]
         [HttpPost]
+		[Route("Join")]
         public async Task<IActionResult> RegisterAsync(RegisterModel model)
         {
             if (!ModelState.IsValid)
