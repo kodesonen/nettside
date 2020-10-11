@@ -18,12 +18,12 @@ namespace WebApp.Controllers
 	 *	Add Validation summary
 	 */
 
-    public class AuthenticationController : Controller
+    public class AuthController : Controller
     {
         private readonly UserManager<KodesonenUser> userManager;
         private readonly SignInManager<KodesonenUser> signInManager;
 
-        public AuthenticationController(
+        public AuthController (
 			UserManager<KodesonenUser> userManager,
 			SignInManager<KodesonenUser> signInManager)
         {
