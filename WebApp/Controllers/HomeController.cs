@@ -44,13 +44,5 @@ namespace WebApp.Controllers
         {
             return View();
         }
-
-        [Route("Utfordringer")]
-        [HttpGet]
-        public IActionResult Challenges()
-        {
-            List<Challenge> ChallengesList = HandleChallenges.GetAllChallenges();
-            return View(ChallengesList);
-        }
     }
 }

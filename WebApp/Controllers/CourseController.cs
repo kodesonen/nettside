@@ -9,7 +9,7 @@ namespace WebApp.Controllers
     public class CourseController : Controller
     {
         [HttpGet]
-        [Route("Kurs")]        
+        [Route("Kurs")]
         public IActionResult Index()
         {
             return View();

@@ -6,10 +6,14 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace WebApp.Controllers
 {
-    public class UtfordringerController : Controller
+    public class ChallengesController : Controller
     {
+        [HttpGet]
+        [Route("Utfordringer")]
         public IActionResult Index()
         {
+            //List<Challenge> ChallengesList = HandleChallenges.GetAllChallenges();
+            //return View(ChallengesList);
             return View();
         }
     }
