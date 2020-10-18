@@ -1,0 +1,55 @@
+﻿@model WebApp.Models.Auth.RegisterModel
+
+@{ ViewData["Title"] = "Bli medlem"; }
+
+<!--
+	TODO:
+		Create login and register models
+		Add taghelpers
+		Add authentication and authorization
+-->
+
+<div class="medlem-form">
+	<h1>Registrer deg som medlem</h1><hr/>
+
+	<form asp-action="register" method="post">
+		<label><b>Fullt navn</b></label>
+		<input type="text" placeholder="Oppgi fullt navn" asp-for="Name" required>
+		
+		<label><b>E-post</b></label>
+		<input type="text" placeholder="Oppgi e-post adresse" asp-for="Email" required>
+
+		<label><b>Passord</b></label>
+		<input type="password" placeholder="Oppgi et passord" asp-for="Password" required>
+
+		<label><b>Bekreft passord</b></label>
+		<input type="password" placeholder="Bekreft ditt passord" asp-for="ConfirmPassword" required>
+
+		<label><b>Utdanningssted</b></label>
+		<input type="text" value="Oppgi studiested" asp-for="University">
+
+		<label><b>Studieretning</b></label>
+		<input type="text" placeholder="Oppgi studieretning" asp-for="Study">
+
+		<label><b>Studiegrad</b></label>
+		<div class="retning">
+			<select name="grad">
+				<option disabled selected>Velg din studiegrad</option>
+				<option value="Forkurs">Forkurs</option>
+				<option value="Bachelor">Bachelor</option>
+				<option value="Master">Master</option>
+				<option value="Annet">Annet</option>
+			</select>
+		</div>
+
+		<hr/><p>Ved å opprette medlemskap godtår du våre <a href="/?side=vilkar-og-personvern">vilkår og personvern</a>.</p>
+		<button type="submit" class="medlem-button">Bli medlem</button>
+	</form>
+</div>
+
+<div class="member-sidebar-image">
+	<center>
+		<img id="banner-animation" src="~/img/member/banner.svg"/>
+		<img id="person-animation" class="animated slideInRight" src="~/img/member/person.svg"/>
+	</center>
+</div>
