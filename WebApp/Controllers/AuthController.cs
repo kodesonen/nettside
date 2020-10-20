@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Metadata;
 using System.Threading.Tasks;
-using DatabaseHandler.Handlers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using WebApp.Models.Auth;
+using WebApp.DbHandler.Models;
 
 namespace WebApp.Controllers
 {
@@ -20,12 +20,12 @@ namespace WebApp.Controllers
 
     public class AuthController : Controller
     {
-        private readonly UserManager<KodesonenUser> userManager;
-        private readonly SignInManager<KodesonenUser> signInManager;
+        private readonly UserManager<User> userManager;
+        private readonly SignInManager<User> signInManager;
 
-        public AuthController (
-			UserManager<KodesonenUser> userManager,
-			SignInManager<KodesonenUser> signInManager)
+        public AuthController(
+            UserManager<User> userManager,
+            SignInManager<User> signInManager)
         {
             this.userManager = userManager;
             this.signInManager = signInManager;
@@ -33,14 +33,14 @@ namespace WebApp.Controllers
 
         #region login
         [HttpGet]
-		[Route("Login")]
+        [Route("Login")]
         public IActionResult Login()
         {
             return View();
         }
 
         [HttpPost]
-		[Route("Login")]
+        [Route("Login")]
         public IActionResult Login(LoginModel model)
         {
             if (!ModelState.IsValid)
@@ -64,14 +64,14 @@ namespace WebApp.Controllers
 
         #region register
         [HttpGet]
-		[Route("Join")]
+        [Route("Join")]
         public IActionResult Register()
         {
             return View();
         }
 
         [HttpPost]
-		[Route("Join")]
+        [Route("Join")]
         public async Task<IActionResult> RegisterAsync(RegisterModel model)
         {
             if (!ModelState.IsValid)
@@ -80,11 +80,11 @@ namespace WebApp.Controllers
                 return View(ModelState);
             }
 
-            KodesonenUser user = new KodesonenUser()
+            User user = new User()
             {
-                Id = Guid.NewGuid().ToString(),
-                Email = model.Email,
-                UserName = model.Email,
+                //Id = Guid.NewGuid().ToString(),
+                //Email = model.Email,
+                //UserName = model.Email,
                 //Add first,lastname
             };
 

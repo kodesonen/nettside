@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace DatabaseHandler.Models
+namespace WebApp.DbHandler.Models
 {
     public class Challenge
     {

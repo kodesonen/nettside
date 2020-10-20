@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace DatabaseHandler.Models
+namespace WebApp.DbHandler.Models
 {
     public class User
     {
