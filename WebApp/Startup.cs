@@ -1,17 +1,9 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.EntityFrameworkCore;
-using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
-using DatabaseHandler.Dataset;
-using System.IO;
+using WebApp.Data;
 
 namespace WebApp {
 
@@ -26,10 +18,9 @@ namespace WebApp {
 		//public IConfiguration DbConfig { get; }
 
 		public void ConfigureServices(IServiceCollection services) {
-			/*
-			services.AddDbContextPool<DataContext>(
-				options => options.UseMySql(Configuration.GetConnectionString("DefaultConnection")
-			));*/
+			//services.AddDbContextPool<DataContext>(
+			//	options => options.UseMySql(Configuration.GetConnectionString("DefaultConnection")
+			//));
 
 			services.AddRouting(options => options.LowercaseUrls = true);
 			services.AddControllersWithViews();
