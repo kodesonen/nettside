@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
-using DatabaseHandler.Dataset;
-using DatabaseHandler.Handlers;
 using DatabaseHandler.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -38,19 +33,17 @@ namespace WebApp.Controllers {
 			return View();
 		}
 
-
 		[Route("om oss")]
 		[HttpGet]
 		public IActionResult About() {
 			return View();
 		}
 
-
 		[Route("Challenges")]
 		[HttpGet]
 		public IActionResult Challenges() {
-			List<Challenge> ChallengesList = HandleChallenges.GetAllChallenges();
-			return View(ChallengesList);
+			//List<Challenge> ChallengesList = HandleChallenges.GetAllChallenges();
+			return View(/*ChallengesList*/);
 		}
 	}
 }
