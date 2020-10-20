@@ -16,10 +16,11 @@ namespace WebApp.Data {
 			Database.EnsureCreated();
 		}
 
-		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
-			JObject data = JObject.Parse(File.ReadAllText("secrets.json"));
-			optionsBuilder.UseMySql(data["DefaultConnection"].ToString());
-		}
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.Seed();
+        }
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder) {
 			modelBuilder.Seed();

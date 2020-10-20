@@ -1,0 +1,28 @@
+﻿@model WebApp.Models.Auth.LoginModel
+
+@{ ViewData["Title"] = "Login"; }
+
+<!--
+	TODO:
+		Create login and register models
+		Add taghelpers
+		Add authentication and authorization
+-->
+
+<div class="medlem-form">
+	<h1>Logg inn</h1><hr/>
+
+	<label><b>E-post:</b></label>
+	<input type="text" placeholder="Oppgi e-post adresse" asp-for="Email" required>
+	
+	<label><b>Passord:</b></label>
+	<input type="password" placeholder="Oppgi passord" asp-for="Password" required>
+	
+	<hr/>
+	<button type="submit" class="medlem-button add_course_select">Logg inn</button>
+
+</div>
+
+<div class="sidebar-image">
+	<img src="~/img/raw_svg/arduino_and_plant.svg"/>
+</div>
