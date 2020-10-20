@@ -1,9 +1,8 @@
-
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApp", "WebApp\WebApp.csproj", "{81BBF51B-0B15-410A-9998-950144489BE7}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseHandler", "DatabaseHandler\DatabaseHandler.csproj", "{5B2E5A97-129C-45F4-B872-63CE525BC2C5}"
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29911.84
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApp", "WebApp\WebApp.csproj", "{81BBF51B-0B15-410A-9998-950144489BE7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,9 +14,11 @@ Global
 		{81BBF51B-0B15-410A-9998-950144489BE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{81BBF51B-0B15-410A-9998-950144489BE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{81BBF51B-0B15-410A-9998-950144489BE7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5B2E5A97-129C-45F4-B872-63CE525BC2C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5B2E5A97-129C-45F4-B872-63CE525BC2C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5B2E5A97-129C-45F4-B872-63CE525BC2C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5B2E5A97-129C-45F4-B872-63CE525BC2C5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8C1272FA-A36E-4400-9179-8C4A19C89FCE}
 	EndGlobalSection
 EndGlobal

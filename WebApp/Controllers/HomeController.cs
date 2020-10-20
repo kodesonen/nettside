@@ -1,48 +1,49 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
-using DatabaseHandler.Dataset;
-using DatabaseHandler.Handlers;
 using DatabaseHandler.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using WebApp.Models;
 
-namespace WebApp.Controllers
-{
-    public class HomeController : Controller
-    {
-        #region ctor
-        private readonly ILogger<HomeController> _logger;
+namespace WebApp.Controllers {
 
-        public HomeController(ILogger<HomeController> logger)
-        {
-            _logger = logger;
-        }
-        #endregion ctor
+	public class HomeController : Controller {
 
-        #region error
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
+		#region ctor
 
-        #endregion error
+		private readonly ILogger<HomeController> _logger;
 
-        [HttpGet]
-        public IActionResult Index()
-        {
-            return View();
-        }
+		public HomeController(ILogger<HomeController> logger) {
+			_logger = logger;
+		}
 
-        [Route("Om-oss")]
-        [HttpGet]
-        public IActionResult About()
-        {
-            return View();
-        }
-    }
+		#endregion ctor
+
+		#region error
+
+		[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+		public IActionResult Error() {
+			return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+		}
+
+		#endregion error
+
+		[HttpGet]
+		public IActionResult Index() {
+			return View();
+		}
+
+		[Route("om oss")]
+		[HttpGet]
+		public IActionResult About() {
+			return View();
+		}
+
+		[Route("Challenges")]
+		[HttpGet]
+		public IActionResult Challenges() {
+			//List<Challenge> ChallengesList = HandleChallenges.GetAllChallenges();
+			return View(/*ChallengesList*/);
+		}
+	}
 }
