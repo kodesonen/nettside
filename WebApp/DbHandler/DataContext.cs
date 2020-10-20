@@ -1,28 +1,31 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Newtonsoft.Json.Linq;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
 using WebApp.DbHandler;
 using WebApp.DbHandler.Models;
+using System.IO;
+using Newtonsoft.Json.Linq;
+using WebApp.Models.Auth;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace WebApp.DbHandler
 {
-    public class DataContext : DbContext
+    public class DataContext : IdentityDbContext<User>
     {
-        public DataContext(DbContextOptions<DataContext> options) : base(options)
+        public DataContext(DbContextOptions<DataContext> options) : base(options) { }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            //Database.EnsureCreated();
+            //JObject data = JObject.Parse(File.ReadAllText("secrets.json"));
+            //optionsBuilder.UseMySql(data["DefaultConnection"].ToString());
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //base.OnModelCreating(modelBuilder);
-            //modelBuilder.Seed();
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.Seed();
         }
 
+        // Tables
         public DbSet<User> Users { get; set; }
         public DbSet<Challenge> Challenges { get; set; }
     }

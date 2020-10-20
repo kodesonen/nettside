@@ -3,7 +3,11 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using WebApp.DbHandler;
+using WebApp.DbHandler.Models;
+using WebApp.Models.Auth;
 
 namespace WebApp
 {
@@ -20,12 +24,36 @@ namespace WebApp
 
         public void ConfigureServices(IServiceCollection services)
         {
-            //services.AddDbContextPool<DataContext>(
-            //	options => options.UseMySql(Configuration.GetConnectionString("DefaultConnection")
-            //));
+            services.AddDbContextPool<DataContext>(options => options.UseMySql("server=dev.kodesonen.no;port=3306;database=kodesonen;user=root;password=Kodesonen!0"));
 
             services.AddRouting(options => options.LowercaseUrls = true);
             services.AddControllersWithViews();
+
+            //services.AddIdentity<KodesonenUser, IdentityRole>(options => {
+            //	options.SignIn.RequireConfirmedEmail = false;
+
+            //	options.Password.RequireNonAlphanumeric = false;
+            //	//options.User.RequireUniqueEmail = true;
+            //	//options.Lockout.AllowedForNewUsers = true;
+            //	//options.Lockout.MaxFailedAccessAttempts = 5;
+            //	//options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(1);
+            //}).AddEntityFrameworkStores<DataContext>();/*.AddDefaultTokenProviders();*/
+
+            services.ConfigureApplicationCookie(options =>
+            {
+                options.LoginPath = "/login";
+                options.ReturnUrlParameter = "";
+                options.AccessDeniedPath = "/Error/404";
+            });
+
+            services.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<DataContext>();
+            //services.Configure<DataProtectionTokenProviderOptions>(options => {
+            //    options.TokenLifespan = TimeSpan.FromMinutes(30);
+            //});
+
+            //services.Configure<EmailConfirmationTokenProviderOptions>(options => {
+            //    options.TokenLifespan = TimeSpan.FromDays(30);
+            //});
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -43,6 +71,7 @@ namespace WebApp
             //app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseRouting();
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

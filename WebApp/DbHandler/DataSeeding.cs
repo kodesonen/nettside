@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using WebApp.DbHandler.Models;
 
-namespace DatabaseHandler.Dataset
+namespace WebApp.DbHandler
 {
     public static class ModelBuilderExtensions
     {
