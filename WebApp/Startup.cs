@@ -28,6 +28,7 @@ namespace WebApp
             services.AddDbContextPool<DataContext>(options => options.UseMySql("server=dev.kodesonen.no;port=3306;database=kodesonen;user=root;password=Kodesonen!0"));
 
             services.AddScoped<IChallengeHandler, ChallengeHandler>();
+            services.AddScoped<IUserHandler, UserHandler>();
 
             services.AddRouting(options => options.LowercaseUrls = true);
             services.AddControllersWithViews();
