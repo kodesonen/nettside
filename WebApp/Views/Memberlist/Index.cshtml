@@ -1,4 +1,8 @@
-﻿<div class="text-info">
+﻿@model List<WebApp.DbHandler.Models.User>
+
+@{ ViewData["Title"] = "Medlemsliste"; }
+
+<div class="text-info">
     <h1>Medlemsliste</h1><br />
     <p>Her finner du medlemmene i Kodesonen. Dersom du ikke lenger ønsker å være medlem, kan du <a href="#" class="hyperlink">klikke her</a>. Om du ønsker å skjule medlemskapet kan du <a href="/?side=skjul-medlem" class="hyperlink">klikke her</a>.</p>
 </div>
@@ -10,6 +14,14 @@
             <td>Studieretning</th>
             <td>Medlem siden</th>
         </tr>
-        <?php $core->getMembers(); ?>
+
+        @foreach (var User in Model)
+        {
+            <tr>
+                <td>@User.UserName</td>
+                <td>-</td>
+                <td>-</td>
+            </tr>
+        }
     </table>
 </div>

@@ -9,10 +9,10 @@ namespace WebApp.DbHandler
         public static void Seed(this ModelBuilder modelBuilder)
         {
             // Users
-            //modelBuilder.Entity<User>().HasData(
-            //    new User { Id = 1, FirstName = "Sirajuddin", LastName = "Asjad", Email = "sira@siratech.no", Admin = true },
-            //    new User { Id = 2, FirstName = "Daniel", LastName = "Skryseth", Email = "danskry@outlook.com", Admin = true }
-            //);
+            modelBuilder.Entity<User>().HasData(
+                new User { UserName = "Sirajuddin Asjad" },
+                new User { UserName = "Stian Håve" }
+            );
 
             // Challenges
             modelBuilder.Entity<Challenge>().HasData(
