@@ -10,8 +10,9 @@ namespace WebApp.DbHandler
         {
             // Users
             modelBuilder.Entity<User>().HasData(
-                new User { UserName = "Sirajuddin Asjad" },
-                new User { UserName = "Stian Håve" }
+                new User { UserName = "Sirajuddin Asjad", Private = false },
+                new User { UserName = "Sirapudding", Private = true },
+                new User { UserName = "Stian Håve", Private = false }
             );
 
             // Challenges

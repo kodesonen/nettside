@@ -21,7 +21,7 @@ namespace WebApp.Controllers
         [Route("Medlemsliste")]
         public IActionResult Index()
         {
-            List<User> ListOfUsers = UserHandler.LoadAll();
+            List<User> ListOfUsers = UserHandler.GetPublicUsers();
             return View(ListOfUsers);
         }
     }

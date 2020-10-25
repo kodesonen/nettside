@@ -6,5 +6,6 @@ namespace WebApp.DbHandler.Models
 	{
 		public string ApiKey { get; set; }
 		public string TestColumn { get; set; }
+		public bool Private { get; set; }
 	}
 }
