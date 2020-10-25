@@ -8,7 +8,6 @@
 		<Folder Include="Models\Home\" />
 		<Folder Include="DbHandler\Models\" />
 		<Folder Include="DbHandler\Interfaces\" />
-		<Folder Include="Views\Memberlist\" />
 	</ItemGroup>
 	<ItemGroup>
 		<PackageReference Include="EntityFramework" Version="6.4.4" />
@@ -38,6 +37,6 @@
 	<ItemGroup>
 		<Content Remove="config.json" />
 		<Content Remove="connectionstring.json" />
-		<Content Remove="Views\Memberlist\Index.cshtml" />
+		<Content Remove="Views\Memberlist\Index.html" />
 	</ItemGroup>
 </Project>

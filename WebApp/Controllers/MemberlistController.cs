@@ -11,19 +11,18 @@ namespace WebApp.Controllers
 {
     public class MemberlistController : Controller
     {
-        private IChallengeHandler ChallengeHandler;
-        public MemberlistController(IChallengeHandler _ch)
+        private IUserHandler UserHandler;
+        public MemberlistController(IUserHandler _uh)
         {
-            this.ChallengeHandler = _ch;
+            this.UserHandler = _uh;
         }
 
         [HttpGet]
         [Route("Medlemsliste")]
         public IActionResult Index()
         {
-            //List<Challenge> ChallengesList = ChallengeHandler.LoadAll();
-            //return View(ChallengesList);
-            return View();
+            List<User> ListOfUsers = UserHandler.LoadAll();
+            return View(ListOfUsers);
         }
     }
 }
