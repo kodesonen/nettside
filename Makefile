@@ -2,17 +2,16 @@ all:
 	@echo "Missing parameter!"
 
 migration:
-	@dotnet ef migrations add --startup-project WebApp/ --project DatabaseHandler/ $(name)
+	@dotnet ef migrations add --project WebApp/ $(name)
 
 list:
-	@dotnet ef migrations list --startup-project WebApp/ --project DatabaseHandler
+	@dotnet ef migrations list --project WebApp/
 
 update:
-	@dotnet ef database update --startup-project WebApp/ --project DatabaseHandler/
+	@dotnet ef database update --project WebApp/
 
 drop:
-	@dotnet ef database drop --startup-project WebApp/ --project DatabaseHandler/
+	@dotnet ef database drop --project WebApp/
 
 clean:
-	@rm -r DatabaseHandler/Migrations/
-
+	@rm -r WebApp/DbHandler/Migrations/
