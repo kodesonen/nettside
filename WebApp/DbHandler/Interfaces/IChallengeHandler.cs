@@ -21,8 +21,8 @@ namespace WebApp.DbHandler.Interfaces
         public List<Challenge> LoadAll()
         {
             var Data = db.Challenges;
-            List<Challenge> ChallengesList = Data.ToList();
-            return ChallengesList;
+            List<Challenge> ListOfChallenges = Data.ToList();
+            return ListOfChallenges;
         }
     }
 }
