@@ -16,7 +16,8 @@ namespace WebApp.DbHandler
 
             // Challenges
             modelBuilder.Entity<Challenge>().HasData(
-                new Challenge { Id = 1, Title = "Test challenge", Description = "This is a test!" }
+                new Challenge { Id = 1, Title = "Test challenge", Description = "This is a test!", Downloads = 0 },
+                new Challenge { Id = 2, Title = "Test challenge 2", Description = "This is a test!", Downloads = 99 }
             );
         }
     }

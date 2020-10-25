@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using WebApp.DbHandler;
 using WebApp.DbHandler.Models;
 using WebApp.Models.Auth;
+using WebApp.DbHandler.Interfaces;
 
 namespace WebApp
 {
@@ -25,6 +26,8 @@ namespace WebApp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContextPool<DataContext>(options => options.UseMySql("server=dev.kodesonen.no;port=3306;database=kodesonen;user=root;password=Kodesonen!0"));
+
+            services.AddScoped<IChallengeHandler, ChallengeHandler>();
 
             services.AddRouting(options => options.LowercaseUrls = true);
             services.AddControllersWithViews();
