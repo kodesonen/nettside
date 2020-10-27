@@ -29,6 +29,7 @@ namespace WebApp
 
             services.AddScoped<IChallengeHandler, ChallengeHandler>();
             services.AddScoped<IUserHandler, UserHandler>();
+            services.AddScoped<ICourseHandler, CourseHandler>();
 
             services.AddRouting(options => options.LowercaseUrls = true);
             services.AddControllersWithViews();

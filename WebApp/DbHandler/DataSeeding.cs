@@ -20,6 +20,12 @@ namespace WebApp.DbHandler
                 new Challenge { Id = 1, Title = "Test challenge", Description = "This is a test!", Downloads = 0 },
                 new Challenge { Id = 2, Title = "Test challenge 2", Description = "This is a test!", Downloads = 99 }
             );
+
+            // Courses
+            modelBuilder.Entity<Course>().HasData(
+                new Course { Id = 1, Title = "Test course", Description = "This is a test!", Icon = "fas fa-code" },
+                new Course { Id = 2, Title = "Another test", Description = "This is a test!", Icon = "fas fa-cogs" }
+            );
         }
     }
 }

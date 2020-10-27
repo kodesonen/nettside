@@ -27,6 +27,7 @@ namespace WebApp.DbHandler
 
         // Tables
         public DbSet<User> Users { get; set; }
+        public DbSet<Course> Courses { get; set; }
         public DbSet<Challenge> Challenges { get; set; }
     }
 }
