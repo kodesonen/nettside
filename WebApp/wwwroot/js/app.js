@@ -31,3 +31,21 @@ var span = document.getElementsByClassName("close")[0];
 span.onclick = function() { 
   modal.style.display = "none";
 }
+
+// ------------------------------ //
+//     Type effect on homepage    //
+// ------------------------------ //
+
+/*
+function typeWriter() {
+  var i = 0;
+  var txt = 'medlemmer.';
+  var speed = 50;
+
+  if(i < txt.length) {
+    document.getElementById("type-effect").innerHTML += txt.charAt(i);
+    i++;
+    setTimeout(typerWriter, speed);
+  }
+}
+*/

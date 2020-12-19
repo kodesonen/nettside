@@ -113,6 +113,11 @@ a .fas {
 	background: #0f151b;
 	transition: .3s;
 }
+
+.button .fas {
+	margin-right: 0px;
+	margin-left: 5px;
+}
 .breadcrumbs {
 	width: 100%;
 	background: rgb(245, 245, 245);
@@ -211,6 +216,9 @@ a .fas {
 #neutral-button:hover {background: #d3d1d1; }
 #kodesonen-button {color: #fff; background: var(--main-color);}
 #kodesonen-button:hover {background: #0f151b; }
+#kodesonen-button2 {color: var(--main-color); border: 2px solid var(--main-color); background: none; }
+#kodesonen-button2:hover {color: #fff; background: var(--main-color);}
+
 
 /* Github: */
 
@@ -298,30 +306,36 @@ header#page-head #navigation-section {
 }
 .nav {
 	float: right;
+	margin-top: 5px;
 }
 .nav li {
 	float: left;
 	list-style-type: none;
-	margin-right: 1em;
 	margin-top: 5px;
 	font-size: 18px;
 	font-weight: 400;
 	padding: .25em .625em;
-	border-right: 1px solid #e7e6e7;
+	font-weight: 500;
+	/* border-right: 1px solid #e7e6e7; */
 }
-.nav a li .fas {
-	margin-right: 0px;
-	margin-left: 10px;
-}
+
 .nav a li:last-child {
-	margin-top: 0px;
+	margin-top: -2px;
 	color: var(--main-color-light);
 	text-decoration: none;
 	padding: 12px 30px !important;
+	margin-left: 15px;
 }
+
 .nav a li:last-child:hover {
 	transition: .3s;
 }
+
+.nav .end {
+	border-right: 1px solid #e7e6e7;
+	padding-right: 15px;
+}
+
 .nav li a {
 	color: #000;
 	text-decoration: none;
@@ -442,7 +456,7 @@ header#page-head #navigation-section {
 	margin-bottom: 8em;
 }
 #promotion-text > h1 {
-	font-size: 2.8em;
+	font-size: 3em;
 	font-weight: 300;
 	margin: 2.5rem .4em 0;
 	color: var(--main-color);
@@ -470,7 +484,7 @@ header#page-head #navigation-section {
 	transition: .3s;
 	text-decoration: none;
 	margin-right: .5em;
-	/* border-radius: .5em; */	
+	border-radius: 2px;	
 }
 .main-tab:last-child {
 	margin-right: 0;
@@ -478,10 +492,9 @@ header#page-head #navigation-section {
 .main-tab:hover {
 	background: rgb(234, 234, 234);
 }
-a .main-tab > h1 {
+.main-tab h1, .main-tab p {
 	font-weight: 400;
 	text-align: center;
-	color: var(--main-color-color) !important;
 	text-decoration: none;
 }
 
@@ -513,9 +526,14 @@ a .main-tab > p {
 }
 
 .sponsor-section {
-	border-top:1px solid var(--main-color-grey);
-	padding-top: 40px;
+	margin-top: 30px;
 	grid-column: span 12;
+}
+
+.sponsor-section span {
+	padding-top: 60px;
+	text-align: center;
+	display: block;
 }
 
 .sponsor-tab {
@@ -594,6 +612,7 @@ a .main-tab > p {
 .front-text:nth-child(odd){
 	color: var(--main-color-dark);
 	background-color: var(--main-color-light);
+	border-radius: 2px;
 }
 .front-picture {
 	grid-column: span 5;
@@ -605,7 +624,7 @@ a .main-tab > p {
     position: relative;
 	top: 50%;
 	transform: translateY(-50%);
-	border-radius: 5px;
+	border-radius: 2px;
 }
 .home-h1 {
 	font-weight: 300;
@@ -1209,6 +1228,11 @@ a .authorPost-button {
 .footer p, .footer h1 {
 	color: var(--main-color-light);
 }
+
+.footer h1 {
+	font-weight: 500;
+}
+
 .footer-trademark {
 	margin-top: 5px;
 	grid-column: span 4;
@@ -1224,12 +1248,16 @@ a .authorPost-button {
 }
 
 .footer-trademark > a > i {
-	font-size: 32px;
+	font-size: 38px;
 	margin-right: 5px;
 }
 
+.footer-trademark > p > a:hover {
+	text-decoration: underline;
+}
+
 .footer-hyperlinks{
-	margin-left: 20px;
+	margin-left: 50px;
 	grid-column: span 4;
 }
 
@@ -1246,18 +1274,20 @@ a .authorPost-button {
 	opacity: .8;
 }
 
-.footer-hyperlinks a {
-	font-size: x-large;
-	margin-left: 7px;
-	color: var(--main-color-neutral);
-}
-
-.footer-hyperlinks a:hover{
-	color: var(--main-color-light);
-}
-
 .footer-nav {
 	list-style: none;
+}
+
+.footer-nav > li > a {
+	color: var(--main-color-light);
+	line-height: 1.8;
+	text-decoration: none;
+	font-size: 18px;
+}
+
+.footer-nav > li > a:hover {
+	color: var(--main-color-grey);
+	text-decoration: underline;
 }
 
 /* -------------- /END ------------- */

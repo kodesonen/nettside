@@ -15,28 +15,39 @@
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
 
 	<title>@ViewData["Title"] - Kodesonen</title>
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-138307048-1"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-138307048-1');
+	</script>
+
 </head>
 
 <body>
 	<header id="page-head" class="wrapper">
 
 		<section id="logo-section">
-			<a asp-controller="Home" asp-action="Index"><img src="~/img/logo-horizontal.png" /></a>
+			<a asp-controller="Home" asp-action="Index"><img src="/img/logo-horizontal-2-notext.png" /></a>
 		</section>
 
 		<nav id="navigation" class="navigation overlay">
 			<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 			<ul class="nav overlay-content">
-				<li class="nav-icon"><a asp-controller="#" asp-action="#"><i class="fas fa-bars"></i></a></li>
-				<!--
+				<!--<li class="nav-icon"><a asp-controller="#" asp-action="#"><i class="fas fa-bars"></i></a></li>-->
+				
 				<li><a asp-controller="Home" asp-action="Index">Hjemsiden</a></li>
 				<li><a asp-controller="Course" asp-action="Index">Kurskatalog</a></li>
 				<li><a asp-controller="Challenges" asp-action="Index">Utfordringer</a></li>
 				<li><a asp-controller="Medlemsliste" asp-action="Index">Medlemsliste</a></li>
-				<li><a asp-controller="Home" asp-action="About">Om oss</a></li>
-				-->
+				<li class="end"><a asp-controller="Home" asp-action="About">Om oss</a></li>
+				
 				<!-- <a asp-controller="Auth" asp-action="Login"><li><i class="fas fa-users"></i> Logg inn</li></a> -->
-				<a asp-controller="Auth" asp-action="Register"><li class="button kodesonen-button">Bli Medlem <i class="fas fa-long-arrow-alt-right"></i></li></a>
+				<a asp-controller="Auth" asp-action="Register"><li class="button" id="kodesonen-button">Bli Medlem <i class="fas fa-long-arrow-alt-right"></i></li></a>
 			</ul>
 		</nav>
 
@@ -44,7 +55,7 @@
 
 	</header>
 	</header>
-	
+
 	<div class="wrapper">
 		@RenderBody()
 	</div>
@@ -73,8 +84,8 @@
 			</div>
 			<div class="footer-discord">
 				<h1>Bli med på Discord</h1><br/>
-				<p>Vi tilbyr både elektro-, kodehjelp og flere digitale samtalerom på vår Discord kanal.</p>
-				<a href="#"><img class="footer-discord-icon" src="img/join-discord.png"/></a>
+				<p>Vi tilbyr elektro- og kodehjelp, samt flere digitale samtalerom på vår Discord kanal.</p>
+				<a href="/discord"><img class="footer-discord-icon" src="img/join-discord.png"/></a>
 			</div>
 		</div>
 	</div>
