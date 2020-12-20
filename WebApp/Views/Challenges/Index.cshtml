@@ -4,7 +4,7 @@
 
 <div class="text-info">
     <h1>Utfordringer</h1><br />
-    <p>Her finner du våre utfordringer og prosjekter i sammenheng med events, web challenges og meetups på campus.</p>
+    <p>Her finner du våre utfordringer og prosjekter i sammenheng med events, web challenges og meetups på campus.</p><br/>
 </div>
 
 @foreach (var Challenge in Model)
@@ -14,7 +14,7 @@
             <center><img id='image-ufordringer-id' alt='Dette er en tekst!' src='~/img/challenges/Wallpaper.png'></center>
             <div class='utfordringer_image_overlay'><i class='fas fa-search-plus'></i></div>
         </div>
-
+        
         <div class='challenge-info'>
             <div class='challenge-info-text'>
                 <h2>@Challenge.Title</h2><br />
@@ -22,7 +22,7 @@
             </div>
 
             <div class='challenge-info-buttons'>
-                <br><p><a href='~/assets/pdf/$pdf' target='_blank' class='button'><i class='fas fa-file-pdf'></i> Last ned PDF</a></p>
+                <br><p><a href='~/assets/pdf/$pdf' target='_blank' class='button' id="kodesonen-button2"><i class='fas fa-file-pdf'></i> Last ned PDF</a></p>
                 <p style='margin-top: 10px'> <a href='$git' target='_blank' class='hyperlink'><i class='fab fa-github-square'></i> GitHub</a></p>
             </div>
         </div>
