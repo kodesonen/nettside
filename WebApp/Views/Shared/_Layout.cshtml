@@ -33,14 +33,14 @@
 		<div class="wrapper">
 			<div class="login-nav">
 				<a asp-controller="Auth" asp-action="Login"><i class="fas fa-user"></i>Login</a>
+				<a asp-controller="Admin" asp-action="Index"><i class="fas fa-user"></i>Admin kontrollpanel</a>
 			</div>
 		</div>
 	</div>
 
 	<header id="page-head" class="wrapper">
-
 		<section id="logo-section">
-			<a asp-controller="Home" asp-action="Index"><img src="/img/logo-horizontal-2-notext.png" /></a>
+			<a asp-controller="Home" asp-action="Index"><img src="~/img/logo-horizontal-2-notext.png" /></a>
 		</section>
 
 		<nav id="navigation" class="navigation overlay">
@@ -52,7 +52,7 @@
 				<li><a asp-controller="Course" asp-action="Index">Kurskatalog</a></li>
 				<li><a asp-controller="Challenges" asp-action="Index">Utfordringer</a></li>
 				<li><a asp-controller="Medlemsliste" asp-action="Index">Medlemsliste</a></li>
-				<li class="end"><a asp-controller="Home" asp-action="About">Om oss</a></li>
+				<li class="end"><a asp-controller="About" asp-action="Index">Om oss</a></li>
 				
 				<!-- <a asp-controller="Auth" asp-action="Login"><li><i class="fas fa-users"></i> Logg inn</li></a> -->
 				<a asp-controller="Auth" asp-action="Register"><li class="button" id="kodesonen-button">Bli Medlem <i class="fas fa-long-arrow-alt-right"></i></li></a>
@@ -71,7 +71,7 @@
 	<div class="footer">
 		<div class="wrapper">
 			<div class="footer-trademark">
-				<img class="footer-logo" src="img/logo-horizontal-light.png"/>
+				<img class="footer-logo" src="~/img/logo-horizontal-light.png"/>
 				<p>&copy; 2020, <a href="#">Kodesonen.no</a> - en studentforening ved <a href="https://www.usn.no/om-usn/campusene/kongsberg/">USN Campus Kongsberg</a>. Kontakt oss når som helst på <a href="#">kontakt@kodesonen.no</a> eller sosiale medier.</p><br/>
 				
 				<a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
@@ -92,7 +92,7 @@
 			<div class="footer-discord">
 				<h1>Bli med på Discord</h1><br/>
 				<p>Vi tilbyr elektro- og kodehjelp, samt flere digitale samtalerom på vår Discord kanal for 100+ medlemmer.</p>
-				<a href="/discord"><img class="footer-discord-icon" src="img/join-discord.png"/></a>
+				<a href="/discord"><img class="footer-discord-icon" src="~/img/join-discord.png"/></a>
 			</div>
 		</div>
 	</div>
