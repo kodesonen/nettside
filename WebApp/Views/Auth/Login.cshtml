@@ -1,0 +1,33 @@
+﻿@model WebApp.Models.Auth.LoginModel
+
+@{ ViewData["Title"] = "Login"; }
+
+<!--
+	TODO:
+		Create login and register models
+		Add taghelpers
+		Add authentication and authorization
+-->
+
+<div class="medlem-section wrapper">
+	<div class="medlem-form">
+		<h1>Logg inn</h1><hr/>
+
+		<label><b>E-post:</b></label>
+		<input type="text" placeholder="Oppgi e-post adresse" asp-for="Email" required>
+		
+		<label><b>Passord:</b></label>
+		<input type="password" placeholder="Oppgi passord" asp-for="Password" required>
+		
+		<hr/>
+		<button type="submit" class="medlem-button add_course_select">Logg inn</button>
+	</div>
+
+	<div class="info-box">
+		<div class="info-details">
+			<h1>Ingen bruker?</h1><br/>
+			<p>Ved å <a asp-controller="Auth" asp-action="Register">opprette medlemskap</a> vil du automatisk bli tildelt en bruker. Blablabla mer her?</p>
+		</div>
+	</div>
+</div>
+
