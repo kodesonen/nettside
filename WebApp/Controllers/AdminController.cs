@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using WebApp.DbHandler.Interfaces;
 using WebApp.DbHandler.Models;
+using WebApp.Models.Admin;
+using WebApp.Helpers;
 
 namespace WebApp.Controllers
 {
@@ -36,6 +38,22 @@ namespace WebApp.Controllers
         public IActionResult NewCourse()
         {
             return View();
+        }
+
+        [HttpPost]
+        [Route("admin/kursbehandler/nytt-kurs")]
+        public IActionResult NewCourse(NewCourseModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                CourseHandler.AddNewCourse(model);
+                TempData["StatusMessage"] = StatusMessage.Success("Hurra!", "Du har lagt til et nytt kurs.");
+            }
+            else
+            {
+                TempData["StatusMessage"] = StatusMessage.Error("Oops!", "Vennligst fyll ut alle tekstfelt!");
+            }
+            return RedirectToAction("NewCourse");
         }
     }
 }
