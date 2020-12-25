@@ -23,8 +23,8 @@ namespace WebApp.DbHandler
 
             // Courses
             modelBuilder.Entity<Course>().HasData(
-                new Course { Id = 1, Title = "Test course", Description = "This is a test!", Icon = "fas fa-code" },
-                new Course { Id = 2, Title = "Another test", Description = "This is a test!", Icon = "fas fa-cogs" }
+                new Course { Id = 1, Name = "Test course", Description = "This is a test!", Icon = "fas fa-code" },
+                new Course { Id = 2, Name = "Another test", Description = "This is a test!", Icon = "fas fa-cogs" }
             );
         }
     }
