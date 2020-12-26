@@ -1,0 +1,42 @@
+@{ ViewData["Title"] = "Behandle moduler"; }
+
+<div class="breadcrumbs">
+	<div class="wrapper">
+		<ul class="breadcrumb-nav">
+			<li><a asp-controller="Admin" asp-action="Index">Kontrollpanel</a></li>
+            <li><a asp-controller="Admin" asp-action="ManageCourses">Kursbehandler</a></li>
+			<li>Behandler moduler</li>
+		</ul>
+	</div>
+</div>
+
+<div class="kurs_info">
+    <h1>Behandle moduler</h1><br/>
+    <p>Denne siden er kun for Kodesonens administratorer.</p>			
+</div>
+
+<a href="#" class="add_course_select">
+    <div class="course_select_info">
+        <h2><i class="fas fa-plus-circle" style="padding-right: 6px;"></i> Legg til ny modul</h2>
+    </div>
+</a>
+
+<a href="/?side=endre-kurs&id=<?php echo $_GET['id']; ?>" class="add_course_select" id="kodesonen-button">
+    <div class="course_select_info">
+        <h2><i class="fas fa-edit" style="padding-right: 6px;"></i> Endre kurs</h2>
+    </div>
+</a>
+    
+<div class="course_jump_break">
+    <h3>Alle moduler:</h3>
+</div>
+
+<a href='/?side=skriv-innlegg&id=$chapterid' class='course_select'>
+    <div class='course_select_info'>
+        <h2>$del - $tittel</h2>
+    </div>
+    
+    <div class='course_select_symbol'>
+        <h2><i class='fas fa-edit'></i></h2>
+    </div>
+</a>

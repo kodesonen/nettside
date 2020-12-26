@@ -55,5 +55,12 @@ namespace WebApp.Controllers
             }
             return RedirectToAction("NewCourse");
         }
+
+        [HttpGet]
+        [Route("admin/kursbehandler/behandle-moduler")]
+        public IActionResult ManageModule()
+        {
+            return View();
+        }
     }
 }
