@@ -13,6 +13,7 @@ namespace WebApp.DbHandler.Interfaces
         public List<Module> GetAllModulesById(int courseId);
         public bool AddNewCourse(NewCourseModel model);
         public string GetCourseNameById(int courseId);
+        public string GetModuleNameById(int moduleId);
     }
 
     public class CourseHandler : ICourseHandler
@@ -63,6 +64,13 @@ namespace WebApp.DbHandler.Interfaces
         public string GetCourseNameById(int courseId)
         {
             var Data = db.Courses.Where(x => x.Id == courseId).FirstOrDefault();
+            if (Data != null) return Data.Name;
+            return null;
+        }
+
+        public string GetModuleNameById(int moduleId)
+        {
+            var Data = db.Modules.Where(x => x.Id == moduleId).FirstOrDefault();
             if (Data != null) return Data.Name;
             return null;
         }
