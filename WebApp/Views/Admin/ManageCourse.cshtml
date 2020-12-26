@@ -35,7 +35,7 @@
 
 @foreach(var Module in Model)
 {
-    <a asp-controller="Admin" asp-action="EditModule" asp-route-id="@Module.Id" class="course_select">
+    <a asp-controller="Admin" asp-action="EditModule" asp-route-kurs="@Module.CourseId" asp-route-modul="@Module.Id" class="course_select">
         <div class='course_select_info'>
             <h2>@Module.Chapter.@Module.SubChapter - @Module.Name</h2>
         </div>
