@@ -72,5 +72,25 @@ namespace WebApp.Controllers
             List<Module> moduleList = CourseHandler.GetAllModulesById(id);
             return View(moduleList);
         }
+
+        [HttpGet]
+        [Route("admin/kursbehandler/endre-modul")]
+        public IActionResult EditModule(int kurs, int modul)
+        {
+            /* Check if the ID attributes are unset */
+            if (kurs == 0 || modul == 0) return RedirectToAction("ViewCourses");
+
+            /* Check if course name is null or invalid */
+            var courseName = CourseHandler.GetCourseNameById(kurs);
+            if (courseName != null) ViewBag.CourseName = courseName; 
+            else return RedirectToAction("ViewCourses");
+
+            /* Check if module name is null or invalid */
+            var moduleName = CourseHandler.GetModuleNameById(modul);
+            if (moduleName != null) ViewBag.ModuleName = moduleName; 
+            else return RedirectToAction("ViewCourses");
+
+            return View();
+        }
     }
 }
