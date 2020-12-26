@@ -27,7 +27,7 @@ namespace WebApp.Controllers
 
         [HttpGet]
         [Route("admin/kursbehandler")]
-        public IActionResult ManageCourses()
+        public IActionResult ViewCourses()
         {
             List<Course> CourseList = CourseHandler.LoadAll();
             return View(CourseList);
@@ -57,10 +57,20 @@ namespace WebApp.Controllers
         }
 
         [HttpGet]
-        [Route("admin/kursbehandler/behandle-moduler")]
-        public IActionResult ManageModule()
+        [Route("admin/kursbehandler/behandle-kurs")]
+        public IActionResult ManageCourse(int id)
         {
-            return View();
+            /* Check if ID attribute is unset */
+            if (id == 0) return RedirectToAction("ViewCourses");
+
+            /* Check if course name is null or invalid */
+            var courseName = CourseHandler.GetCourseNameById(id);
+            if (courseName != null) ViewBag.CourseName = courseName; 
+            else return RedirectToAction("ViewCourses");
+
+            /* Get all course modules */
+            List<Module> moduleList = CourseHandler.GetAllModulesById(id);
+            return View(moduleList);
         }
     }
 }

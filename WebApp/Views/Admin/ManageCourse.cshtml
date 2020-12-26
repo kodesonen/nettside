@@ -1,17 +1,19 @@
-@{ ViewData["Title"] = "Behandle moduler"; }
+@model List<WebApp.DbHandler.Models.Module>
+
+@{ ViewData["Title"] = "Kursbehandler"; }
 
 <div class="breadcrumbs">
 	<div class="wrapper">
 		<ul class="breadcrumb-nav">
 			<li><a asp-controller="Admin" asp-action="Index">Kontrollpanel</a></li>
-            <li><a asp-controller="Admin" asp-action="ManageCourses">Kursbehandler</a></li>
-			<li>Behandler moduler</li>
+            <li><a asp-controller="Admin" asp-action="ViewCourses">Kursbehandler</a></li>
+			<li>@ViewBag.CourseName</li>
 		</ul>
 	</div>
 </div>
 
 <div class="kurs_info">
-    <h1>Behandle moduler</h1><br/>
+    <h1>@ViewBag.CourseName</h1><br/>
     <p>Denne siden er kun for Kodesonens administratorer.</p>			
 </div>
 
@@ -31,12 +33,15 @@
     <h3>Alle moduler:</h3>
 </div>
 
-<a href='/?side=skriv-innlegg&id=$chapterid' class='course_select'>
-    <div class='course_select_info'>
-        <h2>$del - $tittel</h2>
-    </div>
-    
-    <div class='course_select_symbol'>
-        <h2><i class='fas fa-edit'></i></h2>
-    </div>
-</a>
+@foreach(var Module in Model)
+{
+    <a asp-controller="Admin" asp-action="EditModule" asp-route-id="@Module.Id" class="course_select">
+        <div class='course_select_info'>
+            <h2>@Module.Chapter.@Module.SubChapter - @Module.Name</h2>
+        </div>
+
+        <div class='course_select_symbol'>
+            <h2><i class='fas fa-edit'></i></h2>
+        </div>
+    </a>
+}

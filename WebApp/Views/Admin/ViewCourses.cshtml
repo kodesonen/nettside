@@ -28,7 +28,7 @@
 
 @foreach(var Course in Model)
 {
-    <a href='/?side=kapittelbehandler&id=$id' class='course_select'>
+    <a asp-controller="Admin" asp-action="ManageCourse" asp-route-id="@Course.Id" class="course_select">
         <div class='course_select_info'>
             <h2><i class='@Course.Icon' style='padding-right: 6px;'></i> @Course.Name</h2>
         </div>
