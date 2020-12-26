@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebApp.DbHandler;
 
 namespace WebApp.DbHandler.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20201226022446_modules")]
+    partial class modules
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -247,24 +249,6 @@ namespace WebApp.DbHandler.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Modules");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Chapter = 1,
-                            CourseId = 1,
-                            Name = "Test module",
-                            SubChapter = 1
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Chapter = 1,
-                            CourseId = 1,
-                            Name = "Another module",
-                            SubChapter = 2
-                        });
                 });
 
             modelBuilder.Entity("WebApp.DbHandler.Models.User", b =>
@@ -342,40 +326,40 @@ namespace WebApp.DbHandler.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "a954fed0-ded6-4ffd-b582-957824cf06e6",
+                            Id = "8b149e65-09e2-426b-b201-af9527426340",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "ccfba14f-f918-4202-bc0d-8330da173b3d",
+                            ConcurrencyStamp = "46481883-f1f2-41f8-89dc-9f7392eccd14",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
                             Private = false,
-                            SecurityStamp = "0cb71166-1b96-4e83-a595-768ed350034b",
+                            SecurityStamp = "57ce8c60-a277-41a2-b780-7a846dca681c",
                             TwoFactorEnabled = false,
                             UserName = "Sirajuddin Asjad"
                         },
                         new
                         {
-                            Id = "00e32a44-e641-4be7-855b-410e62bdf3cd",
+                            Id = "b8ab0be0-d396-4499-bdf2-9efcf28388cd",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "e1b00b51-1494-4232-84a1-b7763bcfb2d9",
+                            ConcurrencyStamp = "50de7b53-4033-41c4-8ddc-757a9d715c90",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
                             Private = true,
-                            SecurityStamp = "d3f0569d-1c8e-4388-9ff7-9015158d48a1",
+                            SecurityStamp = "858bc348-1830-49b8-a8bd-9a271af97b94",
                             TwoFactorEnabled = false,
                             UserName = "Sirapudding"
                         },
                         new
                         {
-                            Id = "d279f086-9c39-4a12-8eac-a75515c05ee6",
+                            Id = "4bdcc0b0-bae0-40ce-81f1-7a9196a061cf",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "f13d99a3-de10-4738-9a40-881f74107f8a",
+                            ConcurrencyStamp = "c0855d34-1628-47be-bf61-35ee5c4be06f",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
                             Private = false,
-                            SecurityStamp = "5adef5ce-8828-43b8-bfb7-35e14661ed98",
+                            SecurityStamp = "53a849da-d1cc-4c80-a54b-7bff7beea2df",
                             TwoFactorEnabled = false,
                             UserName = "Stian Håve"
                         });

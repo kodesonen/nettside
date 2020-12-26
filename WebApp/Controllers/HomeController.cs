@@ -35,12 +35,5 @@ namespace WebApp.Controllers
         {
             return View();
         }
-
-        [Route("Om-oss")]
-        [HttpGet]
-        public IActionResult About()
-        {
-            return View();
-        }
     }
 }
