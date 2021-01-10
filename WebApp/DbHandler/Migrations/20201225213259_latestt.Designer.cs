@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebApp.DbHandler;
 
 namespace WebApp.DbHandler.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20201225213259_latestt")]
+    partial class latestt
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -226,47 +228,6 @@ namespace WebApp.DbHandler.Migrations
                         });
                 });
 
-            modelBuilder.Entity("WebApp.DbHandler.Models.Module", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<int>("Chapter")
-                        .HasColumnType("int");
-
-                    b.Property<int>("CourseId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
-                    b.Property<int>("SubChapter")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Modules");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Chapter = 1,
-                            CourseId = 1,
-                            Name = "Test module",
-                            SubChapter = 1
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Chapter = 1,
-                            CourseId = 1,
-                            Name = "Another module",
-                            SubChapter = 2
-                        });
-                });
-
             modelBuilder.Entity("WebApp.DbHandler.Models.User", b =>
                 {
                     b.Property<string>("Id")
@@ -342,40 +303,40 @@ namespace WebApp.DbHandler.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "a954fed0-ded6-4ffd-b582-957824cf06e6",
+                            Id = "b6507e77-8031-447a-993f-70bbf6506e4c",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "ccfba14f-f918-4202-bc0d-8330da173b3d",
+                            ConcurrencyStamp = "f1eb1765-e2f5-43ce-97d6-cfa4d8ca7f29",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
                             Private = false,
-                            SecurityStamp = "0cb71166-1b96-4e83-a595-768ed350034b",
+                            SecurityStamp = "193cff24-be4b-4ab2-9cf7-4953f0f36e64",
                             TwoFactorEnabled = false,
                             UserName = "Sirajuddin Asjad"
                         },
                         new
                         {
-                            Id = "00e32a44-e641-4be7-855b-410e62bdf3cd",
+                            Id = "02acb44a-fc01-4105-9a82-8b9dc0917c7c",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "e1b00b51-1494-4232-84a1-b7763bcfb2d9",
+                            ConcurrencyStamp = "f890f62a-2a4c-4f25-bc45-e457c8e5c0d7",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
                             Private = true,
-                            SecurityStamp = "d3f0569d-1c8e-4388-9ff7-9015158d48a1",
+                            SecurityStamp = "db7f35ef-0b66-440b-8050-3e0ffb71e541",
                             TwoFactorEnabled = false,
                             UserName = "Sirapudding"
                         },
                         new
                         {
-                            Id = "d279f086-9c39-4a12-8eac-a75515c05ee6",
+                            Id = "070b33bd-8269-4804-8c1b-203942bd92d0",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "f13d99a3-de10-4738-9a40-881f74107f8a",
+                            ConcurrencyStamp = "105d9642-2772-471c-838e-b13022c87da7",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
                             Private = false,
-                            SecurityStamp = "5adef5ce-8828-43b8-bfb7-35e14661ed98",
+                            SecurityStamp = "ef296c2b-40da-42cf-be78-b0815fcd835d",
                             TwoFactorEnabled = false,
                             UserName = "Stian Håve"
                         });
