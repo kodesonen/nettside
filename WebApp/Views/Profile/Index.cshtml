@@ -1,7 +1,6 @@
-@{ ViewData["Title"] = "Brukerprofil"; }
+@model WebApp.Models.User.ProfileModel;
 
-<!-- https://localhost:5001/Bruker -->
-
+@{ ViewData["Title"] = @Model.Name + " - Brukerprofil"; }
 
 <div class="profile-site-header">
 	<div class="wrapper">
