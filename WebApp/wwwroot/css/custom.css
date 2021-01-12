@@ -495,7 +495,7 @@ header#page-head #navigation-section {
 	grid-column: span 12;
 	margin-bottom: 2.5rem;
 	margin-top: 3em;
-	background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../img/homepage/frontpage.jpg');
+	background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../img/homepage/front-images/cover.png');
 	padding: 120px;
 	background-repeat: no-repeat;
 	background-size: contain, cover;
@@ -1259,6 +1259,8 @@ a .authorPost-button {
 }
 .story-box-wrapper {
 	grid-gap: 20px;
+	display: flex; 
+	align-items: center; 
 }
 .story-box {
 	background: var(--main-color-light);
