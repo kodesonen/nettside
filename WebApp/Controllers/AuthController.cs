@@ -9,100 +9,92 @@ using Microsoft.AspNetCore.Mvc;
 using WebApp.Models.Auth;
 using WebApp.DbHandler.Models;
 
-namespace WebApp.Controllers
-{
-    /*
+namespace WebApp.Controllers {
+	/*
 	 * TODO
 	 *	Add modelvalidators
 	 *  Add Model errors
 	 *	Add Validation summary
 	 */
 
-    public class AuthController : Controller
-    {
-        private readonly UserManager<User> userManager;
-        private readonly SignInManager<User> signInManager;
+	public class AuthController : Controller {
+		private readonly UserManager<User> userManager;
+		private readonly SignInManager<User> signInManager;
 
-        public AuthController(
-            UserManager<User> userManager,
-            SignInManager<User> signInManager)
-        {
-            this.userManager = userManager;
-            this.signInManager = signInManager;
-        }
+		public AuthController(
+			UserManager<User> userManager,
+			SignInManager<User> signInManager) {
+			this.userManager = userManager;
+			this.signInManager = signInManager;
+		}
 
-        #region login
-        [HttpGet]
-        [Route("Login")]
-        public IActionResult Login()
-        {
-            return View();
-        }
+		#region login
 
-        [HttpPost]
-        [Route("Login")]
-        public IActionResult Login(LoginModel model)
-        {
-            if (!ModelState.IsValid)
-            {
-                Console.WriteLine("Modelstate invalid");
-                return View(model);
-            }
+		[HttpGet]
+		[Route("Login")]
+		public IActionResult Login() {
+			return View();
+		}
 
-            var result = signInManager.PasswordSignInAsync(model.Email, model.Password, true, false);
+		[HttpPost]
+		[Route("Login")]
+		public IActionResult Login(LoginModel model) {
+			if (!ModelState.IsValid) {
+				Console.WriteLine("Modelstate invalid");
+				return View(model);
+			}
 
-            if (!result.Result.Succeeded)
-            {
-                Console.WriteLine("Password does not match");
-                return View(model);
-            }
+			var result = signInManager.PasswordSignInAsync(model.Email, model.Password, true, false);
 
-            return View();
-        }
+			if (!result.Result.Succeeded) {
+				Console.WriteLine("Password does not match");
+				ModelState.AddModelError("All", "Passord matcher ikke bruker");
+				return View(model);
+			}
 
-        #endregion login
+			Console.WriteLine("Logged in!");
+			return View();
+		}
 
-        #region register
-        [HttpGet]
-        [Route("Join")]
-        public IActionResult Register()
-        {
-            return View();
-        }
+		#endregion login
 
-        [HttpPost]
-        [Route("Join")]
-        public async Task<IActionResult> RegisterAsync(RegisterModel model)
-        {
-            if (!ModelState.IsValid)
-            {
-                Console.WriteLine("Modelstate is invalid");
-                return View(ModelState);
-            }
+		#region register
 
-            User user = new User()
-            {
-                //Id = Guid.NewGuid().ToString(),
-                //Email = model.Email,
-                //UserName = model.Email,
-                //Add first,lastname
-            };
+		[HttpGet]
+		[Route("Join")]
+		public IActionResult Register() {
+			return View();
+		}
 
-            var result = await userManager.CreateAsync(user, model.Password);
+		[HttpPost]
+		[Route("Join")]
+		public async Task<IActionResult> RegisterAsync(RegisterModel model) {
+			if (!ModelState.IsValid) {
+				Console.WriteLine("Modelstate is invalid");
+				return View(ModelState);
+			}
 
-            if (!result.Succeeded)
-            {
-                foreach (var error in result.Errors.ToList())
-                    ModelState.AddModelError("All", error.Description.ToString());
-                Console.WriteLine("Error when creating user");
-                return View(model);
-            }
+			User user = new User() {
+				//Id = Guid.NewGuid().ToString(),
+				//Email = model.Email,
+				//UserName = model.Email,
+				//Add first,lastname
+			};
 
-            await signInManager.PasswordSignInAsync(user.Email, model.Password, true, false);
-            Console.WriteLine("Registered!");
-            return View("Success");
-        }
+			var result = await userManager.CreateAsync(user, model.Password);
 
-        #endregion register
-    }
+			if (!result.Succeeded) {
+				foreach (var error in result.Errors.ToList())
+					ModelState.AddModelError("All", error.Description.ToString());
+				Console.WriteLine("Error when creating user");
+				return View(model);
+			}
+
+			await signInManager.PasswordSignInAsync(user.Email, model.Password, true, false);
+			Console.WriteLine("Registered!");
+			return View("Success");
+		}
+
+		#endregion register
+	}
 }
