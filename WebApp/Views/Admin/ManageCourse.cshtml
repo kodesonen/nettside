@@ -24,9 +24,10 @@
 </a>
 @* ENDRE KURS *@
 
-<a asp-action="NewCourse" asp-route-id="@Model.First().CourseId" class="add_course_select" id="kodesonen-button">
+
+<a asp-action="NewCourse" asp-route-id="@ViewBag.CourseId" class="add_course_select" id="kodesonen-button">
 	<div class="course_select_info">
-		<h2><i class="fas fa-edit" style="padding-right: 6px;"></i> Endre kurs @Model.First().CourseId</h2>
+		<h2><i class="fas fa-edit" style="padding-right: 6px;"></i> Endre kurs @ViewBag.CourseId</h2>
 	</div>
 </a>
 

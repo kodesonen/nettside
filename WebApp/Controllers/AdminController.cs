@@ -105,11 +105,14 @@ namespace WebApp.Controllers {
 			var courseName = CourseHandler.GetCourseNameById(id);
 			if (courseName != null)
 				ViewBag.CourseName = courseName;
-			else
-				return RedirectToAction("ViewCourses");
+			//else
+			//return RedirectToAction("ViewCourses");
+			//Kommenterte ut det ovenfor ettersom enkelte kurs ikke har navn og det er greit å få slettet dem
+			//- Stian
 
 			/* Get all course modules */
 			List<Module> moduleList = CourseHandler.GetAllModulesById(id);
+			ViewBag.CourseId = id;
 			return View(moduleList);
 		}
 
