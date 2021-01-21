@@ -5,6 +5,7 @@ namespace WebApp.DbHandler.Models
 	public class User : IdentityUser
 	{
 		public bool Private { get; set; }
+		public string UrlName { get; set; }
 		public string ApiKey { get; set; }
 
 		public string Description { get; set; }
