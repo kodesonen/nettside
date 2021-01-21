@@ -1,4 +1,4 @@
-@model WebApp.Models.Admin.NewCourseModel
+@model WebApp.DbHandler.Models.Course
 
 @{ ViewData["Title"] = "Nytt kurs"; }
 
@@ -12,27 +12,50 @@
 </div>
 
 <div class="medlem-form">
-    <h1>Legg til nytt kurs</h1><hr>
-    
-    @Html.Raw(TempData["StatusMessage"])
+	@if (Model == null) {
 
-    <form asp-controller="Admin" asp-action="NewCourse" method="post">
-        <label asp-for="Name"><b>Kursnavn</b></label>
-        <input asp-for="Name" placeholder="Oppgi kurs navnet" required>
-            
-        <label asp-for="Description"><b>Beskrivelse</b></label>
-        <input asp-for="Description" placeholder="Oppgi en kort beskrivelse" required>
+		<h1>Legg til nytt kurs</h1><hr>
 
-        <label asp-for="Icon"><b>Kursikon</b></label>
-        <input asp-for="Icon" placeholder='Oppgi kurs ikon (f.eks. "fas ta-toolbox")' required>
+		@Html.Raw(TempData["StatusMessage"])
 
-        <strong>OBS!</strong> Hent ikoner fra <a href="https://fontawesome.com" target="_blank" class="hyperlink">Font Awesome</a> og skriv hele ikon navnet. For eksempel: <strong>fas fa-toolbox</strong>.
+		<form asp-controller="Admin" asp-action="NewCourse" method="post">
+			<label asp-for="Name"><b>Kursnavn</b></label>
+			<input asp-for="Name" placeholder="Oppgi kurs navnet" required>
 
-        <hr>
-        <input type="submit" class="medlem-button add_course_select" value="Legg til kurs">
-    </form>
+			<label asp-for="Description"><b>Beskrivelse</b></label>
+			<input asp-for="Description" placeholder="Oppgi en kort beskrivelse" required>
+
+			<label asp-for="Icon"><b>Kursikon</b></label>
+			<input asp-for="Icon" placeholder='Oppgi kurs ikon (f.eks. "fas ta-toolbox")' required>
+
+			<strong>OBS!</strong> Hent ikoner fra <a href="https://fontawesome.com" target="_blank" class="hyperlink">Font Awesome</a> og skriv hele ikon navnet. For eksempel: <strong>fas fa-toolbox</strong>.
+
+			<hr>
+			<input type="submit" class="medlem-button add_course_select" value="Legg til kurs">
+		</form>
+	} else {
+		<h1>Endre kurs</h1><hr>
+
+		@Html.Raw(TempData["StatusMessage"])
+
+		<form asp-controller="Admin" asp-action="NewCourse" method="post">
+			<label asp-for="Name"><b>Kursnavn</b></label>
+			<input asp-for="Name" placeholder="Oppgi kurs navnet" required>
+
+			<label asp-for="Description"><b>Beskrivelse</b></label>
+			<input asp-for="Description" placeholder="Oppgi en kort beskrivelse" required>
+
+			<label asp-for="Icon"><b>Kursikon</b></label>
+			<input asp-for="Icon" placeholder='Oppgi kurs ikon (f.eks. "fas ta-toolbox")' required>
+
+			<strong>OBS!</strong> Hent ikoner fra <a href="https://fontawesome.com" target="_blank" class="hyperlink">Font Awesome</a> og skriv hele ikon navnet. For eksempel: <strong>fas fa-toolbox</strong>.
+
+			<hr>
+			<input type="submit" class="medlem-button add_course_select" value="Lagre endringer">
+		</form>
+	}
 </div>
 
 <div class="sidebar-image">
-    <img src="~/img/raw_svg/guy_with_moustache_no_hat.svg"/>
+	<img src="~/img/raw_svg/guy_with_moustache_no_hat.svg" />
 </div>
