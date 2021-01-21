@@ -2,7 +2,7 @@
 
 	<PropertyGroup>
 		<TargetFramework>netcoreapp3.1</TargetFramework>
-		<TargetLatestRuntimePatch>true</TargetLatestRuntimePatch>
+		<!-- <TargetLatestRuntimePatch>true</TargetLatestRuntimePatch> Removing this temporarily -->
 	</PropertyGroup>
 
 	<ItemGroup>
