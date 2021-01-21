@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebApp.DbHandler;
 
 namespace WebApp.DbHandler.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20210121181739_Heisannn")]
+    partial class Heisannn
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -360,17 +362,15 @@ namespace WebApp.DbHandler.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "50af68ab-378d-403d-ac69-5d90cb1cb8f9",
+                            Id = "c6e0e05e-c0c5-46c4-b87d-4a84c115aa81",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "2bdde3c6-cce0-46a4-a593-9619cd38ea36",
+                            ConcurrencyStamp = "f7f08441-31c4-4cff-9dad-2f5ba7b82856",
                             Description = "Dette er en beskrivelse!",
                             EmailConfirmed = false,
-                            GitHub = "https://github.com/sirasjad",
-                            LinkedIn = "https://www.linkedin.com/in/sirajuddin97",
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
                             Private = false,
-                            SecurityStamp = "35fad868-eb75-4b44-aa57-7cf484fb3751",
+                            SecurityStamp = "66f0003e-30b9-4b49-8c31-a5870e59eb35",
                             StaffPosition = "Systemansvarlig",
                             Study = "Masterstudent",
                             TwoFactorEnabled = false,
@@ -380,16 +380,28 @@ namespace WebApp.DbHandler.Migrations
                         },
                         new
                         {
-                            Id = "05cde3ee-b325-4e98-ac65-0303c6ec10bf",
+                            Id = "392db5fb-b8a4-44db-ac1e-d1526f933242",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "c94c2da4-836d-487d-a4f2-8b5612c5878d",
+                            ConcurrencyStamp = "ea3c9cea-3a45-4558-aae7-3c44e7846d13",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            PhoneNumberConfirmed = false,
+                            Private = true,
+                            SecurityStamp = "6da68f0d-0673-4cae-a252-a543de6fb5ae",
+                            TwoFactorEnabled = false,
+                            UserName = "Sirapudding"
+                        },
+                        new
+                        {
+                            Id = "de38cf77-382d-499d-8d85-a1a8f0baf08f",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "9c9333d5-c07c-4df4-8948-5076507191fe",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
                             Private = false,
-                            SecurityStamp = "183fd6b9-6e9f-4ee1-a110-8fe083ef38fa",
+                            SecurityStamp = "9787bca5-be42-459f-834b-c26960982a86",
                             TwoFactorEnabled = false,
-                            UrlName = "stianh",
                             UserName = "Stian Håve"
                         });
                 });
