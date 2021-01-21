@@ -18,11 +18,16 @@ namespace WebApp.Controllers
         }
 
         [HttpGet]
-        [Route("bruker/{id}")]
+        [Route("profil/{id}")]
         public IActionResult Index(string id)
         {
+            /* Try to find the user based on ID */
             User user = UserHandler.GetUserById(id);
 
+            /* If user was not found, try again with URL name */
+            if (user == null) user = UserHandler.GetUserByUrlName(id);
+
+            /* Proceed if the user was found */
             if (user != null)
             {
                 ProfileModel profileModel = new ProfileModel
@@ -35,6 +40,9 @@ namespace WebApp.Controllers
                     University = user.University,
                     Study = user.Study
                 };
+
+                if (string.IsNullOrEmpty(profileModel.Description)) profileModel.Description = $"Velkommen til {profileModel.Name} sin profil!";
+                if (string.IsNullOrEmpty(profileModel.Description)) profileModel.Description = $"Velkommen til {profileModel.Name} sin profil!";
 
                 return View(profileModel);
             }
