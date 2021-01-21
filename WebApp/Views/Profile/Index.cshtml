@@ -1,7 +1,6 @@
-@{ ViewData["Title"] = "Brukerprofil"; }
+@model WebApp.Models.User.ProfileModel;
 
-<!-- https://localhost:5001/Bruker -->
-
+@{ ViewData["Title"] = @Model.Name; }
 
 <div class="profile-site-header">
 	<div class="wrapper">
@@ -10,25 +9,40 @@
 
 			<div class="profile-site-info-links">
 				<center>
-					<a href="https://www.linkedin.com/in/sirajuddin97/" target="_blank"><i class="fab fa-linkedin"></i></a>
-					<a href="https://github.com/sirasjad" target="_blank"><i class="fab fa-github-square"></i></a>
+					@if (!string.IsNullOrEmpty(@Model.GitHub))
+					{
+						<a href="@Model.GitHub" target="_blank"><i class="fab fa-github-square"></i></a>
+					}
+
+					@if (!string.IsNullOrEmpty(@Model.LinkedIn))
+					{
+						<a href="@Model.LinkedIn" target="_blank"><i class="fab fa-linkedin"></i></a>
+					}
 				</center>
 			</div>
 		</div>
+
 		<div class="profile-site-desc">
 			<div class="wrapper">
 				<div class="profile-site-name">
-					<h1>Sirajuddin Asjad</h1>
+					<h1>@Model.Name</h1>
 					<a href="#"><div id="kodesonen-button2" class="button profile-site-name-button">Besøk nettside <i class="fas fa-external-link-alt"></i></div></a>
 				</div>
 
 				<div class="profile-site-info">
-					<span><i class="fas fa-graduation-cap"></i> Masterstudent (USN)</span>
-					<span><i class="fas fa-briefcase"></i> Systemansvarlig</span>
+					@if (!string.IsNullOrEmpty(@Model.Study))
+					{
+						<span><i class="fas fa-graduation-cap"></i> @Model.Study (@Model.University)</span>
+					}
+
+					@if (!string.IsNullOrEmpty(@Model.StaffPosition))
+					{
+						<span><i class="fas fa-briefcase"></i> @Model.StaffPosition</span>
+					}
 				</div>
 
 				<div class="profile-site-content"><br/>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+					<p>@Model.Description</p>
 				</div>
 			</div>
 		</div>
