@@ -77,7 +77,7 @@ namespace WebApp.DbHandler.Interfaces {
 		public string GetModuleNameById(int moduleId) {
 			var Data = db.Modules.Where(x => x.Id == moduleId).FirstOrDefault();
 			if (Data != null)
-				return Data.Name;
+				return Data.ModuleName;
 			return null;
 		}
 
