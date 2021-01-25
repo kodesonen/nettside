@@ -17,17 +17,16 @@
 	<p>Denne siden er kun for Kodesonens administratorer.</p>
 </div>
 
-<a href="#" class="add_course_select">
+<a asp-action="EditModule" asp-controller="Admin" asp-route-kurs="@ViewBag.CourseId" asp-route-modul="69420" class="add_course_select">
 	<div class="course_select_info">
 		<h2 style="color: white;"><i class="fas fa-plus-circle" style="padding-right: 6px;"></i> Legg til ny modul</h2>
 	</div>
 </a>
 @* ENDRE KURS *@
 
-
-<a asp-action="NewCourse" asp-route-id="@ViewBag.CourseId" class="add_course_select" id="kodesonen-button">
+<a asp-action="NewCourse" asp-route-kurs="@ViewBag.CourseId" class="add_course_select" id="kodesonen-button">
 	<div class="course_select_info">
-		<h2><i class="fas fa-edit" style="padding-right: 6px;"></i> Endre kurs @ViewBag.CourseId</h2>
+		<h2 style="color: white;" ><i class="fas fa-edit" style="padding-right: 6px;"></i> Endre kurs @ViewBag.CourseId</h2>
 	</div>
 </a>
 
@@ -38,7 +37,7 @@
 @foreach (var Module in Model) {
 	<a asp-controller="Admin" asp-action="EditModule" asp-route-kurs="@Module.CourseId" asp-route-modul="@Module.Id" class="course_select">
 		<div class='course_select_info'>
-			<h2>@Module.Chapter.@Module.SubChapter - @Module.Name</h2>
+			<h2>@Module.Chapter.@Module.SubChapter - @Module.ModuleName</h2>
 		</div>
 
 		<div class='course_select_symbol'>
