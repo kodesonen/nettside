@@ -7,6 +7,7 @@ using WebApp.DbHandler.Interfaces;
 using WebApp.DbHandler.Models;
 using WebApp.Models.Admin;
 using WebApp.Helpers;
+using System.Diagnostics;
 
 namespace WebApp.Controllers {
 
@@ -57,7 +58,7 @@ namespace WebApp.Controllers {
 				}
 			} else {
 				if (ModelState.IsValid) {
-					CourseHandler.Update(model);
+					CourseHandler.UpdateCourse(model);
 					TempData["StatusMessage"] = StatusMessage.Success("Hurra!", "Kurset ble oppdatert");
 				} else {
 					TempData["StatusMessage"] = StatusMessage.Error("Oops!", "Noe gikk galt!");
@@ -111,7 +112,7 @@ namespace WebApp.Controllers {
 			//- Stian
 
 			/* Get all course modules */
-			List<Module> moduleList = CourseHandler.GetAllModulesById(id);
+			List<Module> moduleList = CourseHandler.GetModulesByCourseId(id);
 			ViewBag.CourseId = id;
 			return View(moduleList);
 		}
@@ -119,25 +120,62 @@ namespace WebApp.Controllers {
 		[HttpGet]
 		[Route("admin/kursbehandler/endre-modul")]
 		public IActionResult EditModule(int kurs, int modul) {
-			/* Check if the ID attributes are unset */
-			if (kurs == 0 || modul == 0)
-				return RedirectToAction("ViewCourses");
+			Module model;
+			//Bruker denne inten for å legge til ny modul
+			//Den kan endres men må også endres i ManageCourse.cshtml
+			//Regner med vi ikke skal ha 69000 moduler
+			if (modul == 69420) {
+				var m = CourseHandler.GetModulesByCourseId(kurs);
+				int lastIndex = m.Count() - 1 > 0 ? m.Count() - 1 : 0;
+				Console.WriteLine(lastIndex);
 
-			/* Check if course name is null or invalid */
-			var courseName = CourseHandler.GetCourseNameById(kurs);
-			if (courseName != null)
-				ViewBag.CourseName = courseName;
-			else
-				return RedirectToAction("ViewCourses");
+				model = new Module() {
+					CourseId = kurs,
+					Chapter = lastIndex > 0 ? m[lastIndex].Chapter : 1,
+					SubChapter = lastIndex > 0 ? m[lastIndex].SubChapter + 1 : 1,
+					update = false
+				};
+				return View(model);
+			} else {
+				model = CourseHandler.GetModuleById(modul);
+			}
 
-			/* Check if module name is null or invalid */
-			var moduleName = CourseHandler.GetModuleNameById(modul);
-			if (moduleName != null)
-				ViewBag.ModuleName = moduleName;
-			else
-				return RedirectToAction("ViewCourses");
+			model.update = true;
+			return View(model);
+		}
 
-			return View();
+		[HttpPost]
+		[Route("admin/kursbehandler/endre-modul")]
+		public IActionResult EditModule(Module m) {
+			//Oppdater tid
+			Console.WriteLine(m.update);
+			if (m.update) {
+				DateTime _date = DateTime.Now;
+				var _dateString = _date.ToString("dd-MM-yyyy");
+				DateTime d;
+				if (DateTime.TryParseExact(_dateString, "dd-MM-yyyy", System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out d)) {
+					m.Updated = d;
+				}
+				var updateResult = CourseHandler.UpdateModule(m);
+				if (updateResult) {
+					Module module = CourseHandler.GetModulesByCourseId(m.Id).FirstOrDefault();
+					TempData["Message"] = "Update successful";
+					m.update = true;
+					return RedirectToAction("ManageCourse", new { id = m.CourseId });
+				}
+				TempData["Message"] = "Update failed";
+			} else {
+				//Legg inn published dato
+				DateTime _date = DateTime.Now;
+				var _dateString = _date.ToString("dd-MM-yyyy");
+				DateTime d;
+				if (DateTime.TryParseExact(_dateString, "dd-MM-yyyy", System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out d)) {
+					m.Published = d;
+				}
+				CourseHandler.AddNewModule(m);
+			}
+			m.update = true;
+			return RedirectToAction("ManageCourse", new { id = m.CourseId });
 		}
 	}
 }
