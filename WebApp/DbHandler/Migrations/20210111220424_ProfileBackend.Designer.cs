@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebApp.DbHandler;
 
 namespace WebApp.DbHandler.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20210111220424_ProfileBackend")]
+    partial class ProfileBackend
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -339,9 +341,6 @@ namespace WebApp.DbHandler.Migrations
                     b.Property<string>("University")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
-                    b.Property<string>("UrlName")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
                     b.Property<string>("UserName")
                         .HasColumnType("varchar(256) CHARACTER SET utf8mb4")
                         .HasMaxLength(256);
@@ -360,36 +359,41 @@ namespace WebApp.DbHandler.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "50af68ab-378d-403d-ac69-5d90cb1cb8f9",
+                            Id = "7605339b-74cf-42b4-a2b1-10f7df1b6841",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "2bdde3c6-cce0-46a4-a593-9619cd38ea36",
-                            Description = "Dette er en beskrivelse!",
+                            ConcurrencyStamp = "6d6b4c47-d6cc-45b5-8760-8d72dcabde5b",
                             EmailConfirmed = false,
-                            GitHub = "https://github.com/sirasjad",
-                            LinkedIn = "https://www.linkedin.com/in/sirajuddin97",
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
                             Private = false,
-                            SecurityStamp = "35fad868-eb75-4b44-aa57-7cf484fb3751",
-                            StaffPosition = "Systemansvarlig",
-                            Study = "Masterstudent",
+                            SecurityStamp = "c20a77fe-e85f-414f-a3aa-cf9eb010c10c",
                             TwoFactorEnabled = false,
-                            University = "USN",
-                            UrlName = "sirasjad",
                             UserName = "Sirajuddin Asjad"
                         },
                         new
                         {
-                            Id = "05cde3ee-b325-4e98-ac65-0303c6ec10bf",
+                            Id = "5999c4a3-d16d-4d38-ad2b-a76f3a77e4e9",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "c94c2da4-836d-487d-a4f2-8b5612c5878d",
+                            ConcurrencyStamp = "3c5d6bfa-8103-4ae0-883f-d32986f0bedf",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            PhoneNumberConfirmed = false,
+                            Private = true,
+                            SecurityStamp = "d19375ea-229d-4e02-9490-940442f5b359",
+                            TwoFactorEnabled = false,
+                            UserName = "Sirapudding"
+                        },
+                        new
+                        {
+                            Id = "22ce0c9d-e77b-4d53-b0d2-03549a0dbfe2",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "88f20065-6014-4b72-88a9-c02a1ab65b8b",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
                             Private = false,
-                            SecurityStamp = "183fd6b9-6e9f-4ee1-a110-8fe083ef38fa",
+                            SecurityStamp = "a68fbc1a-4126-43ee-a61f-6a1bace2fd70",
                             TwoFactorEnabled = false,
-                            UrlName = "stianh",
                             UserName = "Stian Håve"
                         });
                 });

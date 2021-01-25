@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebApp.DbHandler;
 
 namespace WebApp.DbHandler.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20201226022446_modules")]
+    partial class modules
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -247,24 +249,6 @@ namespace WebApp.DbHandler.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Modules");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Chapter = 1,
-                            CourseId = 1,
-                            Name = "Test module",
-                            SubChapter = 1
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Chapter = 1,
-                            CourseId = 1,
-                            Name = "Another module",
-                            SubChapter = 2
-                        });
                 });
 
             modelBuilder.Entity("WebApp.DbHandler.Models.User", b =>
@@ -282,21 +266,12 @@ namespace WebApp.DbHandler.Migrations
                         .IsConcurrencyToken()
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
-                    b.Property<string>("Description")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
                     b.Property<string>("Email")
                         .HasColumnType("varchar(256) CHARACTER SET utf8mb4")
                         .HasMaxLength(256);
 
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("tinyint(1)");
-
-                    b.Property<string>("GitHub")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
-                    b.Property<string>("LinkedIn")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("tinyint(1)");
@@ -327,20 +302,11 @@ namespace WebApp.DbHandler.Migrations
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
-                    b.Property<string>("StaffPosition")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
-                    b.Property<string>("Study")
+                    b.Property<string>("TestColumn")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("tinyint(1)");
-
-                    b.Property<string>("University")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
-                    b.Property<string>("UrlName")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<string>("UserName")
                         .HasColumnType("varchar(256) CHARACTER SET utf8mb4")
@@ -360,36 +326,41 @@ namespace WebApp.DbHandler.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "50af68ab-378d-403d-ac69-5d90cb1cb8f9",
+                            Id = "8b149e65-09e2-426b-b201-af9527426340",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "2bdde3c6-cce0-46a4-a593-9619cd38ea36",
-                            Description = "Dette er en beskrivelse!",
+                            ConcurrencyStamp = "46481883-f1f2-41f8-89dc-9f7392eccd14",
                             EmailConfirmed = false,
-                            GitHub = "https://github.com/sirasjad",
-                            LinkedIn = "https://www.linkedin.com/in/sirajuddin97",
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
                             Private = false,
-                            SecurityStamp = "35fad868-eb75-4b44-aa57-7cf484fb3751",
-                            StaffPosition = "Systemansvarlig",
-                            Study = "Masterstudent",
+                            SecurityStamp = "57ce8c60-a277-41a2-b780-7a846dca681c",
                             TwoFactorEnabled = false,
-                            University = "USN",
-                            UrlName = "sirasjad",
                             UserName = "Sirajuddin Asjad"
                         },
                         new
                         {
-                            Id = "05cde3ee-b325-4e98-ac65-0303c6ec10bf",
+                            Id = "b8ab0be0-d396-4499-bdf2-9efcf28388cd",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "c94c2da4-836d-487d-a4f2-8b5612c5878d",
+                            ConcurrencyStamp = "50de7b53-4033-41c4-8ddc-757a9d715c90",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            PhoneNumberConfirmed = false,
+                            Private = true,
+                            SecurityStamp = "858bc348-1830-49b8-a8bd-9a271af97b94",
+                            TwoFactorEnabled = false,
+                            UserName = "Sirapudding"
+                        },
+                        new
+                        {
+                            Id = "4bdcc0b0-bae0-40ce-81f1-7a9196a061cf",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "c0855d34-1628-47be-bf61-35ee5c4be06f",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
                             Private = false,
-                            SecurityStamp = "183fd6b9-6e9f-4ee1-a110-8fe083ef38fa",
+                            SecurityStamp = "53a849da-d1cc-4c80-a54b-7bff7beea2df",
                             TwoFactorEnabled = false,
-                            UrlName = "stianh",
                             UserName = "Stian Håve"
                         });
                 });

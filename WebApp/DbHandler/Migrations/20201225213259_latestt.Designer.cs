@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebApp.DbHandler;
 
 namespace WebApp.DbHandler.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20201225213259_latestt")]
+    partial class latestt
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -226,47 +228,6 @@ namespace WebApp.DbHandler.Migrations
                         });
                 });
 
-            modelBuilder.Entity("WebApp.DbHandler.Models.Module", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<int>("Chapter")
-                        .HasColumnType("int");
-
-                    b.Property<int>("CourseId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
-                    b.Property<int>("SubChapter")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Modules");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Chapter = 1,
-                            CourseId = 1,
-                            Name = "Test module",
-                            SubChapter = 1
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Chapter = 1,
-                            CourseId = 1,
-                            Name = "Another module",
-                            SubChapter = 2
-                        });
-                });
-
             modelBuilder.Entity("WebApp.DbHandler.Models.User", b =>
                 {
                     b.Property<string>("Id")
@@ -282,21 +243,12 @@ namespace WebApp.DbHandler.Migrations
                         .IsConcurrencyToken()
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
-                    b.Property<string>("Description")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
                     b.Property<string>("Email")
                         .HasColumnType("varchar(256) CHARACTER SET utf8mb4")
                         .HasMaxLength(256);
 
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("tinyint(1)");
-
-                    b.Property<string>("GitHub")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
-                    b.Property<string>("LinkedIn")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("tinyint(1)");
@@ -327,20 +279,11 @@ namespace WebApp.DbHandler.Migrations
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
-                    b.Property<string>("StaffPosition")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
-                    b.Property<string>("Study")
+                    b.Property<string>("TestColumn")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("tinyint(1)");
-
-                    b.Property<string>("University")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
-                    b.Property<string>("UrlName")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<string>("UserName")
                         .HasColumnType("varchar(256) CHARACTER SET utf8mb4")
@@ -360,36 +303,41 @@ namespace WebApp.DbHandler.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "50af68ab-378d-403d-ac69-5d90cb1cb8f9",
+                            Id = "b6507e77-8031-447a-993f-70bbf6506e4c",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "2bdde3c6-cce0-46a4-a593-9619cd38ea36",
-                            Description = "Dette er en beskrivelse!",
+                            ConcurrencyStamp = "f1eb1765-e2f5-43ce-97d6-cfa4d8ca7f29",
                             EmailConfirmed = false,
-                            GitHub = "https://github.com/sirasjad",
-                            LinkedIn = "https://www.linkedin.com/in/sirajuddin97",
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
                             Private = false,
-                            SecurityStamp = "35fad868-eb75-4b44-aa57-7cf484fb3751",
-                            StaffPosition = "Systemansvarlig",
-                            Study = "Masterstudent",
+                            SecurityStamp = "193cff24-be4b-4ab2-9cf7-4953f0f36e64",
                             TwoFactorEnabled = false,
-                            University = "USN",
-                            UrlName = "sirasjad",
                             UserName = "Sirajuddin Asjad"
                         },
                         new
                         {
-                            Id = "05cde3ee-b325-4e98-ac65-0303c6ec10bf",
+                            Id = "02acb44a-fc01-4105-9a82-8b9dc0917c7c",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "c94c2da4-836d-487d-a4f2-8b5612c5878d",
+                            ConcurrencyStamp = "f890f62a-2a4c-4f25-bc45-e457c8e5c0d7",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            PhoneNumberConfirmed = false,
+                            Private = true,
+                            SecurityStamp = "db7f35ef-0b66-440b-8050-3e0ffb71e541",
+                            TwoFactorEnabled = false,
+                            UserName = "Sirapudding"
+                        },
+                        new
+                        {
+                            Id = "070b33bd-8269-4804-8c1b-203942bd92d0",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "105d9642-2772-471c-838e-b13022c87da7",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
                             Private = false,
-                            SecurityStamp = "183fd6b9-6e9f-4ee1-a110-8fe083ef38fa",
+                            SecurityStamp = "ef296c2b-40da-42cf-be78-b0815fcd835d",
                             TwoFactorEnabled = false,
-                            UrlName = "stianh",
                             UserName = "Stian Håve"
                         });
                 });

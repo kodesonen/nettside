@@ -1,0 +1,19 @@
+@{ ViewData["Title"] = "Endre modul"; }
+
+<div class="breadcrumbs">
+	<div class="wrapper">
+		<ul class="breadcrumb-nav">
+			<li><a asp-controller="Admin" asp-action="Index">Kontrollpanel</a></li>
+            <li><a asp-controller="Admin" asp-action="ViewCourses">Kursbehandler</a></li>
+            <li>@ViewBag.CourseName</li>
+			<li>@ViewBag.ModuleName</li>
+		</ul>
+	</div>
+</div>
+
+<div class="kurs_info">
+    <h1>@ViewBag.ModuleName</h1><br/>
+    <p>Denne siden er kun for Kodesonens administratorer.</p>			
+</div>
+
+Heisann

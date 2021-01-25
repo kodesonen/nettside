@@ -10,9 +10,25 @@ namespace WebApp.DbHandler
         {
             // Users
             modelBuilder.Entity<User>().HasData(
-                new User { UserName = "Sirajuddin Asjad", Private = false },
-                new User { UserName = "Sirapudding", Private = true },
-                new User { UserName = "Stian Håve", Private = false }
+                new User 
+                { 
+                    UserName = "Sirajuddin Asjad", 
+                    Private = false, 
+                    UrlName = "sirasjad", 
+                    StaffPosition = "Systemansvarlig", 
+                    University = "USN",
+                    Study = "Masterstudent",
+                    Description = "Dette er en beskrivelse!",
+                    GitHub = "https://github.com/sirasjad",
+                    LinkedIn = "https://www.linkedin.com/in/sirajuddin97"
+                },
+
+                new User 
+                { 
+                    UserName = "Stian Håve", 
+                    Private = false, 
+                    UrlName = "stianh"
+                }
             );
 
             // Challenges
@@ -23,8 +39,14 @@ namespace WebApp.DbHandler
 
             // Courses
             modelBuilder.Entity<Course>().HasData(
-                new Course { Id = 1, Title = "Test course", Description = "This is a test!", Icon = "fas fa-code" },
-                new Course { Id = 2, Title = "Another test", Description = "This is a test!", Icon = "fas fa-cogs" }
+                new Course { Id = 1, Name = "Test course", Description = "This is a test!", Icon = "fas fa-code" },
+                new Course { Id = 2, Name = "Another test", Description = "This is a test!", Icon = "fas fa-cogs" }
+            );
+
+            // Modules
+            modelBuilder.Entity<Module>().HasData(
+                new Module { Id = 1, Name = "Test module", CourseId = 1, Chapter = 1, SubChapter = 1 },
+                new Module { Id = 2, Name = "Another module", CourseId = 1, Chapter = 1, SubChapter = 2 }
             );
         }
     }

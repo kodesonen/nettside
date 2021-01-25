@@ -9,6 +9,8 @@ namespace WebApp.DbHandler.Interfaces
     {
         public List<User> GetUsers();
         public List<User> GetPublicUsers();
+        public User GetUserById(string userId);
+        public User GetUserByUrlName(string name);
     }
 
     public class UserHandler : IUserHandler
@@ -31,6 +33,20 @@ namespace WebApp.DbHandler.Interfaces
             var Data = db.Users.Where(x => x.Private == false).OrderByDescending(y => y.Id);
             List<User> ListOfUsers = Data.ToList();
             return ListOfUsers;
+        }
+
+        public User GetUserById(string userId)
+        {
+            var Data = db.Users.Where(x => x.Id == userId).FirstOrDefault();
+            if (Data != null) return Data;
+            return null;
+        }
+
+        public User GetUserByUrlName(string name)
+        {
+            var Data = db.Users.Where(x => x.UrlName == name).FirstOrDefault();
+            if (Data != null) return Data;
+            return null;
         }
     }
 }

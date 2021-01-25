@@ -1,0 +1,39 @@
+@model List<WebApp.DbHandler.Models.Course>
+
+@{ ViewData["Title"] = "Kursbehandler"; }
+
+<div class="breadcrumbs">
+	<div class="wrapper">
+		<ul class="breadcrumb-nav">
+			<li><a asp-controller="Admin" asp-action="Index">Kontrollpanel</a></li>
+			<li>Kursbehandler</li>
+		</ul>
+	</div>
+</div>
+
+<div class="kurs_info">
+	<h1>Kursbehandler</h1><br />
+	<p>Denne siden er kun for Kodesonens administratorer.</p>
+</div>
+
+<a asp-controller="Admin" asp-action="NewCourse" class="add_course_select">
+	<div class="course_select_info">
+		<h2 style="color: white;"><i class="fas fa-plus-circle" style="padding-right: 6px;"></i> Legg til nytt kurs</h2>
+	</div>
+</a>
+
+<div class="course_jump_break">
+	<h3>Alle tilgjengelige kurs:</h3>
+</div>
+
+@foreach (var Course in Model) {
+	<a asp-controller="Admin" asp-action="ManageCourse" asp-route-id="@Course.Id" class="course_select">
+		<div class='course_select_info'>
+			<h2><i class='@Course.Icon' style='padding-right: 6px;'></i> @Course.Name</h2>
+		</div>
+
+		<div class='course_select_symbol'>
+			<h2><i class='fas fa-copy'></i> 99</h2>
+		</div>
+	</a>
+}
