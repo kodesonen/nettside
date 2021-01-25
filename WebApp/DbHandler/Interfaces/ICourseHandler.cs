@@ -13,9 +13,13 @@ namespace WebApp.DbHandler.Interfaces {
 
 		public List<Module> GetAllModules();
 
-		public List<Module> GetAllModulesById(int courseId);
+		public Module GetModuleById(int moduleId);
+
+		public List<Module> GetModulesByCourseId(int courseId);
 
 		public bool AddNewCourse(Course model);
+
+		public bool AddNewModule(Module model);
 
 		public string GetCourseNameById(int courseId);
 
@@ -23,7 +27,9 @@ namespace WebApp.DbHandler.Interfaces {
 
 		public Course GetCourseById(int courseId);
 
-		public bool Update(Course model);
+		public bool UpdateCourse(Course model);
+
+		public bool UpdateModule(Module model);
 	}
 
 	public class CourseHandler : ICourseHandler {
@@ -45,7 +51,7 @@ namespace WebApp.DbHandler.Interfaces {
 			return allModules;
 		}
 
-		public List<Module> GetAllModulesById(int courseId) {
+		public List<Module> GetModulesByCourseId(int courseId) {
 			var Data = db.Modules.Where(x => x.CourseId == courseId);
 			List<Module> allModules = Data.ToList();
 			return allModules;
@@ -64,6 +70,13 @@ namespace WebApp.DbHandler.Interfaces {
 			db.SaveChanges();
 
 			/* Burde antakeligvis være noe feilsjekk her */
+			return true;
+		}
+
+		public bool AddNewModule(Module model) {
+			db.Modules.Add(model);
+			db.SaveChanges();
+
 			return true;
 		}
 
@@ -90,11 +103,24 @@ namespace WebApp.DbHandler.Interfaces {
 			return course.First();
 		}
 
-		public bool Update(Course model) {
+		public bool UpdateCourse(Course model) {
 			db.Courses.Update(model);
 			var result = db.SaveChanges();
 			//Returns true if more than 0 rows affected
 			return result > 0;
+		}
+
+		public bool UpdateModule(Module model) {
+			db.Modules.Update(model);
+			var result = db.SaveChanges();
+			//Returns true if more than 0 rows affected
+			return result > 0;
+		}
+
+		public Module GetModuleById(int moduleId) {
+			var Data = db.Modules.Where(x => x.Id == moduleId);
+			Module allModules = Data.FirstOrDefault();
+			return allModules;
 		}
 	}
 }
