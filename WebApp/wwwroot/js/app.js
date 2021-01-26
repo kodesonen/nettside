@@ -20,16 +20,20 @@ var modal = document.getElementById('utfordringer-modal');
 var img = document.getElementById('image-ufordringer-id');
 var modalImg = document.getElementById("utfordringer_image");
 var captionText = document.getElementById("caption");
-img.onclick = function(){
-  modal.style.display = "block";
-  modalImg.src = this.src;
-  captionText.innerHTML = this.alt;
+if (img !== null) {
+    img.onclick = function(){
+      modal.style.display = "block";
+      modalImg.src = this.src;
+      captionText.innerHTML = this.alt;
+    }
 }
 
 var span = document.getElementsByClassName("close")[0];
+if (span !== null) {
 
-span.onclick = function() { 
-  modal.style.display = "none";
+    span.onclick = function() { 
+      modal.style.display = "none";
+    }
 }
 
 // ------------------------------ //

@@ -45,8 +45,8 @@ namespace WebApp.DbHandler
 
             // Modules
             modelBuilder.Entity<Module>().HasData(
-                new Module { Id = 1, Name = "Test module", CourseId = 1, Chapter = 1, SubChapter = 1 },
-                new Module { Id = 2, Name = "Another module", CourseId = 1, Chapter = 1, SubChapter = 2 }
+                new Module { Id = 1, ModuleName = "Test module", CourseId = 1, Chapter = 1, SubChapter = 1 },
+                new Module { Id = 2, ModuleName = "Another module", CourseId = 1, Chapter = 1, SubChapter = 2 }
             );
         }
     }
