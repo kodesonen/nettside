@@ -119,7 +119,7 @@ a .fas {
 }
 .text-info {
 	grid-column: span 12;
-	margin-top: 60px;
+	margin-top: 3em;
 	padding-bottom: 20px;
 }
 .button {
@@ -492,14 +492,19 @@ header#page-head #navigation-section {
 /* Hjemsiden */
 
 #promotion-text {
-	grid-column: span 8;
-	margin-bottom: 6em;
-	margin-top: 6em;
+	grid-column: span 12;
+	margin-bottom: 2.5rem;
+	margin-top: 3em;
+	background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../img/homepage/frontpage.jpg');
+	padding: 120px;
+	background-repeat: no-repeat;
+	background-size: contain, cover;
+	background-position: center;
 }
 #promotion-text > h1 {
 	font-size: 3em;
 	font-weight: 300;
-	color: var(--main-color);
+	color: var(--main-color-light);
 }
 #promotion-text > h1 > strong {
 	display: block;
@@ -514,13 +519,12 @@ header#page-head #navigation-section {
 }
 #promotion-links {
 	grid-column: span 12;
-	margin-bottom: 2.5rem;
 }
 
 .main-tab {
 	background: var(--main-color-grey);
 	padding: 2em;
-	margin-bottom: 30px;
+	margin-bottom: 10px;
 	transition: .3s;
 	text-decoration: none;
 	margin-right: .5em;
@@ -804,7 +808,7 @@ a .main-tab > p {
 	max-width: var(--max-width);
 }
 .challenge-info-buttons .hyperlink:hover {
-	text-decoration: underline;
+	/* text-decoration: underline; */
 }
 #caption {
 	margin: auto;
@@ -919,7 +923,7 @@ a .main-tab > p {
 	border: none;
 	cursor: pointer;
 	font-size: medium;
-	border-radius: 20px;
+	border-radius: 2px;
 	background: var(--main-color);
 	font-size: 20px;
 	font-weight: 3000;
@@ -1008,7 +1012,7 @@ a .main-tab > p {
 
 .kurs_info {
 	grid-column: span 12;
-	margin-top: 60px;
+	margin-top: 3em;
 	padding-bottom: 20px;
 	border-bottom: 1px solid #f7f7f7;
 }
@@ -1207,15 +1211,15 @@ a .main-tab > p {
 	border-bottom: 1px solid #f7f7f7;
 }
 .authorPost-section {
-	width: 100%;
-	padding: 40px 40px;
 	border-radius: 5px;
 	transition: .3s;
 	color: #000;
+	margin-left: 30px;
 	margin-bottom: 30px;
 	border-bottom: 1px solid #f7f7f7;
 	background: rgb(245, 245, 245);
 	position: relative;
+	padding: 40px 40px 70px 40px;
 }
 .authorPost-section:after {
 	content: "";
@@ -1231,14 +1235,11 @@ a .main-tab > p {
 }
 
 a .authorPost-button {
-	position: absolute;
-    left:50%;
-	margin-left:-40px;
-	margin-top: -10px;
-	z-index: 10;
-	color:var(--main-color);
-	padding: 7px 15px 7px 15px;
-	border-radius: 20px;
+	position: absolute !important;
+    left:50% !important;
+	margin-left:-40px !important;
+	margin-top: 15px !important;
+	z-index: 10 !important;
 }
 .authPost-button:hover {
 	text-decoration: underline;
@@ -1250,12 +1251,30 @@ a .authorPost-button {
 .kodesonen-story {
 	grid-column: span 6;
 }
-.kodesonen-story-image {
+.kodesonen-story p {
+	margin-right: 60px;
+}
+.kodesonen-story-side {
 	grid-column: span 6;
+}
+.story-box-wrapper {
+	grid-gap: 20px;
+}
+.story-box {
+	background: var(--main-color-light);
+	border-radius: 2px;
+	transition: .3s;
+	color: var(--main-color-dark);
+	padding: 35px 25px;
+}
+.story-box-symbol {
+	margin: auto;
 }
 .kodesonen-story-image img {
 	max-width: 550px;
 }
+
+/* Om oss: */
 .profile-box {
 	grid-column: span 4;
 	float: left;
@@ -1280,6 +1299,101 @@ a .authorPost-button {
 	font-weight: 300;
 	font-size: large;
 }
+
+/* Profilside: */
+.profile-site-header {
+	margin-top: 60px;
+	margin-bottom: 20px;
+	grid-column: span 12;
+	background-color: var(--main-color-dark);
+	padding: 30px 0;
+	border-radius: 2px;
+}
+.profile-site-desc h1, .profile-site-desc p {
+	color: #fff;
+}
+.profile-site-image {
+	grid-column: span 2;
+}
+.profile-site-image img {
+	margin: auto;
+	display: block;
+	height: 150px;
+	width: 150px;
+	border-radius: 5px;
+}
+.profile-site-desc {
+	grid-column: span 10;
+}
+.profile-site-name {
+	grid-column: span 12;
+	margin-bottom: 10px;
+}
+.profile-site-name h1 {
+	float: left;
+}
+.profile-site-name-button{
+	background: none !important;
+	border: var(--main-color-light) 1px solid !important;
+	color: var(--main-color-light) !important;
+	float: right;
+}
+.profile-site-name-button:hover {
+	text-decoration: underline;
+}
+.profile-site-content {
+	grid-column: span 12;
+}
+.profile-site-info {
+	grid-column: span 12;
+	margin-bottom: 15px;
+}
+.profile-site-info-links {
+	margin-top: 10px;
+}
+.profile-site-info-links a {
+	color: #fff;
+	margin-right: 5px;
+	font-size: x-large;
+}
+profile-site-info-links a:hover {
+	opacity: .8;
+}
+.profile-site-info span {
+	margin-right: 10px;
+	position: relative;
+	top: 4px;
+	color: #999;
+}
+.profile-site-archive {
+	grid-column: span 3;
+	background-color: var(--main-color-light);
+	padding: 30px;
+}
+.profile-archive {
+	margin-top: 10px;
+}
+.profile-archive li {
+	list-style-type: none;
+	width: 100%;
+	padding: 5px 0;
+	display: inline-block;
+}
+.profile-archive li a {
+	color: var(--main-color);
+	text-decoration: none;
+	float: left;
+}
+.profile-archive li a:hover {
+	text-decoration: underline;
+}
+.profile-archive li span {
+	float: right;
+}
+.profile-site-feed {
+	grid-column: span 9;
+}
+
 #steam {
 	position: absolute;
 	z-index: 1;

@@ -4,6 +4,7 @@
 	<h1>Om Kodesonen</h1><br />
 </div>
 
+
 <div class="kodesonen-story">
 	<p>Kodesonen er en frivillig studentorganisasjon ved Universitet i Sørøst-Norge (campus Kongsberg), og ble stiftet av tre ingeniørstudenter i 2018. Målet vårt er å skape et trivelig, teknologisk og utfordrende miljø for alle som er interessert i teknologi og programmering, ved å blant annet arrangere kodekvelder, hackathons og sosiale arrangementer for alle som er interesserte.</p><br>
 
@@ -14,11 +15,57 @@
 	<p>Følg oss gjerne på sosiale medier dersom du ønsker å holde deg oppdatert med informasjon relatert til Kodesonen, vi er tilgjengelige på de fleste sosiale plattformer. Ta kontakt på Facebook, Discord eller Instagram, eller send oss en e-post dersom du lurer på noe. Vi er åpen for en prat, spørsmål og tilbakemeldinger.</p>
 </div>
 
-<div class="kodesonen-story-image">
-	<!--
-	<img id="steam" class="animated wobble" src="~/img/raw_svg/steam.svg" />
-	<img id="om-oss-image" src="~/img/raw_svg/om_oss.svg" />
-	-->
+<div class="kodesonen-story-side">
+	<div class="wrapper story-box-wrapper">
+		<div class="grid-6">
+			<div class="story-box wrapper">
+				<div class="story-box-symbol grid-4">
+					<h1><i class="fas fa-users"></i></h1>
+				</div>
+
+				<div class="story-box-info grid-8">
+					<h2>100+</h2>
+					<h4>Medlemmer</h4>
+				</div>
+			</div>
+		</div>
+		<div class="grid-6">
+			<div class="story-box wrapper">
+				<div class="story-box-symbol grid-4">
+					<h1><i class="fas fa-briefcase"></i></h1>
+				</div>
+
+				<div class="story-box-info grid-8">
+					<h2>8</h2>
+					<h4>Jobber med Kodesonen</h4>
+				</div>
+			</div>
+		</div>
+		<div class="grid-6">
+			<div class="story-box wrapper">
+				<div class="story-box-symbol grid-4">
+					<h1><i class="fab fa-github-square"></i></h1>
+				</div>
+
+				<div class="story-box-info grid-8">
+					<h2>6</h2>
+					<h4>Github repositories</h4>
+				</div>
+			</div>
+		</div>
+		<div class="grid-6">
+			<div class="story-box wrapper">
+				<div class="story-box-symbol grid-4">
+					<h1><i class="fas fa-file-code"></i></h1>
+				</div>
+
+				<div class="story-box-info grid-8">
+					<h2>10k+</h2>
+					<h4>Linjer med kode</h4>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 
 <div class="text-info">
@@ -27,10 +74,10 @@
 
 <div class="box-wrapper">
 	<div class="profile-box">
-		<a href="#"><img src="~/img/team/sira.png"></a>
+		<a asp-controller="Profile" asp-action="Index" asp-route-id="sirasjad"><img src="~/img/team/sira.png"></a>
 
 		<center>
-			<h3><a href="#" style="text-decoration:none; color: black;">
+			<h3><a asp-controller="Profile" asp-action="Index" asp-route-id="sirasjad" style="text-decoration:none; color: black;">
 				<strong>Sirajuddin Asjad</strong>
 				<br>Masterstudent (USN)<br>
 				<span>Systemansvarlig</span>
@@ -102,10 +149,10 @@
 	</div>
 
 	<div class="profile-box">
-		<a href="#"><img src="~/img/team/stian.png"></a>
+		<a asp-controller="Profile" asp-action="Index" asp-route-id="stianh"><img src="~/img/team/stian.png"></a>
 
 		<center>
-			<h3><a href="#" style="text-decoration:none; color: black;">
+			<h3><a asp-controller="Profile" asp-action="Index" asp-route-id="stianh" style="text-decoration:none; color: black;">
 				<strong>Stian Håve</strong>
 				<br>Bachelorstudent (USN)<br>
 				<span>Arrangementsansvarlig</span>

@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebApp.DbHandler;
 
-namespace WebApp.Migrations
+namespace WebApp.DbHandler.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20210121182108_Heisannnd")]
+    partial class Heisannnd
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -238,26 +240,11 @@ namespace WebApp.Migrations
                     b.Property<int>("CourseId")
                         .HasColumnType("int");
 
-                    b.Property<string>("Forfatter")
+                    b.Property<string>("Name")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
-
-                    b.Property<string>("Html")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
-                    b.Property<string>("ModuleName")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
-                    b.Property<DateTimeOffset>("Published")
-                        .HasColumnType("datetime(6)");
 
                     b.Property<int>("SubChapter")
                         .HasColumnType("int");
-
-                    b.Property<string>("UpdateForfatter")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
-                    b.Property<DateTimeOffset>("Updated")
-                        .HasColumnType("datetime(6)");
 
                     b.HasKey("Id");
 
@@ -269,20 +256,16 @@ namespace WebApp.Migrations
                             Id = 1,
                             Chapter = 1,
                             CourseId = 1,
-                            ModuleName = "Test module",
-                            Published = new DateTimeOffset(new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            SubChapter = 1,
-                            Updated = new DateTimeOffset(new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0))
+                            Name = "Test module",
+                            SubChapter = 1
                         },
                         new
                         {
                             Id = 2,
                             Chapter = 1,
                             CourseId = 1,
-                            ModuleName = "Another module",
-                            Published = new DateTimeOffset(new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            SubChapter = 2,
-                            Updated = new DateTimeOffset(new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0))
+                            Name = "Another module",
+                            SubChapter = 2
                         });
                 });
 
