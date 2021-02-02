@@ -13,8 +13,15 @@
 	}
 }
 @media only screen and (max-width: 1100px) {
-	.wrapper {
-		padding: 0px;
+	header#page-head {
+		margin: 3.5em 20px 0 20px;
+	}
+	#promotion-text {
+		padding: 50px 20px 50px 20px;
+	}
+	#promotion-text > h1 {
+		margin-bottom: 30px;
+		font-size: 2em;
 	}
 	.admin-links {
 		padding: 20px 0px 20px 0px;
@@ -72,8 +79,8 @@
 		display: inline-block;
 		position: absolute;
 		right: 0;
-		margin-right: 20px;
-		margin-top: -5px;
+		margin-right: 50px;
+		margin-top: 0 !important;
 	}
 	.nav li {
 		width: 100%;
@@ -120,6 +127,9 @@
 		background-color: #2C3E50 !important;
 		padding-bottom: 70px;
 	}
+	.front-section {
+		margin-bottom: 0px !important;
+	}
 	.front-section .front-c:nth-of-type(1) {
 		order: 3;
 	}
@@ -136,12 +146,13 @@
 	.box-wrapper .profile-box {
 		padding: 0px 20px;
 	}
-	.front-tab {
-		grid-column: span 12;
-		margin-bottom: 0px;
+	.main-tab {
+		grid-column: span 12 !important;
+		margin-bottom: 20px;
 	}
 	.front-text {
 		grid-column: span 12;
+		padding: 40px 40px;
 	}
 	.front-picture {
 		grid-column: span 12;
@@ -206,6 +217,27 @@
 	.course_read_section img {
 		max-width: 100% !important;
 		height: auto !important; 
+	}
+	.sponsor-tab > li {
+		grid-column: span 12;
+		margin: 40px;
+	}
+	.sponsor-tab > li img {
+		max-height: 100px;
+	}
+	.footer-trademark {
+		order: 2;
+	}
+	.footer-hyperlinks {
+		display: none;
+	}
+	.footer-discord {
+		grid-column: span 12;
+		margin-bottom: 30px;
+		text-align: center;
+	}
+	.front-picture img {
+		max-width: 100% !important;
 	}
 	
 	/* Kurskatalog innlegg */

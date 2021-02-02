@@ -14,5 +14,12 @@ namespace WebApp.Controllers
         {
             return View();
         }
+
+        [HttpGet]
+        [Route("vilkaar-og-personvern")]
+        public IActionResult Terms()
+        {
+            return View();
+        }
     }
 }
