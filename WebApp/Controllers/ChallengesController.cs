@@ -24,5 +24,12 @@ namespace WebApp.Controllers
             List<Challenge> ChallengesList = ChallengeHandler.LoadAll();
             return View(ChallengesList);
         }
+
+        [HttpGet]
+        [Route("Hackathon")]
+        public IActionResult Hackathon()
+        {
+            return View();
+        }
     }
 }
