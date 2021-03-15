@@ -298,3 +298,30 @@
 	margin: 0px !important;
   }
 }
+
+/* Hackathon */
+@media only screen and (max-width: 600px) {
+	.hackathonImg {
+		grid-column: span 12;
+	}
+
+	.hackathon-box {
+		grid-column: span 12;
+		margin-left: 20px;
+		margin-bottom: 20px;
+	}
+
+	.hackathonText {
+		grid-column: span 12;
+		margin-left: 20px;
+		margin-right: 20px;
+		margin-bottom: 20px;		
+	}
+
+	.hackathon-info-text {
+		grid-column: span 12;
+		margin-left: 20px;
+		margin-right: 20px;
+		margin-bottom: 20px;
+	}
+}
