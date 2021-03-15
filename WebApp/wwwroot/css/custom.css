@@ -1506,4 +1506,34 @@ profile-site-info-links a:hover {
 	fill: var(--main-color-dark);
 }
 
+/* Hackathon */
+.hackathonText {
+	grid-column: span 6;
+}
+
+.hackathon-info-text {
+	grid-column: span 6;
+	line-height: 1.5;
+}
+
+.hackathon-box {
+	background: var(--main-color-light);
+	border-radius: 2px;
+	transition: .3s;
+	color: var(--main-color-dark);
+	padding: 35px 25px;
+	grid-column: span 4;
+	margin-right: 20px;
+}
+
+.hackathonImg {
+	grid-column: span 6;
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+.hackathonImg img {
+	width: 100%;
+}
+
 /* -------------- /END ------------- */
