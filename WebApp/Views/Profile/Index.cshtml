@@ -26,7 +26,15 @@
 			<div class="wrapper">
 				<div class="profile-site-name">
 					<h1>@Model.Name</h1>
-					<a href="#"><div id="kodesonen-button2" class="button profile-site-name-button">Besøk nettside <i class="fas fa-external-link-alt"></i></div></a>
+
+					@if (!string.IsNullOrEmpty(@Model.Website))
+					{
+						<a href="@Model.Website" target="_blank">
+							<div id="kodesonen-button2" class="button profile-site-name-button">
+								Besøk nettside <i class="fas fa-external-link-alt"></i>
+							</div>
+						</a>
+					}
 				</div>
 
 				<div class="profile-site-info">
@@ -42,7 +50,14 @@
 				</div>
 
 				<div class="profile-site-content"><br/>
-					<p>@Model.Description</p>
+					@if (!string.IsNullOrEmpty(@Model.Description))
+					{
+						<p>@Model.Description</p>
+					}
+					else
+					{
+						<p>Velkommen til @Model.Name sin profil!</p>
+					}
 				</div>
 			</div>
 		</div>
@@ -50,11 +65,23 @@
 </div>
 
 <div class="profile-site-archive">
-	<h2>Arkiv</h2>
+
+	@if (Model.WrittenCourses.Any())
+	{
+		<h2>Kursinnlegg</h2>
+		<ul class="profile-archive">
+			@foreach (var course in Model.WrittenCourses)
+			{
+				<li><a href="#">@course.Name</a> <span>(99)</span></li>
+			}
+		</ul>
+
+		<br><hr><br>
+	}
+
+	<h2>Statistikk</h2>
 	<ul class="profile-archive">
-		<li><a href="#">Januar 2021</a> <span>(3)</span></li>
-		<li><a href="#">Februar 2021</a> <span>(4)</span></li>
-		<li><a href="#">Mars 2021</a> <span>(1)</span></li>
+		<p>Noe stuff her.</p>
 	</ul>
 </div>
 

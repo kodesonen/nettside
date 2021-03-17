@@ -12,9 +12,11 @@ namespace WebApp.Controllers
     public class ProfileController : Controller
     {
         private IUserHandler UserHandler;
-        public ProfileController(IUserHandler _uh)
+        private ICourseHandler CourseHandler;
+        public ProfileController(IUserHandler _uh, ICourseHandler _ch)
         {
             this.UserHandler = _uh;
+            this.CourseHandler = _ch;
         }
 
         [HttpGet]
@@ -35,14 +37,13 @@ namespace WebApp.Controllers
                     Name = user.UserName,
                     Description = user.Description,
                     StaffPosition = user.StaffPosition,
+                    Website = user.Website,
                     LinkedIn = user.LinkedIn,
                     GitHub = user.GitHub,
                     University = user.University,
-                    Study = user.Study
+                    Study = user.Study,
+                    WrittenCourses = CourseHandler.GetAllCoursesByUserId(user.Id)
                 };
-
-                if (string.IsNullOrEmpty(profileModel.Description)) profileModel.Description = $"Velkommen til {profileModel.Name} sin profil!";
-                if (string.IsNullOrEmpty(profileModel.Description)) profileModel.Description = $"Velkommen til {profileModel.Name} sin profil!";
 
                 return View(profileModel);
             }
