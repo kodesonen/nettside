@@ -410,4 +410,4 @@ ASALocalRun/
 WebApp/connection.json
 
 # Entity Framework migrations
-DatabaseHandler/Migrations/
+WebApp/Migrations/*
