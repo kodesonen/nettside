@@ -19,6 +19,7 @@ namespace WebApp.DbHandler
                     University = "USN",
                     Study = "Masterstudent",
                     Description = "Dette er en beskrivelse!",
+                    Website = "https://siratech.no",
                     GitHub = "https://github.com/sirasjad",
                     LinkedIn = "https://www.linkedin.com/in/sirajuddin97"
                 },
