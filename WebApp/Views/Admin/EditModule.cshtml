@@ -1,7 +1,10 @@
-@{ ViewData["Title"] = "Endre modul"; }
 @model WebApp.DbHandler.Models.Module
+
+@{ ViewData["Title"] = "Endre modul"; }
+
 <script type="text/javascript" src="~/tinymce/js/tinymce/tinymce.min.js"></script>
 <link rel="stylesheet" href="~/css/EditModule.css" media="all" />
+
 <script>
 	tinymce.init({
 		selector: 'textarea',  // change this value according to your HTML
@@ -27,22 +30,27 @@
 	</div>
 </div>
 
-@if (TempData["Message"] != null) {
+@if (TempData["Message"] != null) 
+{
 	<div class="alert alert-primary" role="alert">
 		@TempData["Message"].ToString()
 	</div>
 }
 
 <div class="kurs_info">
-
-	@if (Model != null && !Model.update) {
+	@if (Model != null && !Model.update) 
+	{
 		<h1>Opprett ny modul for</h1>
-	} else {
+	} 
+	else 
+	{
 		<h1>Oppdater modul: @Model.ModuleName</h1>
 	}
 	<p>Denne siden er kun for Kodesonens administratorer.</p>
 </div>
-@using (Html.BeginForm("EditModule", "Admin", FormMethod.Post)) {
+
+@using (Html.BeginForm("EditModule", "Admin", FormMethod.Post)) 
+{
 	<label>Modul navn</label>
 	@Html.EditorFor(m => m.ModuleName)
 	<label>Kapittel</label>
@@ -54,14 +62,14 @@
 	@Html.HiddenFor(m => m.Id)
 	@Html.HiddenFor(m => m.CourseId)
 	@Html.HiddenFor(m => m.update)
-	@if (String.IsNullOrWhiteSpace(Model.Forfatter)) {
+	@if (String.IsNullOrWhiteSpace(Model.Author)) {
 		<label>Forfatter</label>
-		@Html.EditorFor(m => m.Forfatter)
-		@Html.HiddenFor(m => m.UpdateForfatter)
+		@Html.EditorFor(m => m.Author)
+		@Html.HiddenFor(m => m.LastUpdatedBy)
 	} else {
 		<label>Oppdatering forfatter</label>
-		@Html.EditorFor(m => m.UpdateForfatter)
-		@Html.HiddenFor(m => m.Forfatter)
+		@Html.EditorFor(m => m.LastUpdatedBy)
+		@Html.HiddenFor(m => m.Author)
 	}
 	<input type="submit" value="submit">
 }
