@@ -1410,6 +1410,7 @@ profile-site-info-links a:hover {
 	grid-column: span 3;
 	background-color: var(--main-color-light);
 	padding: 30px;
+	height: max-content !important;
 }
 .profile-archive {
 	margin-top: 10px;
