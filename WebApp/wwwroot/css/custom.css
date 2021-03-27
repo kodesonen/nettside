@@ -346,7 +346,7 @@ header#page-head #navigation-section {
 }
 .nav {
 	float: right;
-	margin-top: 5px;
+	margin-top: 12px;
 }
 .nav li {
 	float: left;
@@ -1251,25 +1251,63 @@ a .authorPost-button {
 
 .kodesonen-story {
 	grid-column: span 6;
+	margin-bottom: 3em;
 }
-.kodesonen-story p {
+.kodesonen-story img {
+	max-width: 100%;
+	border-radius: 2px;
+	background-size: contain;
+}
+.kodesonen-story p, .kodesonen-story h1 {
 	margin-right: 60px;
 }
 .kodesonen-story-side {
 	grid-column: span 6;
+	margin-bottom: 3em;
 }
-.story-box-wrapper {
+.kodesonen-story-grey {
+	background-color: var(--main-color-light);
+	padding: 30px !important;
+	margin-bottom: 0px !important;
+}
+.kodesonen-story-grey p,
+.kodesonen-story-grey h1 {
+	margin: 0px !important;
+}
+.kodesonen-grey-side {
+	margin-bottom: 0px !important;
+}
+.kodesonen-grey-side img {
+	border-top-right-radius: 0px !important;
+	border-bottom-right-radius: 0px !important;
+	border-top-left-radius: 2px !important;
+	border-bottom-left-radius: 2px !important;
+}
+.kodesonen-story-side p, .kodesonen-story-side h1 {
+	margin-left: 60px;
+}
+.kodesonen-story-side img {
+	max-width: 100%;
+	border-radius: 2px;
+	background-size: contain;
+}
+.story-box-wrapper .wrapper {
 	grid-gap: 20px;
-	display: flex; 
 	align-items: center; 
 }
 .story-box {
-	background: var(--main-color-light);
+	background: var(--main-color-dark);
 	border-radius: 2px;
 	transition: .3s;
-	color: var(--main-color-dark);
 	padding: 35px 25px;
+	border-radius: 2px;
 }
+.story-box h1,
+.story-box h2,
+.story-box h4 {
+	color: var(--main-color-light) !important;
+}
+
 .story-box-symbol {
 	margin: auto;
 }
@@ -1372,6 +1410,7 @@ profile-site-info-links a:hover {
 	grid-column: span 3;
 	background-color: var(--main-color-light);
 	padding: 30px;
+	height: max-content !important;
 }
 .profile-archive {
 	margin-top: 10px;
