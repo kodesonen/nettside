@@ -85,48 +85,28 @@
 </div>
 
 <div class="profile-site-feed">
-	<div class="authorPost-section">
-		<h1>LIFO og FIFO abstrakt</h1> 
-		<h4>- Januar 14, 2020 </h4> <br> 
-		<p>I dette kurset vil vi sammen gå gjennom datastrukturer som gradvis blir mer og mer komplisert. Som eksempler på datastrukturene vil programmering med C++&nbsp; bli brukt, Kodesonen anbefaler derfor at man har gjennomført kurset om innføring av programmering med C++.LIFO"Last In, First Out" er et begrep som som brukes til å beskrive en logisk sekvens. Om vi skulle tenkt abstrakt på dette, så kan vi forstille oss en kø med mennesker. Hvor personen helt til høyre (blå) var denne siste inn i køen og personen (grå) helt til venstre var sist inn i køen.</p>
-        <a href="#"><div id="kodesonen-button2" class="button authorPost-button">Les innlegg <i class="fas fa-long-arrow-alt-right"></i></div></a>
-	</div>
+	@if (Model.WrittenModules.Any())
+	{
+		/* Order by published date */
+		Model.WrittenModules = Model.WrittenModules.OrderByDescending(x => x.Published).ToList();
 
-	<div class="authorPost-section">
-		<h1>Stack (LIFO) datastruktur</h1> 
-		<h4>- Februar 8, 2020 </h4> <br> 
-		<p>I forrige kapittel gikk vi gjennom hva konseptet bak LIFO kjennetegnet, noe vi nå vil basere Stack (eller stakk på norsk) på. Men før vi går inn for å lage denne datastrukturen så er det viktig å gå over enkelte begreper. For når det gjelder en Stack, så bruker vi gjerne begrepene push og pop. Hvor "push" omfatter det å legge noe til i Stack, mens "pop" betegner det å ta noe bort fra Stack. Et eksempel på dette kan være hvordan man stabler tallerkner på et kjøkken. Hvor man da gjerne legger tallerkner oppå hverandre (push) hvis man ønsker å fylle kjøkkenet. Om man derimot skal bruke en tallerken så tar man den øverste (pop).</p>
-        <a href="#"><div id="kodesonen-button2" class="button authorPost-button">Les innlegg <i class="fas fa-long-arrow-alt-right"></i></div></a>
-	</div>
-</div>
-
-<!--
-<div class="profile-site-body">
-	<div class="wrapper">
-		<div class="profile-site-archive">
-			<h2>Arkiv</h2>
-			<ul class="profile-archive">
-				<li><a href="#">Januar 2021</a> <span>(3)</span></li>
-				<li><a href="#">Februar 2021</a> <span>(4)</span></li>
-				<li><a href="#">Mars 2021</a> <span>(1)</span></li>
-			</ul>
-		</div>
-
-		<div class="profile-site-feed">
+		@foreach (var module in Model.WrittenModules)
+		{
 			<div class="authorPost-section">
-				<h1>LIFO og FIFO abstrakt</h1> 
-				<h4>- Januar 14, 2020 </h4> <br> 
-				<p>I dette kurset vil vi sammen gå gjennom datastrukturer som gradvis blir mer og mer komplisert. Som eksempler på datastrukturene vil programmering med C++&nbsp; bli brukt, Kodesonen anbefaler derfor at man har gjennomført kurset om innføring av programmering med C++.LIFO"Last In, First Out" er et begrep som som brukes til å beskrive en logisk sekvens. Om vi skulle tenkt abstrakt på dette, så kan vi forstille oss en kø med mennesker. Hvor personen helt til høyre (blå) var denne siste inn i køen og personen (grå) helt til venstre var sist inn i køen.</p>
-            	<a href="#"><div id="kodesonen-button2" class="button authorPost-button">Les innlegg <i class="fas fa-long-arrow-alt-right"></i></div></a>
-			</div>
+				<h1>@module.ModuleName</h1> 
+				<h4>- @module.Published.ToString("dd MMMM, yyyy", new System.Globalization.CultureInfo("nb-NO"))</h4><br>
 
-			<div class="authorPost-section">
-				<h1>Stack (LIFO) datastruktur</h1> 
-				<h4>- Februar 8, 2020 </h4> <br> 
-				<p>I forrige kapittel gikk vi gjennom hva konseptet bak LIFO kjennetegnet, noe vi nå vil basere Stack (eller stakk på norsk) på. Men før vi går inn for å lage denne datastrukturen så er det viktig å gå over enkelte begreper. For når det gjelder en Stack, så bruker vi gjerne begrepene push og pop. Hvor "push" omfatter det å legge noe til i Stack, mens "pop" betegner det å ta noe bort fra Stack. Et eksempel på dette kan være hvordan man stabler tallerkner på et kjøkken. Hvor man da gjerne legger tallerkner oppå hverandre (push) hvis man ønsker å fylle kjøkkenet. Om man derimot skal bruke en tallerken så tar man den øverste (pop).</p>
-                <a href="#"><div id="kodesonen-button2" class="button authorPost-button">Les innlegg <i class="fas fa-long-arrow-alt-right"></i></div></a>
+				@if (!string.IsNullOrEmpty(module.Html) && module.Html.Length > 750)
+				{
+					<p>@Html.Raw(module.Html.Substring(0, 750) + " ...")</p>
+				}
+				else
+				{
+					<p>@Html.Raw(module.Html)</p>
+				}
+
+				<a href="#"><div id="kodesonen-button2" class="button authorPost-button">Les innlegg <i class="fas fa-long-arrow-alt-right"></i></div></a>
 			</div>
-		</div>
-	</div>
+		}
+	}
 </div>
--->

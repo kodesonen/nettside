@@ -22,5 +22,6 @@ namespace WebApp.Models.User
 
         /* Courses */
         public List<Course> WrittenCourses { get; set; }
+        public List<Module> WrittenModules { get; set; }
     }
 }
