@@ -21,6 +21,7 @@ namespace WebApp.DbHandler.Interfaces
         public bool UpdateCourse(Course model);
         public bool UpdateModule(Module model);
 		public List<Course> GetAllCoursesByUserId(string userId);
+        public List<Module> GetAllModulesByUserId(string userId);
     }
 
     public class CourseHandler : ICourseHandler
@@ -139,6 +140,13 @@ namespace WebApp.DbHandler.Interfaces
 			}
 
             return listOfCourses;
+		}
+
+        public List<Module> GetAllModulesByUserId(string userId)
+		{
+			var Data = db.Modules.Where(x => x.Author == userId);
+            List<Module> listOfModules = Data.ToList();
+            return listOfModules;
 		}
     }
 }
