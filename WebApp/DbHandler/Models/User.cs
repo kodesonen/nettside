@@ -5,10 +5,11 @@ namespace WebApp.DbHandler.Models
 	public class User : IdentityUser
 	{
 		/* Personal information */
-		public bool Private { get; set; }
+		public string FullName { get; set; }
 		public string UrlName { get; set; }
 		public string Description { get; set; }
 		public string StaffPosition { get; set; }
+		public bool Private { get; set; }
 
 		/* Social media */
         public string Website { get; set; }
