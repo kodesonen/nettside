@@ -1,100 +1,95 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
-using System.Reflection.Metadata;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using WebApp.Models.Auth;
-using WebApp.DbHandler.Models;
+using WebApp.Helpers;
+using WebApp.DbHandler.Interfaces;
 
-namespace WebApp.Controllers {
-	/*
-	 * TODO
-	 *	Add modelvalidators
-	 *  Add Model errors
-	 *	Add Validation summary
-	 */
+namespace WebApplication.Controllers
+{
+    public class AuthController : Controller
+    {
+        private readonly IAuthHandler AuthHandler;
+        
+        public AuthController(IAuthHandler authHandler)
+        {
+            AuthHandler = authHandler;
+        }
 
-	public class AuthController : Controller {
-		private readonly UserManager<User> userManager;
-		private readonly SignInManager<User> signInManager;
+        [HttpGet]
+        [Route("logg-inn")]
+        public IActionResult Login()
+        {
+            return View();
+        }
 
-		public AuthController(
-			UserManager<User> userManager,
-			SignInManager<User> signInManager) {
-			this.userManager = userManager;
-			this.signInManager = signInManager;
-		}
+        [HttpPost]
+        [Route("logg-inn")]
+        public async Task<IActionResult> Login(LoginModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var result = await AuthHandler.SignIn(model);
 
-		#region login
+                if (result.Succeeded)
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                {
+                    TempData["StatusMessage"] = StatusMessage.Error("Oops!", "Ditt passord stemmer ikke. Vennligst prøv igjen!");
+                    //ModelState.AddModelError("", "Invalid credentials");
+                    return View(model);
+                }
+            }
 
-		[HttpGet]
-		[Route("Login")]
-		public IActionResult Login() {
-			return View();
-		}
+            return View();
+        }
 
-		[HttpPost]
-		[Route("Login")]
-		public IActionResult Login(LoginModel model) {
-			if (!ModelState.IsValid) {
-				Console.WriteLine("Modelstate invalid");
-				return View(model);
-			}
+        [HttpGet]
+        [Route("join")]
+        public IActionResult Register()
+        {
+            return View();
+        }
 
-			var result = signInManager.PasswordSignInAsync(model.Email, model.Password, true, false);
+        [HttpPost]
+        [Route("join")]
+        public async Task<IActionResult> Register(RegisterModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var result = await AuthHandler.CreateUser(model);
 
-			if (!result.Result.Succeeded) {
-				Console.WriteLine("Password does not match");
-				ModelState.AddModelError("All", "Passord matcher ikke bruker");
-				return View(model);
-			}
+                if (!result.Succeeded)
+                {
+                    foreach (var errorMessage in result.Errors)
+                    {
+                        ModelState.AddModelError("", errorMessage.Description);
+                    }
 
-			Console.WriteLine("Logged in!");
-			return View();
-		}
+                    return View(model);
+                }
+                else
+                {
+                    ModelState.Clear();
+                    TempData["StatusMessage"] = StatusMessage.Success("Hurra!", "Du har registert en bruker og kan nå logge inn!");
+                }
+            }
 
-		#endregion login
+            return View();
+        }
 
-		#region register
-
-		[HttpGet]
-		[Route("Join")]
-		public IActionResult Register() {
-			return View();
-		}
-
-		[HttpPost]
-		[Route("Join")]
-		public async Task<IActionResult> RegisterAsync(RegisterModel model) {
-			if (!ModelState.IsValid) {
-				Console.WriteLine("Modelstate is invalid");
-				return View(ModelState);
-			}
-
-			User user = new User() {
-				//Id = Guid.NewGuid().ToString(),
-				//Email = model.Email,
-				//UserName = model.Email,
-				//Add first,lastname
-			};
-
-			var result = await userManager.CreateAsync(user, model.Password);
-
-			if (!result.Succeeded) {
-				foreach (var error in result.Errors.ToList())
-					ModelState.AddModelError("All", error.Description.ToString());
-				Console.WriteLine("Error when creating user");
-				return View(model);
-			}
-
-			await signInManager.PasswordSignInAsync(user.Email, model.Password, true, false);
-			Console.WriteLine("Registered!");
-			return View("Success");
-		}
-
-		#endregion register
-	}
+        [HttpGet]
+        [Route("logg-ut")]
+        public async Task<IActionResult> Logout()
+        {
+            await AuthHandler.SignOut();
+            return RedirectToAction("Index", "Home");
+        }
+    }
 }
