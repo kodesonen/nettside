@@ -12,7 +12,7 @@ namespace WebApp.DbHandler
             modelBuilder.Entity<User>().HasData(
                 new User 
                 { 
-                    UserName = "Sirajuddin Asjad", 
+                    FullName = "Sirajuddin Asjad", 
                     Private = false, 
                     UrlName = "sirasjad", 
                     StaffPosition = "Systemansvarlig", 
@@ -26,7 +26,7 @@ namespace WebApp.DbHandler
 
                 new User 
                 { 
-                    UserName = "Stian Håve", 
+                    FullName = "Stian Håve", 
                     Private = false, 
                     UrlName = "stianh"
                 }

@@ -2,18 +2,14 @@
 
 @{ ViewData["Title"] = "Bli medlem"; }
 
-<!--
-	TODO:
-		Create login and register models
-		Add taghelpers
-		Add authentication and authorization
--->
-
 <div class="medlem-section wrapper">
 	<div class="medlem-form">
 		<h1>Registrer deg som medlem</h1><hr/>
 
-		<form asp-action="register" method="post">
+		<form asp-controller="Auth" asp-action="Register" method="post">
+			<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+			@Html.Raw(TempData["StatusMessage"])
+
 			<label><b>Fullt navn</b></label>
 			<input type="text" placeholder="Oppgi fullt navn" asp-for="Name" required>
 			
@@ -22,9 +18,6 @@
 
 			<label><b>Passord</b></label>
 			<input type="password" placeholder="Oppgi et passord" asp-for="Password" required>
-
-			<label><b>Bekreft passord</b></label>
-			<input type="password" placeholder="Bekreft ditt passord" asp-for="ConfirmPassword" required>
 
 			<label><b>Utdanningssted</b></label>
 			<input type="text" value="Oppgi studiested" asp-for="University">

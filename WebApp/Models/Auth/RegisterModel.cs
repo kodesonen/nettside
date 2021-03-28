@@ -8,11 +8,11 @@ namespace WebApp.Models.Auth
 {
     public class RegisterModel
     {
-		[Required]
-		public string Email { get; set; }
+        [Required(ErrorMessage = "Vennligst oppgi din e-post adresse!")]
+        [EmailAddress(ErrorMessage = "Vennligst skriv inn en gyldig e-post adresse!")]
+        public string Email { get; set; }
 
-        [Required]
-        [MinLength(2, ErrorMessage = "Minium required characters for first name: 2")]
+        [Required(ErrorMessage = "Vennligst oppgi ditt fulle navn!")]
         public string Name { get; set; }
 
 		[Required]
@@ -21,9 +21,8 @@ namespace WebApp.Models.Auth
 		[Required]
 		public string Study { get; set; }
 
-        [MinLength(5, ErrorMessage = "Minium required characters for password: 5")]
-        [Compare("ConfirmPassword", ErrorMessage = "Passwords does not match")]
+        [Required(ErrorMessage = "Vennligst oppgi et passord!")]
+        [DataType(DataType.Password)]
         public string Password { get; set; }
-        public string ConfirmPassword { get; set; }
     }
 }

@@ -2,7 +2,6 @@
 using WebApp.DbHandler;
 using WebApp.DbHandler.Models;
 using System.IO;
-using Newtonsoft.Json.Linq;
 using WebApp.Models.Auth;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
@@ -15,8 +14,7 @@ namespace WebApp.DbHandler
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            //JObject data = JObject.Parse(File.ReadAllText("secrets.json"));
-            //optionsBuilder.UseMySql(data["DefaultConnection"].ToString());
+            //
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -26,7 +24,7 @@ namespace WebApp.DbHandler
         }
 
         // Tables
-        public DbSet<User> Users { get; set; }
+        //public DbSet<User> Users { get; set; }
         public DbSet<Course> Courses { get; set; }
         public DbSet<Module> Modules { get; set; }
         public DbSet<Challenge> Challenges { get; set; }
