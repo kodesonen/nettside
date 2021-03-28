@@ -1,0 +1,20 @@
+﻿@model List<WebApp.Models.Courses.ModuleViewModel>
+
+<h1>@Model[0].courseName</h1>
+
+@foreach (var module in Model) {
+	<a href='/kurs/side/@module.module.Id' class='box_thread'>
+		<div class='box_symbol'>
+			<h1>@module.module.SubChapter</h1>
+		</div>
+
+		<div class='box_info'>
+			<h2>@module.module.ModuleName</h2>
+			<h4>@module.module.Published</h4>
+		</div>
+
+		<div class='box_numbers'>
+			<h4><i class="fas fa-user-alt"></i> @module.AuthorName</h4>
+		</div>
+	</a>
+}
