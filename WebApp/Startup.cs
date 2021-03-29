@@ -62,6 +62,9 @@ namespace WebApp
 			/* Routing */
             services.AddRouting(options => options.LowercaseUrls = true);
             services.AddControllersWithViews();
+
+            /* IHttpContextAccessor */
+            services.AddHttpContextAccessor();
         }
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
