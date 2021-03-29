@@ -40,6 +40,8 @@ if (span !== null) {
 //     Type effect on homepage    //
 // ------------------------------ //
 
+// Write script that makes type effect on the promotion header section on the homepage
+
 /*
 function typeWriter() {
   var i = 0;
