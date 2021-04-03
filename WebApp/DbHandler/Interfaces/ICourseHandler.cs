@@ -20,7 +20,7 @@ namespace WebApp.DbHandler.Interfaces
         public Course GetCourseById(int courseId);
         public bool UpdateCourse(Course model);
         public bool UpdateModule(Module model);
-		public List<Course> GetAllCoursesByUserId(string userId);
+        public List<Course> GetAllCoursesByUserId(string userId);
     }
 
     public class CourseHandler : ICourseHandler
@@ -80,14 +80,16 @@ namespace WebApp.DbHandler.Interfaces
         public string GetCourseNameById(int courseId)
         {
             var Data = db.Courses.Where(x => x.Id == courseId).FirstOrDefault();
-            if (Data != null) return Data.Name;
+            if (Data != null)
+                return Data.Name;
             return null;
         }
 
         public string GetModuleNameById(int moduleId)
         {
             var Data = db.Modules.Where(x => x.Id == moduleId).FirstOrDefault();
-            if (Data != null) return Data.ModuleName;
+            if (Data != null)
+                return Data.ModuleName;
             return null;
         }
 
@@ -125,20 +127,20 @@ namespace WebApp.DbHandler.Interfaces
             return allModules;
         }
 
-		public List<Course> GetAllCoursesByUserId(string userId)
-		{
-			/* Todo: gruppering av antall courses */
-			var Data = db.Modules.Where(x => x.Author == userId);
+        public List<Course> GetAllCoursesByUserId(string userId)
+        {
+            /* Todo: gruppering av antall courses */
+            var Data = db.Modules.Where(x => x.Author == userId);
             List<Module> listOfModules = Data.ToList();
 
-			List<Course> listOfCourses = new List<Course>();
-			foreach(var module in listOfModules)
-			{
-				var course = db.Courses.Where(x => x.Id == module.CourseId).FirstOrDefault();
-				listOfCourses.Add(course);
-			}
+            List<Course> listOfCourses = new List<Course>();
+            foreach (var module in listOfModules)
+            {
+                var course = db.Courses.Where(x => x.Id == module.CourseId).FirstOrDefault();
+                listOfCourses.Add(course);
+            }
 
             return listOfCourses;
-		}
+        }
     }
 }
