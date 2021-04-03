@@ -1,4 +1,5 @@
-﻿<!-- Takk for at du tar en titt! Ønsker du hele kildekoden så sjekk oss ut på Github: https://github.com/kodesonen -->
+﻿@inject Microsoft.AspNetCore.Identity.SignInManager<WebApp.DbHandler.Models.User> signInManager
+@inject Microsoft.AspNetCore.Identity.UserManager<WebApp.DbHandler.Models.User> userManager
 
 <!DOCTYPE html>
 <html lang="en">
@@ -31,8 +32,17 @@
 	<div class="login-section">
 		<div class="wrapper">
 			<div class="login-nav">
-				<a asp-controller="Auth" asp-action="Login"><i class="fas fa-user"></i>Login</a>
-				<a asp-controller="Admin" asp-action="Index"><i class="fas fa-user"></i>Admin kontrollpanel</a>
+				@if (signInManager.IsSignedIn(User))
+				{
+					<a asp-controller="Auth" asp-action="Logout"><i class="fas fa-user"></i>Logg ut</a>
+					<a asp-controller="Profile" asp-action="Index" asp-route-id="@userManager.GetUserId(User)"><i class="fas fa-user"></i>Min profil</a>
+					<a asp-controller="Settings" asp-action="Index"><i class="fas fa-user"></i>Innstillinger</a>
+					<a asp-controller="Admin" asp-action="Index"><i class="fas fa-user"></i>Admin kontrollpanel</a>
+				}
+				else
+				{
+					<a asp-controller="Auth" asp-action="Login"><i class="fas fa-user"></i>Logg inn</a>
+				}
 			</div>
 		</div>
 	</div>
@@ -54,7 +64,7 @@
 				<li class="end"><a asp-controller="About" asp-action="Index">Om oss</a></li>
 
 				<!-- <a asp-controller="Auth" asp-action="Login"><li><i class="fas fa-users"></i> Logg inn</li></a> -->
-				<a asp-controller="Auth" asp-action="Register"><li class="button" id="kodesonen-button">Bli Medlem <i class="fas fa-long-arrow-alt-right"></i></li></a>
+				<a asp-controller="Auth" asp-action="Register"><li class="button joinButton" id="kodesonen-button">Bli Medlem <i class="fas fa-long-arrow-alt-right"></i></li></a>
 			</ul>
 		</nav>
 
@@ -70,7 +80,7 @@
 		<div class="wrapper">
 			<div class="footer-trademark">
 				<img class="footer-logo" src="~/img/logo-horizontal-light.png" />
-				<p>&copy; 2020, <a href="#">Kodesonen.no</a> - en studentforening ved <a href="https://www.usn.no/om-usn/campusene/kongsberg/">USN Campus Kongsberg</a>. Kontakt oss når som helst på <a href="#">kontakt@kodesonen.no</a> eller sosiale medier.</p><br />
+				<p>&copy; 2021, <a asp-controller="Home" asp-action="Index">Kodesonen.no</a> - en studentforening ved <a href="https://www.usn.no/om-usn/campusene/kongsberg/" target="_blank">USN Campus Kongsberg</a>. Kontakt oss når som helst på <a href="#">kontakt@kodesonen.no</a> eller sosiale medier.</p><br />
 
 				<a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
 				<a href="#" target="_blank"><i class="fab fa-github-square"></i></a>
@@ -84,7 +94,7 @@
 					<li><a asp-controller="Course" asp-action="Index">Kurskatalog</a></li>
 					<li><a asp-controller="Challenges" asp-action="Index">Arrangementer</a></li>
 					<li><a asp-controller="Medlemsliste" asp-action="Index">Medlemsliste</a></li>
-					<li><a asp-controller="Home" asp-action="About">Om oss</a></li>
+					<li><a asp-controller="About" asp-action="Index">Om oss</a></li>
 				</ul>
 			</div>
 			<div class="footer-discord">

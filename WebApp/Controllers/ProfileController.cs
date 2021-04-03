@@ -34,7 +34,7 @@ namespace WebApp.Controllers
             {
                 ProfileModel profileModel = new ProfileModel
                 {
-                    Name = user.UserName,
+                    Name = user.FullName,
                     Description = user.Description,
                     StaffPosition = user.StaffPosition,
                     Website = user.Website,

@@ -1,6 +1,7 @@
 .closebtn {
 	display: none;
 }
+
 .mobile_nav {
 	display: none;
 	font-size: 30px;
@@ -8,36 +9,48 @@
 }
 
 @media only screen and (max-width: 1325px) {
+
 	.wrapper {
 		padding: 0px 20px 0px 20px;
 	}
+
 }
+
 @media only screen and (max-width: 1100px) {
+
 	header#page-head {
 		margin: 3.5em 20px 0 20px;
 	}
+
 	#promotion-text {
 		padding: 50px 20px 50px 20px;
 	}
+
 	#promotion-text > h1 {
 		margin-bottom: 30px;
 		font-size: 2em;
 	}
+
 	.admin-links {
 		padding: 20px 0px 20px 0px;
 	}
+
 	.admin-links a {
 		font-size: large;
 	}
+
 	.logo-section {
 		grid-column: span 8;
 	}
+
 	.logo-section img {
 		margin-left: 20px;
 	}
+
 	.navigation {
 		grid-column: span 4;
 	}
+
 	.overlay {
 		height: 100%;
 		width: 0;
@@ -50,6 +63,7 @@
 		overflow-x: hidden;
 		transition: 0.5s;
 	}
+
 	.overlay-content {
 		position: relative;
 		top: 20%;
@@ -57,6 +71,7 @@
 		text-align: center;
 		margin-top: 30px;
 	}
+
 	.overlay a {
 		padding: 8px;
 		text-decoration: none;
@@ -65,16 +80,19 @@
 		display: block;
 		transition: 0.3s;
 	}
+
 	.overlay a:hover, .overlay a:focus {
 		color: #f1f1f1;
 	}
+
 	.overlay .closebtn {
 		visibility: visible;
 		position: absolute;
 		top: 20px;
 		right: 45px;
-		font-size: 60px;
+		font-size: 60px !important;
 	}
+
 	.mobile_nav {
 		display: inline-block;
 		position: absolute;
@@ -82,19 +100,24 @@
 		margin-right: 50px;
 		margin-top: 0 !important;
 	}
+
 	.nav li {
 		width: 100%;
 		margin-bottom: 10px;
 	}
+
 	.nav li a{
 		color: #fff;
 	}
+
 	.nav a li:last-child {
-		background: none;
-		padding: 8px;
+		background: none !important;
+		padding: 0px 0px !important;
 		margin-top: 0px;
 		font-size: xx-large;
+		margin-top: 15px !important;
 	}
+	
 	.nav a li:last-child:hover {
 		text-decoration: underline;
 		background: none;
@@ -103,217 +126,318 @@
 	.breadcrumb-nav {
 		margin-left: 20px;
 	}
+
 	.challenge-box {
 		margin: 20px;
 	}
+
 	.challenge-info .challenge-info-text {
 		text-align: center;
 	}
+
 	.challenge-info .hyperlink {
 		float: right;
 	}
+
 	.challenge-image img {
 		max-height: none;
 	}
+
 	.image-utfordringer-modal .modal-content {
 		width: 90%;
 	}
+
 	.error-404 {
 		margin: 60px 20px;
 	}
+
 	.front-content {
 		background: url('../img/homepage/mainimage-responsive.png')no-repeat center center;
 		background-position: center bottom;	
 		background-color: #2C3E50 !important;
 		padding-bottom: 70px;
 	}
+
 	.front-section {
 		margin-bottom: 0px !important;
 	}
+
 	.front-section .front-c:nth-of-type(1) {
 		order: 3;
 	}
+
 	.kodesonen-story {
 		grid-column: span 12;
 		padding: 0px 20px;
 	}
+
 	.kodesonen-story-image {
 		grid-column: span 12;
 		height: auto;
 		margin-top: 30px;
 		min-height: 200px;
 	}
+
 	.kodesonen-story-side {
 		grid-column: span 12;
 	}
+
 	.kodesonen-story-side img {
 		max-height: 400px;
 	}
+
 	.box-wrapper .profile-box {
 		padding: 0px 20px;
 	}
+
 	.main-tab {
 		grid-column: span 12 !important;
 		margin-bottom: 20px;
 	}
+
 	.front-text {
 		grid-column: span 12;
 		padding: 40px 40px;
 	}
+
 	.front-picture {
 		grid-column: span 12;
 	}
+
 	.front-picture img {
 		max-width: 500px;
 		display:block;
 		margin:auto;
 		margin-top: 30px;
 	}
+
 	.box_thread {
 		grid-column: span 12;
 		margin: 0px 20px;
 	}
+
 	.kurs_info, .text-info {
 		padding: 20px;
 	}
+
 	.medlem-form {
 		grid-column: span 12;
 		margin: 30px 20px;
 	}
+
 	.medlem-info {
 		grid-column: span 12;
 	}
+
 	.add_course_select {
 		grid-column: span 12;
 	}
+
 	.course_select {
 		grid-column: span 12;
 	}
+
 	.sidebar-image {
 		display: none;
 	}
+
 	.challenge-image {
 		grid-column: span 12;
 	}
+
 	.challenge-info {
-		margin: 20px 0px 20px 0px;
+		margin: 0px 0px 20px 0px;
 		grid-column: span 12;
 	}
+
 	.footer-trademark {
 		grid-column: span 12;
 		text-align: center;
 	}
+
 	.footer-hyperlinks {
 		grid-column: span 12;
 		margin-top: 30px;
 		text-align: center;
 	}
+
 	.footer-hyperlinks a {
 		font-size: xx-large;
 	}
+
+	.frontPageButtons {
+		margin: auto;
+	}
+
+	.profile-site-feed {
+		grid-column: span 12;
+	}
+
+	.profile-site-archive {
+		grid-column: span 12;
+		margin-bottom: 20px;
+	}
+
+	.authorPost-section {
+		margin-left: 0px !important;
+	}
+
+	a .authorPost-button {
+		left: 45% !important;
+	}
+
+	.profile-site-image {
+		grid-column: span 12;
+		margin-bottom: 20px;
+	}
+
+	.profile-site-desc {
+		grid-column: span 12;
+	}
+
+	.profile-site-content {
+		text-align: center;
+	}
+
+	.profile-site-info {
+		margin-top: 20px;
+		text-align: center;
+	}
+
 	.member-sidebar-image {
 		display: none;
 	}
+
 	.member-list {
 		margin: 0px 20px !important;
 	}
+
 	.course-navigation-info-break {
 		padding: 0px !important;
 	}
+
 	.course_read_section img {
 		max-width: 100% !important;
 		height: auto !important; 
 	}
+
 	.sponsor-tab > li {
 		grid-column: span 12;
 		margin: 40px;
 	}
+
 	.sponsor-tab > li img {
 		max-height: 100px;
 	}
+
 	.footer-trademark {
 		order: 2;
 	}
+
 	.footer-hyperlinks {
 		display: none;
 	}
+
 	.footer-discord {
 		grid-column: span 12;
 		margin-bottom: 30px;
 		text-align: center;
 	}
+
 	.front-picture img {
 		max-width: 100% !important;
 	}
 	
 	/* Kurskatalog innlegg */
 	@media screen and (max-height: 960px) {
+
 		.course_read_section {
 			margin: 20px 20px;
 		}
+
 		.course_jump_break {
 			width: 100%;
 			margin-right: 0px !important;
 		}
+
 		p {
 			width: 100%;
 		}
+
 		.course_read_section img {
 			width: 100%;
 		}
+
 		.course-navigation-select .fas, .course-navigation-select h3 {
 			font-size: large !important;
 		}
+
 	}
 
 	@media screen and (max-height: 450px) {
+
 	  .overlay a {font-size: 20px}
+
 	  .overlay .closebtn {
 	  font-size: 40px;
 	  top: 15px;
 	  right: 35px;
 	  }
+
 	}
 	
 	@media only screen and (max-width: 1075px) {
+
 		.front-content {
 			padding-bottom: 120px;
 		}
+
 	}
 	@media only screen and (max-width: 815px) {
+
 		.front-content {
 			padding-bottom: 170px;
 		}
+
 		.profile-box {
 			grid-column: span 12;
 			margin-bottom: 20px;
 		}
+
 	}
 	@media only screen and (max-width: 610px) {
+
 		.front-content {
 			padding-bottom: 200px;
 		}
+
 		.overlay a {
 			font-size: 26px !important;
 		}
+
 		.nav a li:last-child {
 			font-size: 26px;
 		}
+
 		#cookieChoiceInfo {
 			padding: 30px 25px;
 			margin: 0px !important;
 		}
+
 		.authorPost-section {
 			padding: 0px !important;
 		}
+
 		.authorPost-section h1 {
 			padding: 20px;
 			padding-bottom: 0px;
 		}
+
 		.authorPost-section p {
 			padding: 0px 20px;
 			max-width: 90% !important;
 		}
+		
 		a .authorPost-button {
 			margin-top: -50px;
 			margin-left: -50px;
