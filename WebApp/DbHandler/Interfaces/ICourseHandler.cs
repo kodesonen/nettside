@@ -20,9 +20,10 @@ namespace WebApp.DbHandler.Interfaces
         public Course GetCourseById(int courseId);
         public bool UpdateCourse(Course model);
         public bool UpdateModule(Module model);
-        public List<Course> GetAllCoursesByUserId(string userId);
+    		public List<Course> GetAllCoursesByUserId(string userId);
+        public List<Module> GetAllModulesByUserId(string userId);
     }
-
+  
     public class CourseHandler : ICourseHandler
     {
         private readonly DataContext db;
@@ -139,8 +140,15 @@ namespace WebApp.DbHandler.Interfaces
                 var course = db.Courses.Where(x => x.Id == module.CourseId).FirstOrDefault();
                 listOfCourses.Add(course);
             }
-
+            
             return listOfCourses;
         }
+        
+        public List<Module> GetAllModulesByUserId(string userId)
+		    {
+    			  var Data = db.Modules.Where(x => x.Author == userId);
+            List<Module> listOfModules = Data.ToList();
+            return listOfModules;
+		    }
     }
 }
