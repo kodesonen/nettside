@@ -1,6 +1,6 @@
 ﻿@model List<WebApp.DbHandler.Models.Course>
 
-@{ ViewData["Title"] = "Kurs katalog"; }
+@{ ViewData["Title"] = "Kurskatalog"; }
 
 <div class="breadcrumbs">
 	<div class="wrapper">
@@ -18,7 +18,7 @@
 <div class="box-wrapper">
 	@foreach(var Course in Model)
 	{
-		<a href='/kurs/@Course.Id' class='box_thread'>
+		<a asp-controller="Course" asp-action="KursSide" asp-route-id="@Course.Id" class='box_thread'>
 			<div class='box_symbol'>
 				<h1><i class='@Course.Icon'></i></h1>
 			</div>
