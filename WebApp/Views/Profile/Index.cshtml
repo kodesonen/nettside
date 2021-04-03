@@ -65,13 +65,42 @@
 </div>
 
 <div class="profile-site-archive">
+	<h2>Informasjon</h2>
+	<ul class="profile-archive">
+		@if (!string.IsNullOrEmpty(@Model.University))
+		{
+			<p><strong>Studiested:</strong></p>
+			<p>@Model.University</p> <br>
+		}
+
+		@if (!string.IsNullOrEmpty(@Model.Study))
+		{
+			<p><strong>Studieretning:</strong></p>
+			<p>@Model.Study</p> <br>
+		}
+
+		@if (!string.IsNullOrEmpty(@Model.Study))
+		{
+			<p><strong>Studiegrad:</strong></p>
+			<p>Bachelor</p> <br>
+		}
+
+		@if (!string.IsNullOrEmpty(@Model.Study))
+		{
+			<p><strong>Medlem siden:</strong></p>
+			<p>01. januar 2018</p> <br>
+		}
+	</ul>
+
+	<br><hr><br>
+
 	@if (Model.WrittenCourses.Any())
 	{
 		<h2>Publiserte kurs</h2>
 		<ul class="profile-archive">
 			@foreach (var course in Model.WrittenCourses)
 			{
-				<li><a href="#">@course.Name</a> <span>(99)</span></li>
+				<li><a asp-controller="Course" asp-action="KursSide" asp-route-id="@course.Id">@course.Name</a> <span>(99)</span></li>
 			}
 		</ul>
 
@@ -80,7 +109,7 @@
 
 	<h2>Arrangementer</h2>
 	<ul class="profile-archive">
-		<p>Sirajuddin har ikke deltatt på noen arrangementer enda.</p>
+		<p>@WebApp.Helpers.SplitFullName.PrintFirstName(Model.Name) har ikke deltatt på noen arrangementer enda.</p>
 	</ul>
 </div>
 
@@ -93,20 +122,22 @@
 		@foreach (var module in Model.WrittenModules)
 		{
 			<div class="authorPost-section">
-				<h1>@module.ModuleName</h1> 
+				<h1>@module.ModuleName</h1>
 				<h4>- @module.Published.ToString("dd MMMM, yyyy", new System.Globalization.CultureInfo("nb-NO"))</h4><br>
+				<p>@Html.Raw(module.Html)</p>
 
-				@if (!string.IsNullOrEmpty(module.Html) && module.Html.Length > 750)
-				{
-					<p>@Html.Raw(module.Html.Substring(0, 750) + " ...")</p>
-				}
-				else
-				{
-					<p>@Html.Raw(module.Html)</p>
-				}
-
-				<a href="#"><div id="kodesonen-button2" class="button authorPost-button">Les innlegg <i class="fas fa-long-arrow-alt-right"></i></div></a>
+				<a asp-controller="Course" asp-action="ModulSide" asp-route-id="@module.Id">
+					<div id="kodesonen-button2" class="button authorPost-button">Les innlegg <i class="fas fa-long-arrow-alt-right"></i>
+					</div>
+				</a>
 			</div>
 		}
+	}
+	else
+	{
+		<div class="authorPost-section">
+			<h1>Merker</h1>
+			<p>@WebApp.Helpers.SplitFullName.PrintFirstName(Model.Name) har ikke opptjent noen merker enda.</p>
+		</div>
 	}
 </div>
