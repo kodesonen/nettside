@@ -41,7 +41,7 @@
 				</select>
 			</div>
 
-			<hr /><p>Ved å opprette medlemskap godtår du våre <a href="/?side=vilkar-og-personvern">vilkår og personvern</a>.</p>
+			<hr /><p>Ved å opprette medlemskap godtår du våre <a asp-controller="vilkaar-og-personvern" asp-action="Index">vilkår og personvern</a>.</p>
 			<button type="submit" name="submit" class="medlem-button">Bli medlem</button>
 		</form>
 	</div>
@@ -53,4 +53,20 @@
 		</center>
 	</div>
 </div>
-	</div>
+</div>
+
+<script type="text/javascript" src="~/js/autofill.js"></script>
+<script>
+	// Hent jsonData (eller annen type data) fra ekstern kilde!
+	// Eksempelet nedenfor er bare midlertidig.
+
+	var jsonData = [{"Studieretningnavn" : "Informatikk", "Studieretningnavn" : "Dataingeniør"}];
+
+	var studieretning = [];
+
+	for(var i = 0; i < jsonData.length; i++) {
+		studieretning.push(jsonData[i].Studieretningnavn);
+	}
+
+	autocomplete(document.getElementById("studieretningInput"), studieretning);
+</script>

@@ -85,6 +85,12 @@ a .fas {
 	margin-right: 5px;
 }
 
+button:disabled,
+button[disabled]{
+	background-color: var(--main-color-grey) !important;
+	cursor: not-allowed !important;
+	color: var(--main-color-dark) !important;
+}
 .hyperlink {
 	color: var(--main-color);
 	text-decoration: none;
@@ -372,6 +378,7 @@ header#page-head #logo-section img {
 	max-width: 260px;
 	margin: 0 1.1em;
 	margin-top: 5px;
+	margin-left: 30px;
 }
 
 header#page-head #navigation-section {
@@ -999,6 +1006,7 @@ a .main-tab > p {
 	display: none;
 }
 
+/* Må fikse denne!
 .retning::after {
 	content: '\276D';
 	position: absolute;
@@ -1014,6 +1022,7 @@ a .main-tab > p {
 	height: 60px;
 	width: 60px;
 }
+*/
 
 .medlem-form p {
 	margin: 20px 0px 20px 0px;
@@ -1198,11 +1207,18 @@ a .main-tab > p {
 }
 
 .box_numbers {
+	/*
 	text-align: center;
 	margin-top: 13px;
 	float: left;
 	width: 15%;
+	*/
+	position: relative;
+	top: -190px;
+	left: 170px;
 	color: #d3d3d3;
+	width: 40px;
+	height: 40px;
 }
 
 .box_numbers h4 {
@@ -1522,7 +1538,6 @@ a .authorPost-button {
 
 .profile-box img {
 	margin: auto;
-	display: block;
 	height: 150px;
 	width: 150px;
 	border-radius: 5px;
@@ -1812,6 +1827,7 @@ a .authorPost-button {
 .autocomplete {
 	position: relative;
 	display: inline-block;
+	width: 100%;
 }
 .autocomplete input {
 	border: 1px solid transparent;
@@ -1833,7 +1849,7 @@ a .authorPost-button {
 	border-bottom: none;
 	border-top: none;
 	z-index: 99;
-	top: 100%;
+	top: 85%;
 	left: 0;
 	right: 0;
 }
@@ -1841,10 +1857,10 @@ a .authorPost-button {
 	padding: 10px;
 	cursor: pointer;
 	background-color: #fff;
-	border-bottom: 1px solid #d4d4d4;
+	border: 1px solid #f1f1f1;
 }
 .autocomplete-items div:hover {
-	background-color: #e9e9e9;
+	background-color: #dbdbdb;
 }
 .autocomplete-active {
 	background-color: DodgerBlue !important;
