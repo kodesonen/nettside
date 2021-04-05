@@ -18,6 +18,30 @@
 <div class="box-wrapper">
 	@foreach(var Course in Model)
 	{
+		<a href='#' class='main-tab'>
+			<center>
+				<span class='main-tab-icon'>
+					<i class='@Course.Icon'></i>
+				</span>
+				
+				<h1>@Course.Name</h1>
+				<br/>
+				<p>@Course.Description</p>
+				
+				<div class='box_numbers'>
+					<h4><i class='fas fa-copy'></i> 0</h4>
+				</div>
+
+				<br/>
+				<div class="main-tab-arrow"><i class="fas fa-long-arrow-alt-right"></i></div>
+			</center>
+		</a>
+	}
+</div>
+
+<!-- 
+@foreach(var Course in Model)
+	{
 		<a href='#' class='box_thread'>
 			<div class='box_symbol'>
 				<h1><i class='@Course.Icon'></i></h1>
@@ -33,4 +57,4 @@
 			</div>
 		</a>
 	}
-</div>
+-->
