@@ -42,7 +42,8 @@ namespace WebApp.Controllers
                     GitHub = user.GitHub,
                     University = user.University,
                     Study = user.Study,
-                    WrittenCourses = CourseHandler.GetAllCoursesByUserId(user.Id)
+                    WrittenCourses = CourseHandler.GetAllCoursesByUserId(user.Id),
+                    WrittenModules = CourseHandler.GetAllModulesByUserId(user.Id)
                 };
 
                 return View(profileModel);
