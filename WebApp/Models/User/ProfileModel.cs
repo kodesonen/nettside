@@ -9,11 +9,11 @@ namespace WebApp.Models.User
         /* Personal information */
         public string Name { get; set; }
         public string Description { get; set; }
-		public string StaffPosition { get; set; }
-		
+        public string StaffPosition { get; set; }
+
         /* Study information */
-		public string University { get; set; }
-		public string Study { get; set; }
+        public string University { get; set; }
+        public string Study { get; set; }
 
         /* Social media */
         public string Website { get; set; }
@@ -22,5 +22,6 @@ namespace WebApp.Models.User
 
         /* Courses */
         public List<Course> WrittenCourses { get; set; }
+        public List<Module> WrittenModules { get; set; }
     }
 }

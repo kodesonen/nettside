@@ -36,7 +36,7 @@
 				{
 					<a asp-controller="Auth" asp-action="Logout"><i class="fas fa-user"></i>Logg ut</a>
 					<a asp-controller="Profile" asp-action="Index" asp-route-id="@userManager.GetUserId(User)"><i class="fas fa-user"></i>Min profil</a>
-					<a asp-controller="Admin" asp-action="Index"><i class="fas fa-user"></i>Innstillinger</a>
+					<a asp-controller="Settings" asp-action="Index"><i class="fas fa-user"></i>Innstillinger</a>
 					<a asp-controller="Admin" asp-action="Index"><i class="fas fa-user"></i>Admin kontrollpanel</a>
 				}
 				else

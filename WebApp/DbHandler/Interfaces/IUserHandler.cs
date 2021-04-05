@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using WebApp.DbHandler.Models;
+using WebApp.Models.Settings;
+using Microsoft.AspNetCore.Identity;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 
 namespace WebApp.DbHandler.Interfaces
 {
@@ -11,14 +15,20 @@ namespace WebApp.DbHandler.Interfaces
         public List<User> GetPublicUsers();
         public User GetUserById(string userId);
         public User GetUserByUrlName(string name);
+        Task<IdentityResult> ChangePassword(EditPasswordModel model);
     }
 
     public class UserHandler : IUserHandler
     {
         private readonly DataContext db;
-        public UserHandler(DataContext _db)
+        private readonly UserManager<User> userManager;
+        private readonly IHttpContextAccessor httpContext;
+        
+        public UserHandler(DataContext _db, UserManager<User> _userManager, IHttpContextAccessor _httpContext)
         {
             this.db = _db;
+            this.userManager = _userManager;
+            this.httpContext = _httpContext;
         }
 
         public List<User> GetUsers()
@@ -47,6 +57,13 @@ namespace WebApp.DbHandler.Interfaces
             var Data = db.Users.Where(x => x.UrlName == name).FirstOrDefault();
             if (Data != null) return Data;
             return null;
+        }
+
+        public async Task<IdentityResult> ChangePassword(EditPasswordModel model)
+        {
+            User user = await userManager.GetUserAsync(httpContext.HttpContext.User);
+            var result = await userManager.ChangePasswordAsync(user, model.CurrentPassword, model.NewPassword);
+            return result;
         }
     }
 }
