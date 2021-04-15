@@ -785,8 +785,8 @@ a .main-tab > p {
 	max-width: 100%;
     max-height: 100%;
     position: relative;
-	top: 50%;
-	transform: translateY(-50%);
+	/*top: 50%;
+	transform: translateY(-50%);*/
 	border-radius: 2px;
 }
 
@@ -1136,9 +1136,13 @@ a .main-tab > p {
 	padding: 20px;
 }
 
+.member-sidebar-image {
+	grid-column: span 5;
+}
+
 .member-sidebar-image img {
-	margin-top: 60px;
-	max-width: 550px;
+	margin: 60px 20px 20px 20px;
+	width: 100%;
 }
 
 #banner-animation {
