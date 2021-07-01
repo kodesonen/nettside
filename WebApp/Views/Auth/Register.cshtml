@@ -3,11 +3,13 @@
 @{ ViewData["Title"] = "Bli medlem"; }
 
 <div class="medlem-section wrapper">
+	<!--
 	<div class="error_label" id="error_label">
 		<div class="label_text">
 			<h3 id="error_message"></h3>
 		</div>
 	</div>
+	-->
 
 	<!-- Hvis vi går over til f.eks. Ajax ved client-side:
 	<div class="success_label" id="success_label">
@@ -60,12 +62,14 @@
 
 	<div class="member-sidebar-image">
 		<center>
+			<img src="~/img/register.png" />
 			<!-- <img id="banner-animation" src="~/img/member/banner.svg"/>
 			<img id="person-animation" class="animated slideInRight" src="~/img/member/person.svg"/> -->
 		</center>
 	</div>
 </div>
 
+<!--
 <script type="text/javascript" src="~/js/autocomplete.js"></script>
 <script type="text/javascript">
 
@@ -196,5 +200,5 @@
 			document.getElementById("error_message").innerHTML = "Vennligst fyll ut alle detaljene!";
 		}
 	}, false);
-
 </script>
+-->
