@@ -629,6 +629,17 @@ a .main-tab > p {
 	color: var(--main-color-light);
 }
 
+.main-tab-icon .fab {
+	font-size: 26px;
+	margin-bottom: 25px;
+	border-radius: 50%;
+	padding: 25px 0;
+	width: 75px;
+	display: block;
+	background: var(--main-color);
+	color: var(--main-color-light);
+}
+
 .main-tab-arrow .fas {
 	font-size: xx-large;
 	color: var(--main-color-neutral) !important;
