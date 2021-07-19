@@ -9,7 +9,9 @@
 	--main-color-dark: #282828;
 	--main-color-grey: #f5f5f5;
 	--main-color-light: #f7f8f8;
-	--main-color-warning: #c91e1e;
+	--main-color-success: #DFF2BF;
+	--main-color-warning: #f1c40f;
+	--main-color-error: #c91e1e;
 	--main-color-neutral: #dbdbdb;
 	--main-font: 'Lato', sans-serif;
 	--max-width: 1300px;
@@ -257,6 +259,16 @@ button[disabled]{
 	grid-column: span 12;
 	text-align: center;
 	margin: 80px 0px;
+}
+
+.clearfix {
+	overflow: auto;
+}
+
+.clearfix::after {
+	content: "";
+	clear: both;
+	display: table;
 }
 
 .grid-12 {grid-column: span 12 !important;}
@@ -1089,7 +1101,7 @@ a .main-tab > p {
 .success_label {
 	grid-column: span 12;
 	color: black;
-	background: #DFF2BF;
+	background: var(--main-color-success);
 	padding: 16px;
 	border-radius: 5px;
 	transition: .3s;
@@ -1099,12 +1111,23 @@ a .main-tab > p {
 .error_label {
 	grid-column: span 12;
 	color: black;
-	background: #FFD2D2;
+	background: var(--main-color-error);
 	padding: 16px;
 	border-radius: 5px;
 	transition: .3s;
 	margin-bottom: 10px;
 }
+
+.warning_label {
+	grid-column: span 12;
+	color: black;
+	background: var(--main-color-warning);
+	padding: 16px;
+	border-radius: 5px;
+	transition: .3s;
+	margin-bottom: 10px;
+}
+
 
 .label_text {
 	width: 90%;
@@ -1543,6 +1566,45 @@ a .authorPost-button {
 
 .kodesonen-story-image img {
 	max-width: 550px;
+}
+
+/* Prosjekter: */
+
+.project-box {
+	grid-column: span 6;
+	padding: 20px;
+	background: var(--main-color-grey);
+	padding-bottom: -2px;
+}
+
+.project-box-tags span {
+	float: left;
+	margin-right: 10px;
+	color: var(--main-color-dark);
+	padding: 5px 10px;
+	background: var(--main-color-neutral);
+	border-radius: 5px;
+}
+
+.project-box-tags h2 {
+	font-size: medium;
+}
+
+.project-box-tags {
+	grid-column: span 12;
+}
+
+.project-box-link {
+	margin: 30px 0px;
+	grid-column: span 12;
+}
+
+.project-box-text {
+	grid-column: span 12;
+}
+
+.project-info-text {
+	margin-top: 10px;
 }
 
 /* Om oss: */
