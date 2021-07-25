@@ -26,27 +26,27 @@
 			@Html.Raw(TempData["StatusMessage"])
 
 			<label><b>Fullt navn</b></label>
-			<input type="text" id="navnInput" placeholder="Oppgi fullt navn" asp-for="Name" required>
+			<input type="text" placeholder="Oppgi fullt navn" asp-for="Name" required>
 			
 			<label><b>E-post</b></label>
-			<input type="text" id="emailInput" placeholder="Oppgi e-post adresse" asp-for="Email" required>
+			<input type="text" placeholder="Oppgi e-post adresse" asp-for="Email" required>
 
 			<label><b>Passord</b></label>
-			<input type="password" id="passwordInput" placeholder="Oppgi et passord" asp-for="Password" required>
+			<input type="password" placeholder="Oppgi et passord" asp-for="Password" required>
 
 			<div class="autocomplete">
 				<label><b>Utdanningssted</b></label>
-				<input type="text" id="utdanningsstedInput" name="utdanningssted" placeholder="Oppgi studiested" autocomplete="off" asp-for="University" required>
+				<input type="text" name="utdanningssted" placeholder="Oppgi studiested" autocomplete="off" asp-for="University" required>
 			</div>
 
 			<div class="autocomplete">
 				<label><b>Studieretning</b></label>
-				<input type="text" id="studieretningInput" placeholder="Oppgi studieretning" autocomplete="off" asp-for="Study" required>
+				<input type="text" placeholder="Oppgi studieretning" autocomplete="off" asp-for="Study" required>
 			</div>
 
 			<label><b>Studiegrad</b></label>
 			<div class="retning">
-				<select name="grad" id="gradSelect">
+				<select name="grad">
 					<option disabled selected>Velg din studiegrad</option>
 					<option value="Forkurs">Forkurs</option>
 					<option value="Bachelor">Bachelor</option>
@@ -55,8 +55,8 @@
 				</select>
 			</div>
 			
-			<hr/><p>Ved å opprette medlemskap godtår du våre <a asp-controller="vilkaar-og-personvern" asp-action="Index">vilkår og personvern</a>.</p>
-			<button type="submit" id="bliMedlem" class="medlem-button">Bli medlem</button>
+			<hr/><p>Ved å bli medlem godtar du våre <a asp-controller="vilkaar-og-personvern" asp-action="Index">vilkår og personvern</a>.</p>
+			<button type="submit" class="medlem-button">Bli medlem</button>
 		</form>
 	</div>
 
