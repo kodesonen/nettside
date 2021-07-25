@@ -21,6 +21,8 @@ namespace WebApp.Models.Auth
 		[Required]
 		public string Study { get; set; }
 
+		public string Degree { get; set; }
+
         [Required(ErrorMessage = "Vennligst oppgi et passord!")]
         [DataType(DataType.Password)]
         public string Password { get; set; }

@@ -32,7 +32,10 @@ namespace WebApp.DbHandler.Interfaces
             {
                 Email = registerModel.Email,
                 UserName = registerModel.Email,
-                FullName = registerModel.Name
+                FullName = registerModel.Name,
+                University = registerModel.University,
+                Study = registerModel.Study,
+                Degree = registerModel.Degree
             };
 
             var result = await userManager.CreateAsync(user, registerModel.Password);

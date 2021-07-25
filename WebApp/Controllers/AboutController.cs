@@ -21,5 +21,12 @@ namespace WebApp.Controllers
         {
             return View();
         }
+
+        [HttpGet]
+        [Route("discord")]
+        public IActionResult Discord()
+        {
+            return Redirect("https://discord.gg/vUBkfNG");
+        }
     }
 }

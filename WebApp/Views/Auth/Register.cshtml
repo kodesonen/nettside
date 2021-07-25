@@ -36,7 +36,7 @@
 
 			<div class="autocomplete">
 				<label><b>Utdanningssted</b></label>
-				<input type="text" name="utdanningssted" placeholder="Oppgi studiested" autocomplete="off" asp-for="University" required>
+				<input type="text" placeholder="Oppgi studiested" autocomplete="off" asp-for="University" required>
 			</div>
 
 			<div class="autocomplete">
@@ -46,7 +46,7 @@
 
 			<label><b>Studiegrad</b></label>
 			<div class="retning">
-				<select name="grad">
+				<select asp-for="Degree">
 					<option disabled selected>Velg din studiegrad</option>
 					<option value="Forkurs">Forkurs</option>
 					<option value="Bachelor">Bachelor</option>

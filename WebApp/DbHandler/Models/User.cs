@@ -19,6 +19,7 @@ namespace WebApp.DbHandler.Models
 		/* Study information */
 		public string University { get; set; }
 		public string Study { get; set; }
+		public string Degree { get; set; }
 
 		/* API information */
 		public string ApiKey { get; set; }
