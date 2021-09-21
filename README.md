@@ -28,7 +28,9 @@ TBD
 ```
 
 ## Contributors ✨
-This project exists as a result of the hard work of our web developers and contributors. Thanks goes to these wonderful people:
+This project exists as a result of the hard work of our web developers and contributors. 
+
+Thanks goes to these wonderful people:
 
 <table>
     <tr>
