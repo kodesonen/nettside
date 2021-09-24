@@ -10,6 +10,9 @@ docker-compose build
 
 ## Run application
 ```
+# Build project
+docker-compose build
+
 # Start application
 docker-compose up -d
 
