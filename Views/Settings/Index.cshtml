@@ -1,0 +1,52 @@
+@{ ViewData["Title"] = "Brukerinnstillinger"; }
+
+<div class="text-info">
+    <h1>Brukerinnstillinger</h1><br/>
+    <p>På denne siden kan du oppdatere dine opplysninger, endre passord, e-post og brukerpreferanser.</p>
+</div>
+
+<div class="box-wrapper">
+    <a asp-controller="Settings" asp-action="EditProfile" class='box_thread admin-black'>
+        <div class='box_symbol'>
+            <h1><i class='far fa-address-card'></i></h1>
+        </div>
+
+        <div class='box_info'>
+            <h2>Endre profil</h2>
+            <h4>Oppdater din profil og brukeropplysninger</h4>
+        </div>
+    </a>
+
+    <a asp-controller="Settings" asp-action="EditPassword" class='box_thread admin-black'>
+        <div class='box_symbol'>
+            <h1><i class='fas fa-unlock-alt'></i></h1>
+        </div>
+
+        <div class='box_info'>
+            <h2>Endre passord</h2>
+            <h4>Oppdater ditt personlige brukerpassord</h4>
+        </div>
+    </a>
+
+    <a asp-controller="Settings" asp-action="ManageMembership" class='box_thread admin-black'>
+        <div class='box_symbol'>
+            <h1><i class='far fa-user'></i></h1>
+        </div>
+
+        <div class='box_info'>
+            <h2>Medlemskap</h2>
+            <h4>Administrer ditt medlemskap i Kodesonen</h4>
+        </div>
+    </a>
+
+    <a asp-controller="Settings" asp-action="Privacy" class='box_thread admin-black'>
+        <div class='box_symbol'>
+            <h1><i class='fas fa-list-ul'></i></h1>
+        </div>
+
+        <div class='box_info'>
+            <h2>Personvern</h2>
+            <h4>Administrer personvern og dine samtykker</h4>
+        </div>
+    </a>
+</div>

@@ -1,0 +1,41 @@
+@{ ViewData["Title"] = "Studentprosjekter"; }
+
+<div class="text-info">
+    <h1>Studentprosjekter</h1><br />
+    <p>Her finner du informasjon om ulike prosjekter drevet av studenter, både fritidsprosjekter og andre skoleoppgaver, og på denne siden kan alle vise frem og skryte av prosjektene sine. Vi oppfordrer alle til å dele informasjon og kildekode, da dette kan motivere andre studenter til å jobbe med fritidsprosjekter.</p><br>
+    
+    <div class="warning_label">
+	    <div class="label_text">
+		    <h3>Flere studentprosjekter kommer snart!</h3>
+	    </div>
+    </div>
+</div>
+
+<div class='project-box'>
+    <div class="wrapper">
+        <div class='project-box-text'>
+            <h1>Kodesonens nettside</h1>
+            <p>Publisert av: <a href="/" class="hyperlink">Kodesonen</a></p><br/>
+        </div>
+
+        <div class="project-box-tags">
+            <span>C#</span> 
+            <span>ASP.NET Core</span> 
+            <span>Entity Framework</span> 
+            <span>MVC Pattern</span> 
+            <span>CI/CD</span>
+        </div>
+
+        <div class='project-box-text project-info-text'>
+            <p class="project-info-text">Nettsiden til Kodesonen er utviklet av webteamet vårt og oppdateres kontinuerlig med nye funksjonaliteter og forbedringer. Nettsiden er utviklet ved bruk av moderne rammeverk og design patterns innen webutvikling, og webteamet praktiserer en utviklingssyklus som består av planlegging, utvikling, testing og distribuering av nettsiden. Hele kildekoden er open source og ta kontakt med oss dersom du ønsker å bidra i webteamet.</p>
+        </div>
+
+        <div class="project-box-link">
+            <center>
+                <a asp-controller="Projects" asp-action="ProjectPage" class="button" id="kodesonen-button2">Les mer om prosjektet <i class="fas fa-long-arrow-alt-right"></i></a><br/>
+            </center>
+        </div>
+    </div>
+</div>
+
+<br><br>

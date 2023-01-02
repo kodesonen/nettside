@@ -1,0 +1,204 @@
+﻿@model WebApp.Models.Auth.RegisterModel
+
+@{ ViewData["Title"] = "Bli medlem"; }
+
+<div class="medlem-section wrapper">
+	<!--
+	<div class="error_label" id="error_label">
+		<div class="label_text">
+			<h3 id="error_message"></h3>
+		</div>
+	</div>
+	-->
+
+	<!-- Hvis vi går over til f.eks. Ajax ved client-side:
+	<div class="success_label" id="success_label">
+		<div class="label_text">
+			<h3 id="success_message"></h3>
+		</div>
+	</div> -->
+
+	<div class="medlem-form">
+		<h1>Registrer deg som medlem</h1><hr/>
+
+		<form asp-controller="Auth" name="Register" asp-action="Register" method="post">
+			<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+			@Html.Raw(TempData["StatusMessage"])
+
+			<label><b>Fullt navn</b></label>
+			<input type="text" placeholder="Oppgi fullt navn" asp-for="Name" required>
+			
+			<label><b>E-post</b></label>
+			<input type="text" placeholder="Oppgi e-post adresse" asp-for="Email" required>
+
+			<label><b>Passord</b></label>
+			<input type="password" placeholder="Oppgi et passord" asp-for="Password" required>
+
+			<div class="autocomplete">
+				<label><b>Utdanningssted</b></label>
+				<input type="text" placeholder="Oppgi studiested" autocomplete="off" asp-for="University" required>
+			</div>
+
+			<div class="autocomplete">
+				<label><b>Studieretning</b></label>
+				<input type="text" placeholder="Oppgi studieretning" autocomplete="off" asp-for="Study" required>
+			</div>
+
+			<label><b>Studiegrad</b></label>
+			<div class="retning">
+				<select asp-for="Degree">
+					<option disabled selected>Velg din studiegrad</option>
+					<option value="Forkurs">Forkurs</option>
+					<option value="Bachelor">Bachelor</option>
+					<option value="Master">Master</option>
+					<option value="Annet">Annet</option>
+				</select>
+			</div>
+			
+			<hr/><p>Ved å bli medlem godtar du våre <a asp-controller="vilkaar-og-personvern" asp-action="Index">vilkår og personvern</a>.</p>
+			<button type="submit" class="medlem-button">Bli medlem</button>
+		</form>
+	</div>
+
+	<div class="member-sidebar-image">
+		<center>
+			<img src="~/img/register.png" />
+			<!-- <img id="banner-animation" src="~/img/member/banner.svg"/>
+			<img id="person-animation" class="animated slideInRight" src="~/img/member/person.svg"/> -->
+		</center>
+	</div>
+</div>
+
+<!--
+<script type="text/javascript" src="~/js/autocomplete.js"></script>
+<script type="text/javascript">
+
+	// Erstatt arrays med DB:
+
+	var studieretning = ['informatikk', 'dataingeniør', 'elektroingeniør', 'maskiningeniør'];
+	var utdanningssted = ['Universitet i Oslo', 'Universitet i Sørøst-Norge', 'Universitet i Stavanger', 'Universitet i Bergen'];
+
+	var errorLabel = document.getElementById("error_label");
+	errorLabel.setAttribute("style", "visibility: hidden; position: absolute;")
+
+	// var successLabel = document.getElementById("success_label");
+	// successLabel.setAttribute("style", "visibility: hidden; position: absolute;")
+
+	autocomplete(document.getElementById("studieretningInput"), studieretning);
+	autocomplete(document.getElementById("utdanningsstedInput"), utdanningssted);
+
+	function validateEmail(emailAddress) {
+		var sQtext = '[^\\x0d\\x22\\x5c\\x80-\\xff]';
+		var sDtext = '[^\\x0d\\x5b-\\x5d\\x80-\\xff]';
+		var sAtom = '[^\\x00-\\x20\\x22\\x28\\x29\\x2c\\x2e\\x3a-\\x3c\\x3e\\x40\\x5b-\\x5d\\x7f-\\xff]+';
+		var sQuotedPair = '\\x5c[\\x00-\\x7f]';
+		var sDomainLiteral = '\\x5b(' + sDtext + '|' + sQuotedPair + ')*\\x5d';
+		var sQuotedString = '\\x22(' + sQtext + '|' + sQuotedPair + ')*\\x22';
+		var sDomain_ref = sAtom;
+		var sSubDomain = '(' + sDomain_ref + '|' + sDomainLiteral + ')';
+		var sWord = '(' + sAtom + '|' + sQuotedString + ')';
+		var sDomain = sSubDomain + '(\\x2e' + sSubDomain + ')*';
+		var sLocalPart = sWord + '(\\x2e' + sWord + ')*';
+		var sAddrSpec = sLocalPart + '\\x40' + sDomain; // complete RFC822 email address spec
+		var sValidEmail = '^' + sAddrSpec + '$'; // as whole string
+
+		var reValidEmail = new RegExp(sValidEmail);
+
+		return reValidEmail.test(emailAddress);
+	}
+
+	const university = document.getElementById("utdanningsstedInput");
+	const study = document.getElementById("studieretningInput");
+
+	var isUniversity = false;
+	var isStudy = false;
+
+	const degree = document.getElementById("gradSelect");
+	
+	var isDegree = false;
+
+	const name = document.getElementById("navnInput");
+	const email = document.getElementById("emailInput");
+	const password = document.getElementById("passwordInput");
+
+	var isName = false;
+	var isEmail = false;
+	var isPassword = false;
+
+	const button = document.getElementById("bliMedlem");
+
+	university.addEventListener('change', function(event) {
+		if(utdanningssted.includes(document.forms['Register'].utdanningsstedInput.value)) { // Has to ignore case-sensitivty
+			university.setAttribute("style", "border: 1px solid #27ae60;");
+			isUniversity = true;
+		}
+		else {
+			university.setAttribute("style", "border: 1px solid #e74c3c;");
+			isUniversity = false;
+		}
+	});
+
+	study.addEventListener('change', function(event) {
+		if(studieretning.includes(document.forms['Register'].studieretningInput.value)) { // Has to ignore case-sensitivty
+			study.setAttribute("style", "border: 1px solid #27ae60;");
+			isStudy = true;
+		}
+		else {
+			study.setAttribute("style", "border: 1px solid #e74c3c;");
+			isStudy = false;
+		}
+	});
+
+	degree.addEventListener('change', function(event) {
+		if(degree.selectedIndex > 0) {
+			degree.setAttribute("style", "border: 1px solid #27ae60;");
+			isDegree = true;
+		}
+		else {
+			degree.setAttribute("style", "border: 1px solid #e74c3c;");
+			isDegree = false;
+		}
+	});
+
+	name.addEventListener('change', function(event) {
+		if(name.value !== "") {
+			name.setAttribute("style", "border: 1px solid #27ae60;");
+			isName = true;
+		}
+		else {
+			name.setAttribute("style", "border: 1px solid #e74c3c;");
+			isName = false;
+		}
+	});
+
+	email.addEventListener('change', function(event) {
+		if(email.value !== ""  && validateEmail(email.value)) {
+			email.setAttribute("style", "border: 1px solid #27ae60;");
+			isEmail = true;
+		}
+		else {
+			email.setAttribute("style", "border: 1px solid #e74c3c;");
+			isEmail = false;
+		}
+	});
+
+	password.addEventListener('keydown', function(event) {
+		if(password.value !== "" && password.value.length > 6) {
+			password.setAttribute("style", "border: 1px solid #27ae60;");
+			isPassword = true;
+		}
+		else {
+			password.setAttribute("style", "border: 1px solid #e74c3c;");
+			isPassword = false;
+		}
+	});
+
+	button.addEventListener("click", function(event) {
+		if(!isUniversity && !isStudy && !isDegree && !isEmail && !isName && !isPassword) {
+			event.preventDefault();
+			errorLabel.setAttribute("style", "visibility: visible; position: relative;")
+			document.getElementById("error_message").innerHTML = "Vennligst fyll ut alle detaljene!";
+		}
+	}, false);
+</script>
+-->

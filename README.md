@@ -42,4 +42,3 @@ Thanks goes to these wonderful people:
 </table>
 
 Contributions of any kind are welcome!
-
