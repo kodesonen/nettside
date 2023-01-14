@@ -25,7 +25,7 @@ namespace WebApp
 		// This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContextPool<DataContext>(options => options.UseMySql("server=dev.kodesonen.no;port=3306;database=kodesonen;user=root;password=Kodesonen!0"));
+            services.AddDbContextPool<DataContext>(options => options.UseMySql(""));
 
 			/* Microsoft Identity */
             services.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<DataContext>();
