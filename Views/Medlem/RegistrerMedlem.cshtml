@@ -1,0 +1,72 @@
+﻿@{
+	ViewData["Title"] = "Registrer Medlem";
+}
+
+<div class="wrapper">
+	<div class="medlem-form">
+		<h1>Registrer deg som medlem</h1><hr />
+		<div class="wrapper">
+			
+		</div>
+
+		<form action='' method='POST'>
+			<label for="navn"><b>Fullt navn</b></label>
+			<input type="text" placeholder="Oppgi fullt navn" name="navn" required>
+
+			<label for="epost"><b>E-post</b></label>
+			<input type="text" placeholder="Oppgi e-post adresse" name="epost" required>
+
+			<label for="sted"><b>Utdanningssted</b></label>
+			<input type="text" value="Universitetet i Sørøst-Norge (campus Kongsberg)" class="disabled_input" name="sted" disabled>
+
+			<label for="retning"><b>Studieretning</b></label>
+			<div class="retning">
+				<select name="retning">
+					<option value="0" disabled selected>Velg din studieretning</option>
+					<option value="DATAING">Dataingeniør</option>
+					<option value="ELEKING">Elektroingeniør</option>
+					<option value="MASKING">Maskiningeniør</option>
+					<option value="LEKTOR">Lektor</option>
+					<option value="ANNET">Annet</option>
+				</select>
+			</div><br>
+
+			<label for="grad"><b>Studiegrad</b></label>
+			<div class="retning">
+				<select name="grad">
+					<option disabled selected>Velg din studiegrad</option>
+					<option value="BACH">Bachelor</option>
+					<option value="MAST">Master</option>
+					<option value="ANNET">Annet</option>
+				</select>
+			</div>
+
+			<hr /><p>Ved å opprette medlemskap godtår du våre <a asp-controller="vilkaar-og-personvern" asp-action="Index">vilkår og personvern</a>.</p>
+			<button type="submit" name="submit" class="medlem-button">Bli medlem</button>
+		</form>
+	</div>
+
+	<div class="member-sidebar-image">
+		<center>
+			<img id="banner-animation" src="/assets/img/member/banner.svg" />
+			<img id="person-animation" class="animated slideInRight" src="/assets/img/member/person.svg" />
+		</center>
+	</div>
+</div>
+</div>
+
+<script type="text/javascript" src="~/js/autofill.js"></script>
+<script>
+	// Hent jsonData (eller annen type data) fra ekstern kilde!
+	// Eksempelet nedenfor er bare midlertidig.
+
+	var jsonData = [{"Studieretningnavn" : "Informatikk", "Studieretningnavn" : "Dataingeniør"}];
+
+	var studieretning = [];
+
+	for(var i = 0; i < jsonData.length; i++) {
+		studieretning.push(jsonData[i].Studieretningnavn);
+	}
+
+	autocomplete(document.getElementById("studieretningInput"), studieretning);
+</script>

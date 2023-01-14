@@ -1,0 +1,36 @@
+﻿@model List<WebApp.DbHandler.Models.Challenge>
+
+@{ ViewData["Title"] = "Utfordringer"; }
+
+<div class="text-info">
+    <h1>Arrangementer</h1><br />
+    <p>Her finner du våre utfordringer og prosjekter i sammenheng med events, web challenges og meetups på campus.</p><br/>
+</div>
+
+@foreach (var Challenge in Model)
+{
+    <div class='challenge-box'>
+        <div class='challenge-image'>
+            <center><img id='image-ufordringer-id' alt='Dette er en tekst!' src='~/img/challenges/Wallpaper.png'></center>
+            <div class='utfordringer_image_overlay'><i class='fas fa-search-plus'></i></div>
+        </div>
+        
+        <div class='challenge-info'>
+            <div class='challenge-info-text'>
+                <h2>@Challenge.Title</h2><br />
+                <p>@Challenge.Description</p>
+            </div>
+
+            <div class='challenge-info-buttons'>
+                <br><p><a href="@Challenge.Pdf" target='_blank' class='button' id="kodesonen-button2"><i class='fas fa-file-pdf'></i> Last ned PDF</a></p>
+                <p style='margin-top: 10px'> <a href="@Challenge.Git" target='_blank' class='hyperlink'><i class='fab fa-github-square'></i> GitHub</a></p>
+            </div>
+        </div>
+    </div>
+
+    <div id='utfordringer-modal' class='image-utfordringer-modal'>
+        <span class='close'>&times;</span>
+        <img class='modal-content' id='utfordringer_image'>
+        <div id='caption'></div>
+    </div>
+}

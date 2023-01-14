@@ -1,0 +1,77 @@
+@model WebApp.DbHandler.Models.Module
+
+@{ ViewData["Title"] = "Endre modul"; }
+
+<script type="text/javascript" src="~/tinymce/js/tinymce/tinymce.min.js"></script>
+<link rel="stylesheet" href="~/css/EditModule.css" media="all" />
+
+<script>
+	tinymce.init({
+		selector: 'textarea',  // change this value according to your HTML
+		//toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | outdent indent'
+	});
+</script>
+
+<div class="breadcrumbs">
+	<div class="wrapper">
+		<ul class="breadcrumb-nav">
+			<li><a asp-controller="Admin" asp-action="Index">Kontrollpanel</a></li>
+			<li><a asp-controller="Admin" asp-action="ViewCourses">Kursbehandler</a></li>
+
+			@*
+				IKKE BRUK VIEWBAG
+				IKKE BRUK VIEWBAG
+				IKKE BRUK VIEWBAG
+			*@
+
+			@*<li>@ViewBag.CourseName</li>
+				<li>@ViewBag.ModuleName</li>*@
+		</ul>
+	</div>
+</div>
+
+@if (TempData["Message"] != null) 
+{
+	<div class="alert alert-primary" role="alert">
+		@TempData["Message"].ToString()
+	</div>
+}
+
+<div class="kurs_info">
+	@if (Model != null && !Model.update) 
+	{
+		<h1>Opprett ny modul for</h1>
+	} 
+	else 
+	{
+		<h1>Oppdater modul: @Model.ModuleName</h1>
+	}
+	<p>Denne siden er kun for Kodesonens administratorer.</p>
+</div>
+
+@using (Html.BeginForm("EditModule", "Admin", FormMethod.Post)) 
+{
+	<label>Modul navn</label>
+	@Html.EditorFor(m => m.ModuleName)
+	<label>Kapittel</label>
+	@Html.EditorFor(m => m.Chapter, new { type = "number" })
+	<label>Under kapittel</label>
+	@Html.EditorFor(m => m.SubChapter, new { type = "number" })
+	/*TinyMCE editor*/
+	@Html.TextAreaFor(m => m.Html, new { style = "width: 80vw" })
+	@Html.HiddenFor(m => m.Id)
+	@Html.HiddenFor(m => m.CourseId)
+	@Html.HiddenFor(m => m.update)
+	@if (String.IsNullOrWhiteSpace(Model.Author)) {
+		<label>Forfatter</label>
+		@Html.EditorFor(m => m.Author)
+		@Html.HiddenFor(m => m.LastUpdatedBy)
+	} else {
+		<label>Oppdatering forfatter</label>
+		@Html.EditorFor(m => m.LastUpdatedBy)
+		@Html.HiddenFor(m => m.Author)
+	}
+	<input type="submit" value="submit">
+}
+
+@*<script src="https://cdn.tiny.cloud/1/g1gw7zvtswm9hz7jz77xc8jwx3cev9os0ezm8j0nn99sf32v/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>*@

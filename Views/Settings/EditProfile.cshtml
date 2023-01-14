@@ -1,0 +1,25 @@
+@model WebApp.Models.Settings.EditProfileModel
+
+@{ ViewData["Title"] = "Endre profil"; }
+
+<div class="medlem-section wrapper">
+	<div class="medlem-form">
+		<h1>Endre profil</h1><hr />
+
+		<form asp-controller="Settings" asp-action="EditProfile" method="post">
+			<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+			@Html.Raw(TempData["StatusMessage"])
+
+            <label asp-for="Email"><strong>E-post adresse:</strong></label>
+            <input asp-for="Email" placeholder="Skriv inn din e-post adresse">
+            <span asp-validation-for="Email" class="text-danger"></span>
+
+            <label asp-for="FullName"><strong>Fullt navn:</strong></label>
+            <input asp-for="Email" placeholder="Skriv inn din e-post adresse">
+            <span asp-validation-for="Email" class="text-danger"></span>
+
+			<hr />
+            <input type="submit" class="medlem-button add_course_select" value="Oppdater profil">
+		</form>
+	</div>
+</div>

@@ -1,0 +1,143 @@
+@model WebApp.Models.User.ProfileModel;
+
+@{ ViewData["Title"] = @Model.Name; }
+
+<div class="profile-site-header">
+	<div class="wrapper">
+		<div class="profile-site-image">
+			<img src="~/img/team/sira.png">
+
+			<div class="profile-site-info-links">
+				<center>
+					@if (!string.IsNullOrEmpty(@Model.GitHub))
+					{
+						<a href="@Model.GitHub" target="_blank"><i class="fab fa-github-square"></i></a>
+					}
+
+					@if (!string.IsNullOrEmpty(@Model.LinkedIn))
+					{
+						<a href="@Model.LinkedIn" target="_blank"><i class="fab fa-linkedin"></i></a>
+					}
+				</center>
+			</div>
+		</div>
+
+		<div class="profile-site-desc">
+			<div class="wrapper">
+				<div class="profile-site-name">
+					<h1>@Model.Name</h1>
+
+					@if (!string.IsNullOrEmpty(@Model.Website))
+					{
+						<a href="@Model.Website" target="_blank">
+							<div id="kodesonen-button2" class="button profile-site-name-button">
+								Besøk nettside <i class="fas fa-external-link-alt"></i>
+							</div>
+						</a>
+					}
+				</div>
+
+				<div class="profile-site-info">
+					@if (!string.IsNullOrEmpty(@Model.Study))
+					{
+						<span><i class="fas fa-graduation-cap"></i> @Model.Study (@Model.University)</span>
+					}
+
+					@if (!string.IsNullOrEmpty(@Model.StaffPosition))
+					{
+						<span><i class="fas fa-briefcase"></i> @Model.StaffPosition</span>
+					}
+				</div>
+
+				<div class="profile-site-content"><br/>
+					@if (!string.IsNullOrEmpty(@Model.Description))
+					{
+						<p>@Model.Description</p>
+					}
+					else
+					{
+						<p>Velkommen til @Model.Name sin profil!</p>
+					}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="profile-site-archive">
+	<h2>Informasjon</h2>
+	<ul class="profile-archive">
+		@if (!string.IsNullOrEmpty(@Model.University))
+		{
+			<p><strong>Studiested:</strong></p>
+			<p>@Model.University</p> <br>
+		}
+
+		@if (!string.IsNullOrEmpty(@Model.Study))
+		{
+			<p><strong>Studieretning:</strong></p>
+			<p>@Model.Study</p> <br>
+		}
+
+		@if (!string.IsNullOrEmpty(@Model.Study))
+		{
+			<p><strong>Studiegrad:</strong></p>
+			<p>Bachelor</p> <br>
+		}
+
+		@if (!string.IsNullOrEmpty(@Model.Study))
+		{
+			<p><strong>Medlem siden:</strong></p>
+			<p>01. januar 2018</p> <br>
+		}
+	</ul>
+
+	<br><hr><br>
+
+	@if (Model.WrittenCourses.Any())
+	{
+		<h2>Publiserte kurs</h2>
+		<ul class="profile-archive">
+			@foreach (var course in Model.WrittenCourses)
+			{
+				<li><a asp-controller="Course" asp-action="KursSide" asp-route-id="@course.Id">@course.Name</a> <span>(99)</span></li>
+			}
+		</ul>
+
+		<br><hr><br>
+	}
+
+	<h2>Arrangementer</h2>
+	<ul class="profile-archive">
+		<p>@WebApp.Helpers.SplitFullName.PrintFirstName(Model.Name) har ikke deltatt på noen arrangementer enda.</p>
+	</ul>
+</div>
+
+<div class="profile-site-feed">
+	@if (Model.WrittenModules.Any())
+	{
+		/* Order by published date */
+		Model.WrittenModules = Model.WrittenModules.OrderByDescending(x => x.Published).ToList();
+
+		@foreach (var module in Model.WrittenModules)
+		{
+			<div class="authorPost-section">
+				<h1>@module.ModuleName</h1>
+				<h4>- @module.Published.ToString("dd MMMM, yyyy", new System.Globalization.CultureInfo("nb-NO"))</h4><br>
+				<p>@Html.Raw(module.Html)</p>
+
+				<a asp-controller="Course" asp-action="ModulSide" asp-route-id="@module.Id">
+					<div id="kodesonen-button2" class="button authorPost-button">Les innlegg <i class="fas fa-long-arrow-alt-right"></i>
+					</div>
+				</a>
+			</div>
+		}
+	}
+	else
+	{
+		<div class="authorPost-section">
+			<h1>Merker</h1>
+			<p>@WebApp.Helpers.SplitFullName.PrintFirstName(Model.Name) har ikke opptjent noen merker enda.</p>
+		</div>
+	}
+</div>

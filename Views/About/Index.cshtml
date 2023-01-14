@@ -1,0 +1,231 @@
+@{ ViewData["Title"] = "Om oss"; }
+
+<div class="text-info">
+	<h1>Om Kodesonen</h1><br />
+</div>
+
+<div class="kodesonen-story">
+	<p>Kodesonen er en frivillig studentorganisasjon ved Universitet i Sørøst-Norge (campus Kongsberg), og ble stiftet av tre ingeniørstudenter i 2018. Målet vårt er å skape et trivelig, teknologisk og utfordrende miljø for alle som er interessert i teknologi og programmering, ved å blant annet arrangere kodekvelder, hackathons og sosiale arrangementer for alle som er interesserte.</p><br>
+
+	<p>Vi jobber kontinuerlig med å oppdatere vår kurskatalog med ulike kurs innen programmering og teknologi. Vi har både styremedlemmer og mentorer som bistår med å skrive kursinnhold, og vårt mål er å tilby komplette kurs innen ulike emner som er relevante for teknologi- og ingeniørstudenter.</p><br>
+
+	<p>Vi har et aktivt nettverk på Discord med ulike kommunikasjonskanaler for våre medlemmer, hvor vi tilbyr kodehjelp, svarer på spørsmål, og tilbyr ulike sosiale chatterom for diskusjoner, spill og diverse. Vårt samfunn på Discord består av både studenter og lærere ved universitetet, og er åpen for alle.</p><br>
+
+	<p>Følg oss gjerne på sosiale medier dersom du ønsker å holde deg oppdatert med informasjon relatert til Kodesonen, vi er tilgjengelige på de fleste sosiale plattformer. Ta kontakt på Facebook, Discord eller Instagram, eller send oss en e-post dersom du lurer på noe. Vi er åpen for en prat, spørsmål og tilbakemeldinger.</p>
+</div>
+
+<div class="kodesonen-story-side">
+	<center>
+		<img src="~/img/about/stickers.png" />
+	</center>
+</div>
+
+<!--
+<div class="kodesonen-story-side">
+	<div class="story-box-wrapper">
+		<div class="wrapper">
+			<div class="grid-6">
+				<div class="story-box wrapper">
+					<div class="story-box-symbol grid-4">
+						<h1><i class="fas fa-users"></i></h1>
+					</div>
+
+					<div class="story-box-info grid-8">
+						<h2>100+</h2>
+						<h4>Medlemmer</h4>
+					</div>
+				</div>
+			</div>
+			<div class="grid-6">
+				<div class="story-box wrapper">
+					<div class="story-box-symbol grid-4">
+						<h1><i class="fas fa-briefcase"></i></h1>
+					</div>
+
+					<div class="story-box-info grid-8">
+						<h2>8</h2>
+						<h4>Jobber med Kodesonen</h4>
+					</div>
+				</div>
+			</div>
+			<div class="grid-6">
+				<div class="story-box wrapper">
+					<div class="story-box-symbol grid-4">
+						<h1><i class="fab fa-github-square"></i></h1>
+					</div>
+
+					<div class="story-box-info grid-8">
+						<h2>6</h2>
+						<h4>Github repositories</h4>
+					</div>
+				</div>
+			</div>
+			<div class="grid-6">
+				<div class="story-box wrapper">
+					<div class="story-box-symbol grid-4">
+						<h1><i class="fas fa-file-code"></i></h1>
+					</div>
+
+					<div class="story-box-info grid-8">
+						<h2>10k+</h2>
+						<h4>Linjer med kode</h4>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+--> 
+
+<div class="text-info">
+	<h1>Ledergruppen</h1><br><br><hr><br>
+</div>
+
+<div class="box-wrapper">
+	<div class="profile-box">
+		<center>
+			<a asp-controller="Profile" asp-action="Index" asp-route-id="sirasjad">
+				<img src="~/img/team/sira.png">
+			</a>
+
+			<h3><a asp-controller="Profile" asp-action="Index" asp-route-id="sirasjad" style="text-decoration:none; color: black;">
+				<strong>Sirajuddin Asjad</strong><br>
+				Masterstudent (USN)<br>
+				<span>Grunnlegger / Leder</span>
+			</a></h3>
+
+			<div class="profile-social-links">
+				<a href="https://www.linkedin.com/in/sirajuddin97/" target="_blank"><i class="fab fa-linkedin"></i></a>
+				<a href="https://github.com/sirasjad" target="_blank"><i class="fab fa-github-square"></i></a>
+			</div>
+		</center>
+	</div>
+
+	<div class="profile-box">
+		<center>
+			<a asp-controller="Profile" asp-action="Index" asp-route-id="sirasjad">
+				<img src="~/img/team/daniel.png">
+			</a>
+
+			<h3><a asp-controller="Profile" asp-action="Index" asp-route-id="#" style="text-decoration:none; color: black;">
+				<strong>Daniel Skryseth</strong><br>
+				Masterstudent (UiO)<br>
+				<span>Grunnlegger / Leder</span>
+			</a></h3>
+
+			<div class="profile-social-links">
+				<a href="https://www.linkedin.com/in/daniel-skryseth-74471614a/" target="_blank"><i class="fab fa-linkedin"></i></a>
+				<a href="https://github.com/Danielskry" target="_blank"><i class="fab fa-github-square"></i></a>
+			</div>
+		</center>
+	</div>
+
+	<div class="profile-box">
+		<center>
+			<a asp-controller="Profile" asp-action="Index" asp-route-id="stianh">
+				<img src="~/img/team/stian.png">
+			</a>
+
+			<h3><a asp-controller="Profile" asp-action="Index" asp-route-id="stianh" style="text-decoration:none; color: black;">
+				<strong>Stian Håve</strong><br>
+				Dataingeniør<br>
+				<span>Nestleder</span>
+			</a></h3>
+
+			<div class="profile-social-links">
+				<a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+				<a href="#" target="_blank"><i class="fab fa-github-square"></i></a>
+			</div>
+		</center>
+	</div>
+</div>
+
+<div class="text-info">
+	<br>
+	<h1>Styremedlemmer</h1><br><br><hr><br>
+</div>
+
+<div class="box-wrapper">
+	<div class="profile-box">
+			<center>
+				<a href="#">
+					<img src="~/img/team/borgny.png">
+				</a>
+
+			<h3><a href="#" style="text-decoration:none; color: black;">
+				<strong>Borgny Louise Gløersen</strong><br>
+				Masterstudent (USN)<br>
+				<span>SoMe-ansvarlig</span>
+			</a></h3>
+
+			<div class="profile-social-links">
+				<a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+				<a href="#" target="_blank"><i class="fab fa-github-square"></i></a>
+			</div>
+		</center>
+	</div>
+
+	<div class="profile-box">
+		<center>
+			<a href="#">
+				<img src="~/img/team/oystein.png">
+			</a>
+
+			<h3><a href="#" style="text-decoration:none; color: black;">
+				<strong>Øystein Løndal Nilsen</strong><br>
+				Masterstudent (NTNU)<br>
+				<span>Arrangementsansvarlig</span>
+			</a></h3>
+
+			<div class="profile-social-links">
+				<a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+				<a href="#" target="_blank"><i class="fab fa-github-square"></i></a>
+			</div>
+		</center>
+	</div>
+</div>
+
+<div class="text-info">
+	<br>
+	<h1>Mentorer</h1><br><br><hr><br>
+</div>
+
+<div class="box-wrapper">
+	<div class="profile-box">
+		<center>
+			<a href="#">
+				<img src="~/img/team/gregg.png">
+			</a>
+
+			<h3><a href="#" style="text-decoration:none; color: black;">
+				<strong>Gregg Roland Schneider</strong><br>
+				Dataingeniør
+			</a></h3>
+
+			<div class="profile-social-links">
+				<a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+				<a href="#" target="_blank"><i class="fab fa-github-square"></i></a>
+			</div>
+		</center>
+	</div>
+
+	<div class="profile-box">
+		<center>
+			<a href="#">
+				<img src="~/img/team/shakil.png">
+			</a>
+
+			<h3><a href="#" style="text-decoration:none; color: black;">
+				<strong>Shakil Masood</strong>
+				<br>Elektroingeniør<br>
+			</a></h3>
+
+			<div class="profile-social-links">
+				<a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+				<a href="#" target="_blank"><i class="fab fa-github-square"></i></a>
+			</div>
+		</center>
+	</div>
+</div>
+
+<br>
